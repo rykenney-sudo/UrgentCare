@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Norwood Urgent Care</title>
+<link rel="stylesheet" href="site.css">
+<style>
+  /* page-specific styles — shared system lives in site.css */
+  /* page-specific styles — shared system lives in site.css */
+  12..96,500;
+  12..96,600;
+  12..96,700;
+  12..96,800&family=IBM+Plex+Sans:wght@400;
+  500;
+  600;
+  700&display=swap');
+  .crumb{padding:20px 0 0;font-size:13px;color:var(--ink-faint);display:flex;align-items:center;gap:8px;}
+  .crumb a:hover{color:var(--brand-deep);}
+  .crumb .sep{opacity:.6;}
+  .crumb .cur{color:var(--ink-soft);font-weight:600;}
+  .phead{padding:45px 0 60px;}
+  .phead h1{font-family:var(--head);font-weight:700;font-size:clamp(38px,4.4vw,46px);line-height:1.05;letter-spacing:-.02em;margin:0 0 14px;}
+  .phead p.sub{font-size:17px;color:var(--ink-soft);margin:0 0 20px;max-width:54ch;}
+  .factchips{display:flex;flex-wrap:wrap;gap:10px;}
+  .factchips span{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:500;color:var(--ink-soft);background:rgba(16,42,61,.045);border:0;border-radius:6px;padding:7px 12px;box-shadow:none;}
+  .factchips span .d{width:7px;height:7px;border-radius:50%;background:var(--cta);}
+  .factchips span svg.ci{width:15px;height:15px;stroke:var(--cta);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;}
+  .phead-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:38px;align-items:center;}
+  @media (max-width:880px){.phead-grid{grid-template-columns:1fr;gap:26px;}}
+  .ervcard{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-hi);padding:22px 24px;}
+  .ervtitle{font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin:0 0 18px;letter-spacing:-.01em;}
+  .ervmetric{margin-bottom:20px;}
+  .ervmetric:last-of-type{margin-bottom:0;}
+  .ervmlabel{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:11px;}
+  .ervbar{display:flex;align-items:center;gap:11px;margin-bottom:10px;}
+  .ervbar:last-child{margin-bottom:0;}
+  .ervbar .bl{flex:0 0 82px;font-size:11px;font-weight:600;color:var(--ink-soft);line-height:1.2;}
+  .ervbar.er .bl{color:var(--er);}
+  .ervbar .bt{flex:1;display:block;height:20px;background:var(--surface-tint);border-radius:11px;overflow:hidden;}
+  .ervbar .bf{display:block;height:100%;border-radius:11px;}
+  .ervbar.us .bf{width:18%;background:linear-gradient(90deg,var(--brand),var(--brand-deep));}
+  .ervbar.er .bf{width:100%;background:linear-gradient(90deg,#e1565b,var(--er));}
+  .ervbar .bv{flex:0 0 auto;font-family:var(--display);font-weight:700;font-size:12.5px;width:92px;text-align:right;}
+  .ervbar.er .bv{color:var(--er);}
+  .ervfoot{font-size:11px;color:var(--ink-faint);margin:16px 0 0;line-height:1.45;}
+  .whyxray{background:var(--band-grad);margin-top:30px;}
+  .whyxray .inner{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;padding:54px 0;}
+  @media (max-width:820px){.whyxray .inner{grid-template-columns:1fr;gap:22px;}}
+  .whyxray h2{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;margin:0 0 14px;color:#fff;}
+  .whyxray .whycopy p{font-size:15.5px;color:#f4f9fd;line-height:1.6;margin:0 0 16px;max-width:48ch;}
+  @media (max-width:1020px){.whyxray .whycopy p{max-width:100%;}}
+  .whyxray .seeprices a{font-size:14px;font-weight:600;color:#9cc0db;}
+  .whencard{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow);}
+  .whencard h3{font-family:var(--display);font-weight:600;font-size:17px;margin:0 0 16px;letter-spacing:-.01em;}
+  .whenlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .whenlist li{display:flex;align-items:flex-start;gap:11px;font-size:14px;color:var(--ink);line-height:1.45;}
+  .whenlist li svg{width:18px;height:18px;stroke:var(--brand-deep);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;margin-top:1px;}
+  .whencard .emnote{font-size:12.5px;color:var(--er);background:#fdecee;border:1px solid #f3cdd0;border-radius:10px;padding:11px 13px;margin:18px 0 0;line-height:1.45;}
+  .priceh{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;color:var(--ink);margin:0 0 14px;}
+  .explain{background:linear-gradient(180deg,#fff,var(--surface-tint));border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .explain .inner{padding:34px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media (max-width:820px){.explain .inner{grid-template-columns:1fr;}}
+  .ecard{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--shadow);}
+  .ecard .ic{width:42px;height:42px;border-radius:12px;background:var(--brand-tint);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .ecard .ic svg{width:21px;height:21px;stroke:var(--brand-deep);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .ecard h4{font-family:var(--display);font-weight:600;font-size:16px;margin:0 0 7px;letter-spacing:-.01em;}
+  .ecard p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+  .finder{padding:46px 0 12px;}
+  .finder h2{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;margin:0 0 6px;}
+  .finder p.s{font-size:15px;color:var(--ink-soft);margin:0 0 22px;}
+  .search{display:flex;align-items:center;gap:11px;background:#fff;border:1.5px solid var(--border);border-radius:13px;padding:14px 16px;box-shadow:var(--shadow);max-width:560px;}
+  .search svg{width:18px;height:18px;stroke:var(--ink-faint);fill:none;stroke-width:2;flex:0 0 auto;}
+  .search input{border:none;outline:none;font-family:var(--body);font-size:15px;color:var(--ink);width:100%;background:transparent;}
+  .search input::placeholder{color:var(--ink-faint);}
+  .xclear{flex:0 0 auto;width:24px;height:24px;border-radius:50%;border:none;background:var(--surface-tint);
+    cursor:pointer;display:none;align-items:center;justify-content:center;padding:0;transition:background .15s;}
+  .xclear svg{width:13px;height:13px;stroke:var(--ink-soft);fill:none;stroke-width:2.4;stroke-linecap:round;}
+  .xclear:hover{background:var(--border);}
+  .xclear:hover svg{stroke:var(--ink);}
+  .xclear.show{display:flex;}
+  .common{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:16px;}
+  .common .lbl{font-size:12.5px;font-weight:600;color:var(--ink-faint);margin-right:2px;}
+  .qpill{font-size:13px;font-weight:600;color:var(--ink-soft);background:#fff;border:1px solid var(--border);border-radius:24px;padding:8px 14px;cursor:pointer;transition:.15s;display:inline-flex;gap:8px;align-items:center;}
+  .qpill:hover{border-color:var(--brand);color:var(--brand-deep);}
+  .qpill b{font-family:var(--display);color:var(--ink);}
+  .xgrid{padding:24px 0 10px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:stretch;}
+  @media (max-width:760px){.xgrid{grid-template-columns:1fr;}}
+  .xcard{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:20px 22px;}
+  .xcard .xh{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+  .xcard .xh .ic{width:40px;height:40px;border-radius:11px;background:var(--brand-tint);display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .xcard .xh .ic svg{width:21px;height:21px;stroke:var(--brand-deep);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .xcard .xh h3{font-family:var(--display);font-weight:600;font-size:17px;margin:0;letter-spacing:-.01em;}
+  .xcard .xh .ct{margin-left:auto;font-size:12px;color:var(--ink-faint);font-weight:600;}
+  .rt .r{display:flex;justify-content:space-between;gap:14px;font-size:14px;color:var(--ink-soft);padding:11px 0;border-bottom:1px dashed var(--border);}
+  .rt .r:last-child{border-bottom:0;}
+  .rt .r b{font-family:var(--display);font-weight:700;color:var(--ink);}
+  .rt .r mark{background:#fff3c4;color:inherit;padding:0 1px;border-radius:2px;}
+  .xcard.hide{display:none;}
+  .rt .r.hide{display:none;}
+  .noresults{display:none;text-align:center;color:var(--ink-faint);font-size:15px;padding:40px 0;}
+  .noresults.show{display:block;}
+  .disc{font-size:12px;color:var(--ink-faint);line-height:1.55;margin:18px 0 0;max-width:92ch;}
+  .disc b{color:var(--ink-soft);font-weight:600;}
+  .ctaband{background:var(--band-grad);color:#fff;margin-top:46px;}
+  .ctaband .inner{padding:50px 0;}
+  .ctaband h2{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;margin:0 0 10px;}
+  .ctaband p{font-size:16px;color:#bcd4e6;margin:0 0 24px;max-width:58ch;}
+  .ctaband .ctas{display:flex;gap:13px;flex-wrap:wrap;}
+  .ctaband .primary{background:#fff;color:var(--ink);}
+  .ctaband .primary:hover{background:#e9f3fa;}
+  .ctaband .ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4);}
+  .ctaband .ghost:hover{border-color:#fff;}
+  .ordered{margin-top:22px;font-size:13.5px;color:#bcd4e6;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px 16px;}
+  .ordered b{color:#fff;}
+  footer.site a{color:#bcd4e6;}
+  footer.site .fl{display:flex;gap:18px;flex-wrap:wrap;}
+  .nohelp{display:flex;align-items:center;justify-content:space-between;gap:16px;border:1.5px dashed #c4d3df;border-radius:14px;padding:20px 24px;margin-top:30px;flex-wrap:wrap;background:#fff;}
+  .nohelp b{font-family:var(--display);font-weight:700;font-size:16px;display:block;margin-bottom:3px;color:var(--ink);}
+  .nohelp .t{font-size:13.5px;color:var(--ink-soft);}
+  .rt .r .sub2{display:block;font-size:12.5px;color:var(--ink-faint);font-weight:400;margin-top:2px;}
+  .rt.note ul.ck{list-style:none;margin:6px 0 0;padding:0;}
+  .rt.note ul.ck li{position:relative;padding:5px 0 5px 24px;font-size:13.5px;color:var(--ink-soft);line-height:1.45;}
+  .rt.note ul.ck li:before{content:"";position:absolute;left:2px;top:9px;width:11px;height:6px;border-left:2px solid var(--brand);border-bottom:2px solid var(--brand);transform:rotate(-45deg);}
+  .legalwrap{max-width:820px;}
+  .legalmeta{font-size:13px;color:var(--ink-faint);margin-top:6px;}
+  .wfnote{background:#fff7e6;border:1px solid #f2d999;color:#8a6d1f;border-radius:12px;padding:12px 16px;font-size:13px;margin:18px 0 32px;}
+  .legalsec{margin-bottom:30px;}
+  .legalsec h2{font-family:var(--head);font-weight:700;font-size:19px;color:var(--ink);margin:0 0 13px;}
+  .wf-line{height:11px;border-radius:6px;background:var(--border);margin:9px 0;}
+  .wf-line.w95{width:95%}
+  .wf-line.w88{width:88%}
+  .wf-line.w78{width:78%}
+  .wf-line.w62{width:62%}
+  .wf-line.w45{width:45%}
+  .legalend{border-top:1px solid var(--border-soft);padding-top:22px;margin-top:8px;font-size:14.5px;color:var(--ink-soft);}
+  .whyxray .inner,.explain .inner,.ctaband .inner,.band .inner,.site .inner{padding-left:26px;padding-right:26px;}
+  .tquote{background:var(--band-grad);color:#fff;text-align:center;padding:62px 0;}
+  .tquote .tqwrap{max-width:860px;}
+  .tquote .qmark{font-family:var(--serif);font-style:italic;font-weight:700;font-size:58px;line-height:.5;margin-bottom:22px;color:var(--er);}
+  .tquote .tqitem{display:none;margin:0;}
+  .tquote .tqitem.on{display:block;}
+  .tquote .tqitem .tq{font-family:var(--display);font-weight:700;font-size:clamp(16px,2.1vw,23px);line-height:1.32;letter-spacing:-.01em;margin:0 auto;max-width:44ch;display:block;}
+  .tquote .tqby{display:block;margin-top:22px;font-size:14px;font-weight:700;}
+  .tquote .tqby i{display:block;font-style:normal;font-weight:500;font-size:12.5px;color:rgba(255,255,255,.68);margin-top:3px;}
+  .tquote .tqdots{display:flex;gap:10px;justify-content:center;margin-top:30px;}
+  .tquote .tqdots button{width:11px;height:11px;border-radius:50%;border:none;background:rgba(255,255,255,.32);cursor:pointer;padding:0;transition:background .2s;}
+  .tquote .tqdots button.on{background:#fff;}
+  @media (max-width:640px){
+  .ctaband .ctas{margin-left:auto;margin-right:auto;}
+}
+  .mob-br{display:none;}
+  @media (max-width:640px){
+    .mob-br{display:none;}
+    .util{font-size:13px;}
+    .util .inner{align-items:center;gap:10px;padding-left:16px;padding-right:16px;}
+    .status{align-items:center;line-height:1.3;gap:8px;white-space:nowrap;min-width:0;}
+    .status .open,.status .wait{white-space:nowrap;}
+    .status .sep{display:inline-block;align-self:center;height:1.15em;width:1px;padding:0;overflow:hidden;color:transparent;background:rgba(255,255,255,.28);}
+    .hdr-call{display:none !important;}
+    .hamburger{margin-left:auto;}
+  }
+  @media (max-width:359px){
+    .mob-br{display:inline;}
+    .util .inner{align-items:flex-start;}
+    .status{align-items:flex-start;white-space:normal;}
+    .status .sep{align-self:stretch;height:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="util">
+    <div class="inner">
+      <div class="status">
+        <span class="dot"></span><span class="open">Open today<br class="mob-br"> 8AM – 7PM</span>
+        <span class="sep">|</span><span class="wait">Current wait:<br class="mob-br"> 5-20 min</span>
+      </div>
+      <nav class="util-links">
+        <a href="https://apr-sb4.servicebus.windows.net/ACE6233C-9DF4-45BB-9051-1B8AF3500FF3/portal/12229/index.html#/login" target="_blank" rel="noopener">Patient Portal</a><a href="insurance.html">Insurance</a><a href="careers.html">Careers</a><a href="about-us.html">About</a>
+      </nav>
+    </div>
+  </div>
+  <div class="mainbar">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <img class="logo-img" src="assets/logo-mark.png" alt="Norwood Urgent Care">
+      </a>
+      <nav class="mainnav">
+        <div class="navgroup">
+          <button class="navbtn" aria-haspopup="true">Patients <span class="car"></span></button>
+          <div class="dropdown">
+            <a href="urgent-care.html">Urgent Care</a>
+            <a href="pricing-xrays.html">X-Rays</a>
+            <a href="vaccinations.html">Vaccinations</a>
+            <a href="onsite-labs.html">On-Site Labs</a>
+            <a href="physicals.html">Physicals</a>
+          </div>
+        </div>
+        <div class="navgroup">
+          <button class="navbtn" aria-haspopup="true">Employers <span class="car"></span></button>
+          <div class="dropdown">
+            <a href="dot-physicals.html">DOT Physicals</a>
+            <a href="workplace-injuries.html">Workplace Injuries</a>
+            <a href="work-physicals.html">Work Physicals</a>
+            <a href="drug-testing.html">Drug Testing</a>
+            <a href="return-to-work.html">Return to Work Evaluations</a>
+            <a href="urine-toxicology.html">Urine Toxicology</a><a href="motor-vehicle-accidents.html">Motor Vehicle Accident Claims</a>
+          </div>
+        </div>
+        <a class="navlink" href="pricing-page-full.html">Know Your Cost</a>
+        <a class="navlink" href="contact-us.html">Contact Us</a>
+        <a class="navlink" href="https://checkout.square.site/merchant/MLX7WFBQASHPV/checkout/BD2WBFA3EFNBL3XI3W6DYOFJ" target="_blank" rel="noopener">Pay My Bill</a>
+      </nav>
+      <a class="navcall" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>781-255-0500</a>
+      <a class="hdr-call" href="tel:7812550500" aria-label="Call 781-255-0500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mp-overlay" id="mpOverlay"></div>
+<aside class="mobile-panel" id="mobilePanel">
+  <div class="mp-head"><button class="mp-close" id="mpClose" aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="mp-sec">Patients</div>
+  <div class="sub"><a href="urgent-care.html">Urgent Care</a><a href="pricing-xrays.html">X-Rays</a><a href="vaccinations.html">Vaccinations</a><a href="onsite-labs.html">On-Site Labs</a><a href="physicals.html">Physicals</a></div>
+  <div class="mp-sec">Employers</div>
+  <div class="sub"><a href="dot-physicals.html">DOT Physicals</a><a href="workplace-injuries.html">Workplace Injuries</a><a href="work-physicals.html">Work Physicals</a><a href="drug-testing.html">Drug Testing</a><a href="return-to-work.html">Return to Work Evaluations</a><a href="urine-toxicology.html">Urine Toxicology</a><a href="motor-vehicle-accidents.html">Motor Vehicle Accident Claims</a></div>
+  <div class="mp-sec">More</div>
+  <a href="pricing-page-full.html">Know Your Cost</a>
+  <a href="contact-us.html">Contact Us</a>
+  <a href="https://checkout.square.site/merchant/MLX7WFBQASHPV/checkout/BD2WBFA3EFNBL3XI3W6DYOFJ" target="_blank" rel="noopener">Pay My Bill</a>
+  <a href="https://apr-sb4.servicebus.windows.net/ACE6233C-9DF4-45BB-9051-1B8AF3500FF3/portal/12229/index.html#/login" target="_blank" rel="noopener">Patient Portal</a>
+  <a href="insurance.html">Insurance</a>
+  <a href="careers.html">Careers</a>
+  <a href="about-us.html">About</a>
+  <div class="mp-call"><a class="btn primary" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a><a class="btn mp-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Get Directions</a></div>
+</aside>
+
+
+<section class="sec">
+  <div class="wrap legalwrap">
+    <p class="eyebrow">Legal</p>
+    <h1 class="sectitle" style="font-size:clamp(28px,4vw,40px);margin-bottom:6px;">Privacy Policy</h1>
+    <p class="legalmeta">Last updated: [Month, Year] · Placeholder</p>
+    <div class="wfnote"><b>Wireframe placeholder.</b> Final legal copy to be provided and reviewed by counsel before launch.</div>
+    <div class="legalsec">
+      <h2>Information We Collect</h2>
+      <div class="wf-line w95"></div><div class="wf-line w88"></div><div class="wf-line w78"></div><div class="wf-line w45"></div>
+    </div>
+    <div class="legalsec">
+      <h2>How We Use Your Information</h2>
+      <div class="wf-line w95"></div><div class="wf-line w88"></div><div class="wf-line w78"></div><div class="wf-line w45"></div>
+    </div>
+    <div class="legalsec">
+      <h2>Sharing and Disclosure</h2>
+      <div class="wf-line w95"></div><div class="wf-line w88"></div><div class="wf-line w78"></div><div class="wf-line w45"></div>
+    </div>
+    <div class="legalsec">
+      <h2>Cookies and Tracking Technologies</h2>
+      <div class="wf-line w95"></div><div class="wf-line w88"></div><div class="wf-line w78"></div><div class="wf-line w45"></div>
+    </div>
+    <div class="legalsec">
+      <h2>Your Choices and Rights</h2>
+      <div class="wf-line w95"></div><div class="wf-line w88"></div><div class="wf-line w78"></div><div class="wf-line w45"></div>
+    </div>
+    <div class="legalsec">
+      <h2>Data Security</h2>
+      <div class="wf-line w95"></div><div class="wf-line w88"></div><div class="wf-line w78"></div><div class="wf-line w45"></div>
+    </div>
+    <div class="legalsec">
+      <h2>Children's Privacy</h2>
+      <div class="wf-line w95"></div><div class="wf-line w88"></div><div class="wf-line w78"></div><div class="wf-line w45"></div>
+    </div>
+    <div class="legalsec">
+      <h2>Changes to This Policy</h2>
+      <div class="wf-line w95"></div><div class="wf-line w88"></div><div class="wf-line w78"></div><div class="wf-line w45"></div>
+    </div>
+    <div class="legalsec">
+      <h2>Contact Us</h2>
+      <div class="wf-line w95"></div><div class="wf-line w88"></div><div class="wf-line w78"></div><div class="wf-line w45"></div>
+    </div>
+    <p class="legalend">Questions about this document? <a href="contact-us.html">Contact us</a> or call 781-255-0500.</p>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="top">
+      <div class="col"><h5>Get Care</h5>
+        <a href="urgent-care.html">Urgent Care</a>
+        <a href="pricing-xrays.html">X-Rays</a>
+        <a href="vaccinations.html">Vaccinations</a>
+        <a href="onsite-labs.html">On-Site Labs</a>
+        <a href="physicals.html">Physicals</a>
+      </div>
+      <div class="col"><h5>Employers</h5>
+        <a href="dot-physicals.html">DOT Physicals</a>
+        <a href="workplace-injuries.html">Workplace Injuries</a>
+        <a href="work-physicals.html">Work Physicals</a>
+        <a href="drug-testing.html">Drug Testing</a>
+        <a href="return-to-work.html">Return to Work Evaluations</a>
+        <a href="urine-toxicology.html">Urine Toxicology</a><a href="motor-vehicle-accidents.html">Motor Vehicle Accident Claims</a>
+      </div>
+      <div class="col"><h5>Learn More</h5>
+        <a href="pricing-page-full.html">Know Your Cost</a>
+        <a href="insurance.html">Insurance</a>
+        <a href="about-us.html">About Us</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact-us.html">Contact Us</a>
+      </div>
+      <div class="col"><h5>Existing Patients</h5>
+        <a href="https://apr-sb4.servicebus.windows.net/ACE6233C-9DF4-45BB-9051-1B8AF3500FF3/portal/12229/index.html#/login" target="_blank" rel="noopener">Patient Portal</a>
+        <a href="https://checkout.square.site/merchant/MLX7WFBQASHPV/checkout/BD2WBFA3EFNBL3XI3W6DYOFJ" target="_blank" rel="noopener">Pay My Bill</a>
+      </div>
+    </div>
+      <div class="fbrand">
+      <div class="wm"><img class="flogo" src="assets/logo-footer.svg" alt="Norwood Urgent Care" width="66" height="51"></div>
+      <p>Clinician-owned urgent care serving Norwood, Natick &amp; Bellingham since 2005.</p>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 Norwood Urgent Care</span>
+      <div class="lk"><a href="privacy.html">Privacy</a><a href="hipaa.html">HIPAA Notice</a><a href="accessibility.html">Accessibility</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var search = document.getElementById('xsearch');
+  if(!search) return;
+  var clearBtn = document.getElementById('xclear');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#xgrid .xcard'));
+  var noresults = document.getElementById('noresults');
+
+  function applyFilter(q){
+    q = q.trim().toLowerCase();
+    clearBtn.classList.toggle('show', q !== '');
+    var anyVisible = false;
+    cards.forEach(function(card){
+      // the "Good to know" card has no priced rows — hide it during an active search
+      var priced = card.querySelectorAll('.rt .r b').length > 0;
+      var rows = Array.prototype.slice.call(card.querySelectorAll('.rt .r'));
+      var cardHasMatch = false;
+      rows.forEach(function(r){
+        var txt = r.textContent.toLowerCase();
+        var match = q === '' || txt.indexOf(q) > -1;
+        r.classList.toggle('hide', !(match));
+        if(match) cardHasMatch = true;
+      });
+      var show = q === '' ? true : (priced && cardHasMatch);
+      card.classList.toggle('hide', !show);
+      if(show && (q === '' || cardHasMatch)) anyVisible = true;
+    });
+    noresults.classList.toggle('show', q !== '' && !anyVisible);
+  }
+
+  function clearSearch(){ search.value = ''; applyFilter(''); search.focus(); }
+
+  search.addEventListener('input', function(){ applyFilter(search.value); });
+  clearBtn.addEventListener('click', clearSearch);
+  document.querySelectorAll('.qpill').forEach(function(p){
+    p.addEventListener('click', function(){
+      search.value = p.dataset.q;
+      applyFilter(p.dataset.q);
+      search.focus();
+    });
+  });
+  var cs = document.getElementById('clearsearch');
+  if(cs){ cs.addEventListener('click', function(e){ e.preventDefault(); clearSearch(); }); }
+})();
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('.navgroup .navbtn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var g = btn.parentElement, was = g.classList.contains('open');
+      document.querySelectorAll('.navgroup').forEach(function(x){ x.classList.remove('open'); });
+      if(!was) g.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(){ document.querySelectorAll('.navgroup').forEach(function(x){ x.classList.remove('open'); }); });
+  var panel=document.getElementById('mobilePanel'), overlay=document.getElementById('mpOverlay');
+  function oM(){panel.classList.add('show');overlay.classList.add('show');}
+  function cM(){panel.classList.remove('show');overlay.classList.remove('show');}
+  var hb=document.getElementById('hamburger'); if(hb) hb.addEventListener('click',oM);
+  var mc=document.getElementById('mpClose'); if(mc) mc.addEventListener('click',cM);
+  if(overlay) overlay.addEventListener('click',cM);
+})();
+</script>
+<script>
+(function(){
+  var box=document.querySelector('.tquote'); if(!box) return;
+  var items=box.querySelectorAll('.tqitem'), dots=box.querySelectorAll('.tqdots button'), i=0, t;
+  function go(n){ items[i].classList.remove('on'); dots[i].classList.remove('on'); i=n; items[i].classList.add('on'); dots[i].classList.add('on'); }
+  dots.forEach(function(d,n){ d.addEventListener('click',function(){ go(n); reset(); }); });
+  function reset(){ clearInterval(t); t=setInterval(function(){ go((i+1)%items.length); },6000); }
+  reset();
+})();
+</script>
+<nav class="mobilebar" aria-label="Quick actions">
+  <a class="mb-item" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call</a>
+  <a class="mb-item" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Directions</a>
+  <div class="mb-item mb-wait"><span class="mb-wtnum"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>~4 min</span><span class="mb-wtlbl">Wait time</span></div>
+</nav>
+</body>
+</html>

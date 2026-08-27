@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motor Vehicle Accident Claims — Norwood Urgent Care</title>
+<link rel="stylesheet" href="site.css">
+<style>
+  /* page-specific styles — shared system lives in site.css */
+  /* page-specific styles — shared system lives in site.css */
+  12..96,500;
+  12..96,600;
+  12..96,700;
+  12..96,800&family=IBM+Plex+Sans:wght@400;
+  500;
+  600;
+  700&display=swap');
+  .crumb{padding:20px 0 0;font-size:13px;color:var(--ink-faint);display:flex;align-items:center;gap:8px;}
+  .crumb a:hover{color:var(--brand-deep);}
+  .crumb .sep{opacity:.6;}
+  .crumb .cur{color:var(--ink-soft);font-weight:600;}
+  .phead{padding:45px 0 60px;}
+  .phead h1{font-family:var(--head);font-weight:700;font-size:clamp(30px,4.4vw,46px);line-height:1.05;letter-spacing:0;text-transform:uppercase;margin:0 0 14px;}
+  .phead h1 .caps-lead{color:#102a3d;text-transform:uppercase;letter-spacing:0;}
+  .phead h1 .serif-accent{display:block;width:fit-content;font-family:var(--serif);font-style:italic;font-weight:700;
+    font-size:.48em;color:#fff;background:var(--er);padding:.3em .85em .36em;border-radius:4px;line-height:1.15;margin-top:14px;text-transform:none;}
+  @media (max-width:640px){.phead h1 .serif-accent{font-size:calc(.48em + 4px);}}
+  @media (max-width:1020px){.phead h1 .h1-br,.whyxray h2 .h1-br{display:none;}}
+  .phead p.sub{font-size:17px;color:var(--ink-soft);margin:0 0 20px;max-width:54ch;}
+  .factchips{display:flex;flex-wrap:wrap;gap:10px;}
+  .factchips span{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:500;color:var(--ink-soft);background:rgba(16,42,61,.045);border:0;border-radius:6px;padding:7px 12px;box-shadow:none;}
+  .factchips span .d{width:7px;height:7px;border-radius:50%;background:var(--cta);}
+  .factchips span svg.ci{width:15px;height:15px;stroke:var(--cta);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;}
+  .factchips span svg.ci.solid{width:16px;height:16px;stroke:none;fill:var(--cta);color:var(--cta);}
+  .factchips span svg.ci.solid path{fill:var(--cta);}
+  .phead-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:38px;align-items:center;}
+  @media (max-width:880px){.phead-grid{grid-template-columns:1fr;gap:26px;}}
+  .ervcard{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-hi);padding:22px 24px;}
+  .ervtitle{font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin:0 0 18px;letter-spacing:-.01em;}
+  .ervmetric{margin-bottom:20px;}
+  .ervmetric:last-of-type{margin-bottom:0;}
+  .ervmlabel{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:11px;}
+  .ervbar{display:flex;align-items:center;gap:11px;margin-bottom:10px;}
+  .ervbar:last-child{margin-bottom:0;}
+  .ervbar .bl{flex:0 0 82px;font-size:11px;font-weight:600;color:var(--ink-soft);line-height:1.2;}
+  .ervbar.er .bl{color:var(--er);}
+  .ervbar .bt{flex:1;display:block;height:20px;background:var(--surface-tint);border-radius:11px;overflow:hidden;}
+  .ervbar .bf{display:block;height:100%;border-radius:11px;}
+  .ervbar.us .bf{width:18%;background:linear-gradient(90deg,var(--brand),var(--brand-deep));}
+  .ervbar.er .bf{width:100%;background:linear-gradient(90deg,#e1565b,var(--er));}
+  .ervbar .bv{flex:0 0 auto;font-family:var(--display);font-weight:700;font-size:12.5px;width:92px;text-align:right;}
+  .ervbar.er .bv{color:var(--er);}
+  .ervfoot{font-size:11px;color:var(--ink-faint);margin:16px 0 0;line-height:1.45;}
+  /* hero right-hand tile composition */
+  .vh-photo{background:#e9eaec;border-radius:20px;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;min-height:330px;}
+  .vh-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block;}
+  .vh-cards{display:flex;flex-direction:column;gap:12px;}
+  .vh-cardrow{display:flex;gap:11px;align-items:stretch;}
+  .vh-card-title{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;background:#e9eaec;border-radius:13px;padding:11px 18px;
+    font-family:var(--head);font-weight:600;font-size:19.5px;letter-spacing:.025em;text-transform:uppercase;color:var(--cta);}
+  .vh-icontile{flex:0 0 auto;width:52px;border-radius:13px;background:rgba(32,187,220,.07);display:flex;align-items:center;justify-content:center;}
+  .vh-icontile img{width:29px;height:29px;display:block;}
+  .vh-icontile svg{width:31px;height:31px;stroke:var(--cta);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .vh-icontile svg.solid{fill:var(--cta);stroke:none;}
+  .vh-card-compare{flex:1;background:#e9eaec;border-radius:13px;padding:14px 20px;display:flex;flex-direction:column;justify-content:center;gap:24px;}
+  .vh-cmp-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px;}
+  .vh-cmp-l{font-family:var(--head);font-weight:500;font-size:14.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--cta);}
+  .vh-cmp-v{font-family:var(--head);font-weight:600;font-size:16px;letter-spacing:.02em;color:var(--cta);}
+  .vh-cmp.er .vh-cmp-l,.vh-cmp.er .vh-cmp-v{color:var(--er);}
+  .vh-track{display:block;height:16px;border-radius:9px;background:#fff;overflow:hidden;}
+  .vh-fill{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--brand),var(--brand-deep));width:33%;
+    transform:scaleX(0);transform-origin:left center;transition:transform 1s cubic-bezier(.22,.7,.25,1) .45s;}
+  .vh-cmp.er .vh-fill{background:linear-gradient(90deg,#e1565b,var(--er));width:100%;transition-delay:.75s;}
+  .vh-cmp.run .vh-fill{transform:scaleX(1);}
+  @media (prefers-reduced-motion:reduce){.vh-fill{transform:none;transition:none;}}
+  .vh-cmp-note{margin:0;font-size:12px;line-height:1.45;color:var(--ink-soft);}
+  .vh-card-compare ul.glance{list-style:none;margin:0;padding:0;}
+  .vh-card-compare ul.glance li{position:relative;padding:7px 0 7px 26px;font-size:14.5px;color:var(--cta);border-top:1px solid rgba(16,42,61,.09);line-height:1.45;}
+  .vh-card-compare ul.glance li:first-child{border-top:none;}
+  .vh-card-compare ul.glance li:before{content:"";position:absolute;left:1px;top:9px;width:17px;height:17px;background:var(--brand);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z'/%3E%3C/svg%3E") no-repeat center/contain;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z'/%3E%3C/svg%3E") no-repeat center/contain;}
+  .vh-card-compare ul.glance li b{font-weight:700;}
+  .vh-card-note{background:rgba(192,38,46,.07);border-radius:13px;padding:13px 16px;font-size:13px;line-height:1.45;color:var(--er);}
+  
+  .phead-grid{display:grid;grid-template-columns:1.85fr 240px 1fr;gap:20px;align-items:stretch;}
+  @media (min-width:1021px){
+    .vh-photo{height:auto;min-height:0;align-self:stretch;position:relative;overflow:hidden;}
+    .vh-photo img{position:absolute;inset:0;width:100%;height:100%;}
+    .vh-cards{align-self:stretch;gap:9px;}
+    .vh-card-title{padding:9px 14px;}
+    .vh-card-compare{padding:12px 16px;gap:14px;}
+    .vh-card-compare ul.glance{list-style:none;margin:0;padding:0;}
+  .vh-card-compare ul.glance li{position:relative;padding:7px 0 7px 26px;font-size:14.5px;color:var(--cta);border-top:1px solid rgba(16,42,61,.09);line-height:1.45;}
+  .vh-card-compare ul.glance li:first-child{border-top:none;}
+  .vh-card-compare ul.glance li:before{content:"";position:absolute;left:1px;top:9px;width:17px;height:17px;background:var(--brand);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z'/%3E%3C/svg%3E") no-repeat center/contain;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z'/%3E%3C/svg%3E") no-repeat center/contain;}
+  .vh-card-compare ul.glance li b{font-weight:700;}
+  .vh-card-note{padding:12px 16px;font-size:13px;}
+  }
+  /* narrow desktop: card column gets tight — step type/padding down so nothing overflows */
+  @media (min-width:1021px) and (max-width:1220px){
+    .phead-grid{grid-template-columns:1.5fr 240px 1.15fr;column-gap:16px;}
+    .phead-grid,.phead-grid > *{min-width:0;}
+    .vh-cards{gap:9px;}
+    .vh-cardrow{gap:8px;}
+    .vh-card-title{font-size:15px;padding:9px 11px;}
+    .vh-icontile{width:42px;}
+    .vh-card-compare{padding:13px 14px;gap:16px;}
+    .vh-cmp-l{font-size:12.5px;}
+    .vh-cmp-v{font-size:14px;}
+    .vh-card-compare ul.glance{list-style:none;margin:0;padding:0;}
+  .vh-card-compare ul.glance li{position:relative;padding:7px 0 7px 26px;font-size:14.5px;color:var(--cta);border-top:1px solid rgba(16,42,61,.09);line-height:1.45;}
+  .vh-card-compare ul.glance li:first-child{border-top:none;}
+  .vh-card-compare ul.glance li:before{content:"";position:absolute;left:1px;top:9px;width:17px;height:17px;background:var(--brand);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z'/%3E%3C/svg%3E") no-repeat center/contain;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z'/%3E%3C/svg%3E") no-repeat center/contain;}
+  .vh-card-compare ul.glance li b{font-weight:700;}
+  .vh-card-note{font-size:13.5px;padding:12px 14px;}
+  }
+  @media (max-width:1020px){
+    .phead-grid{grid-template-columns:1fr 1fr;}
+    .phead-grid > div:first-child{grid-column:1/-1;}
+    .phead-grid > div:first-child p.sub{max-width:100%;}
+    .vh-photo{min-height:0;aspect-ratio:1/1;}
+  }
+  @media (min-width:641px) and (max-width:1020px){
+    .phead-grid{grid-template-columns:1fr 1fr;column-gap:16px;}
+    .phead-grid,.phead-grid > *{min-width:0;}
+    .vh-photo{aspect-ratio:1/1;min-height:0;width:100%;max-width:100%;}
+    .vh-photo img{max-width:100%;}
+    .vh-cards{gap:9px;}
+    .vh-cardrow{gap:8px;}
+    .vh-card-title{font-size:13px;padding:9px 10px;}
+    .vh-icontile{width:38px;}
+    .vh-icontile img{width:22px;height:22px;}
+    .vh-card-compare{padding:13px 14px;gap:13px;}
+    .vh-cmp-l{font-size:12px;}
+    .vh-cmp-v{font-size:13.5px;}
+    .vh-card-compare ul.glance{list-style:none;margin:0;padding:0;}
+  .vh-card-compare ul.glance li{position:relative;padding:7px 0 7px 26px;font-size:14.5px;color:var(--cta);border-top:1px solid rgba(16,42,61,.09);line-height:1.45;}
+  .vh-card-compare ul.glance li:first-child{border-top:none;}
+  .vh-card-compare ul.glance li:before{content:"";position:absolute;left:1px;top:9px;width:17px;height:17px;background:var(--brand);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z'/%3E%3C/svg%3E") no-repeat center/contain;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z'/%3E%3C/svg%3E") no-repeat center/contain;}
+  .vh-card-compare ul.glance li b{font-weight:700;}
+  .vh-card-note{font-size:13px;padding:12px 14px;}
+  }
+  @media (max-width:640px){
+    /* photo shrinks to half width; the same-visit tile sits beside it */
+    .phead-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:11px;row-gap:11px;}
+    .phead-grid,.phead-grid > *{min-width:0;}
+    .phead-grid > div:first-child{grid-column:1/-1;}
+    .phead-grid .vh-cards{display:contents;}
+    /* photo becomes a full-width cropped band, roughly the height of the two tiles beside it */
+    .phead-grid .vh-photo{grid-column:1/-1;grid-row:2;aspect-ratio:auto;min-height:0;height:clamp(160px,44vw,240px);width:100%;max-width:100%;}
+    .phead-grid .vh-photo img{max-width:100%;height:100%;object-fit:cover;object-position:50% 18%;}
+    .phead-grid .vh-cardrow{display:none;}
+    .phead-grid .vh-card-compare{grid-column:1/-1;grid-row:4;}
+    .phead-grid .vh-card-note{grid-column:1/-1;grid-row:5;}
+  }
+  @media (max-width:380px){
+    .phead-grid,.phead-grid > *{min-width:0;}
+    .vh-photo{min-height:0;width:100%;max-width:100%;}
+    .vh-photo img{max-width:100%;}
+  }
+
+  .vh-card-compare ul.glance{list-style:none;margin:0;padding:0;}
+  .vh-card-compare ul.glance li{position:relative;padding:7px 0 7px 26px;font-size:14.5px;color:var(--cta);border-top:1px solid rgba(16,42,61,.09);line-height:1.45;}
+  .vh-card-compare ul.glance li:first-child{border-top:none;}
+  .vh-card-compare ul.glance li:before{content:"";position:absolute;left:1px;top:9px;width:17px;height:17px;background:var(--brand);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z'/%3E%3C/svg%3E") no-repeat center/contain;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z'/%3E%3C/svg%3E") no-repeat center/contain;}
+
+  .whyxray{background:var(--band-grad);margin-top:0;}
+  .whyxray .inner{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;padding:54px 0;}
+  @media (max-width:820px){.whyxray .inner{grid-template-columns:1fr;gap:22px;}}
+  .whyxray h2{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;margin:0 0 14px;color:#fff;}
+  .whyxray .whycopy p{font-size:15.5px;color:#f4f9fd;line-height:1.6;margin:0 0 16px;max-width:48ch;}
+  @media (max-width:1020px){.whyxray .whycopy p{max-width:100%;}}
+  .whyxray .seeprices a{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:#9cc0db;display:inline-flex;align-items:center;gap:5px;}
+  .whyxray .seeprices a:hover{text-decoration:underline;text-decoration-color:var(--er);text-decoration-thickness:2px;text-underline-offset:4px;}
+  .whencard{background:#fbfdfe;border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow);}
+  .whencard h3{font-family:var(--display);font-weight:600;font-size:17px;margin:0 0 16px;letter-spacing:-.01em;}
+  .whenlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .whenlist li{display:flex;align-items:flex-start;gap:11px;font-size:14px;color:var(--ink);line-height:1.45;}
+  .whenlist li svg{width:18px;height:18px;stroke:var(--brand-deep);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;margin-top:1px;}
+  .whencard .emnote{display:flex;align-items:center;gap:12px;font-size:12.5px;color:#fdecee;background:var(--er);border:1px solid var(--er);border-radius:10px;padding:11px 13px;margin:18px 0 0;line-height:1.45;}
+  .whencard .em-tile{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.16);flex:0 0 auto;}
+  .whencard .em-ic{width:22px;height:22px;color:#fff;}
+  @media (max-width:640px){.whencard .emnote .em-tile{display:none;}}
+  .priceh{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;color:var(--ink);margin:0 0 14px;}
+  #prices .wrap{display:block;}
+  #prices .sub{max-width:66%;}
+  #prices .factchips{justify-content:flex-start;margin-top:18px;margin-bottom:0;}
+  @media (max-width:1020px){#prices .sub{max-width:100%;}}
+  .explain{background:linear-gradient(180deg,#fff,var(--surface-tint));border-bottom:1px solid var(--border);}
+  .explain .inner{padding:4px 0 34px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media (max-width:820px){.explain .inner{grid-template-columns:1fr;}}
+  .ecard{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--shadow);}
+  .ecard .ic{width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .ecard .ic svg{width:36px;height:36px;fill:var(--er);color:var(--er);stroke:none;}
+  .ecard .ic svg path{fill:var(--er);}
+  .ecard .ic svg circle{fill:var(--er);}
+  .ecard .ic svg rect.chk{fill:#fff;}
+  .ecard h4{font-family:var(--display);font-weight:600;font-size:16px;margin:0 0 7px;letter-spacing:-.01em;}
+  .ecard p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+  .finder{padding:46px 0 12px;}
+  .finder h2{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;margin:0 0 6px;}
+  .finder p.s{font-size:15px;color:var(--ink-soft);margin:0 0 22px;}
+  .search{display:flex;align-items:center;gap:11px;background:#fff;border:1.5px solid var(--border);border-radius:13px;padding:14px 16px;box-shadow:var(--shadow);max-width:560px;}
+  .search svg{width:18px;height:18px;stroke:var(--ink-faint);fill:none;stroke-width:2;flex:0 0 auto;}
+  .search input{border:none;outline:none;font-family:var(--body);font-size:15px;color:var(--ink);width:100%;background:transparent;}
+  .search input::placeholder{color:var(--ink-faint);}
+  .xclear{flex:0 0 auto;width:24px;height:24px;border-radius:50%;border:none;background:var(--surface-tint);
+    cursor:pointer;display:none;align-items:center;justify-content:center;padding:0;transition:background .15s;}
+  .xclear svg{width:13px;height:13px;stroke:var(--ink-soft);fill:none;stroke-width:2.4;stroke-linecap:round;}
+  .xclear:hover{background:var(--border);}
+  .xclear:hover svg{stroke:var(--ink);}
+  .xclear.show{display:flex;}
+  .common{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:16px;}
+  .common .lbl{font-size:12.5px;font-weight:600;color:var(--ink-faint);margin-right:2px;}
+  .qpill{font-size:13px;font-weight:600;color:var(--ink-soft);background:#fff;border:1px solid var(--border);border-radius:24px;padding:8px 14px;cursor:pointer;transition:.15s;display:inline-flex;gap:8px;align-items:center;}
+  .qpill:hover{border-color:var(--brand);color:var(--brand-deep);}
+  .qpill b{font-family:var(--display);color:var(--ink);}
+  .xgrid{padding:24px 0 10px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:stretch;}
+  @media (max-width:760px){.xgrid{grid-template-columns:1fr;}}
+  .xcard{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:20px 22px;}
+  .xcard .xh{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+  .xcard .xh .ic{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .xcard .xh .ic svg{width:36px;height:36px;fill:var(--brand);color:var(--brand);stroke:none;}
+  .xcard .xh .ic svg path{fill:var(--brand);}
+  .xcard .xh .ic.gtk svg,.xcard .xh .ic.gtk svg path{fill:var(--er);color:var(--er);}
+  .xcard .xh .ic.teal svg,.xcard .xh .ic.teal svg path{fill:var(--brand);color:var(--brand);}
+  .xcard .xh h3{font-family:var(--display);font-weight:600;font-size:17px;margin:0;letter-spacing:-.01em;}
+  .xcard .xh .ct{margin-left:auto;font-size:12px;color:var(--ink-faint);font-weight:600;}
+  .rt .r{display:flex;justify-content:space-between;gap:14px;font-size:14px;color:var(--ink-soft);padding:11px 0;border-bottom:1px dashed var(--border);}
+  .rt .r:last-child{border-bottom:0;}
+  .rt .r b{font-family:var(--display);font-weight:700;color:var(--ink);}
+  .rt .r mark{background:#fff3c4;color:inherit;padding:0 1px;border-radius:2px;}
+  .xcard.hide{display:none;}
+  .rt .r.hide{display:none;}
+  .noresults{display:none;text-align:center;color:var(--ink-faint);font-size:15px;padding:40px 0;}
+  .noresults.show{display:block;}
+  .disc{font-size:12px;color:var(--ink-faint);line-height:1.55;margin:18px 0 0;max-width:none;}
+  .disc b{color:var(--ink-soft);font-weight:600;}
+  .ctaband{background:rgba(32,187,220,.18);color:var(--ink);margin-top:46px;}
+  .ctaband .inner{padding:50px 0;display:grid;grid-template-columns:1fr 2fr;gap:38px;align-items:center;}
+  .ctaband .cta-photo{width:100%;height:100%;max-height:400px;object-fit:cover;object-position:34% 28%;border-radius:16px;box-shadow:var(--shadow);display:block;}
+  @media (max-width:880px){
+    .ctaband .inner{grid-template-columns:1fr;gap:24px;}
+    .ctaband .cta-photo{max-height:260px;object-position:34% 24%;}
+  }
+  .ctaband h2{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;margin:0 0 10px;color:var(--ink);}
+  .ctaband p{font-size:16px;color:var(--ink-soft);margin:0 0 24px;max-width:58ch;}
+  .ctaband .cta-rating{color:var(--ink-soft);}
+  .ctaband .cta-rating .r-num{color:var(--ink-soft);font-size:14px;font-weight:600;letter-spacing:normal;}
+  .ctaband .cta-rating .r-src{color:var(--ink-soft);}
+  .ctaband .ctas{display:flex;gap:13px;flex-wrap:wrap;}
+  .ctaband .primary{background:var(--cta);color:#fff;}
+  .ctaband .primary:hover{background:var(--cta-deep);}
+  .ctaband .ghost{background:transparent;color:var(--cta);border-color:var(--cta);}
+  .ctaband .ghost:hover{background:transparent;border-color:var(--brand-deep);color:var(--brand-deep);}
+  .ordered{display:flex;align-items:center;gap:14px;margin-top:22px;font-size:13.5px;color:var(--ink-soft);background:none;border:0;border-radius:0;padding:0;}
+  .ordered .ord-tile{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:rgba(32,187,220,.18);flex:0 0 auto;}
+  .ordered .ord-ic{width:28px;height:28px;fill:var(--cta);color:var(--cta);}
+  .ordered .ord-ic path:last-child{stroke:var(--cta);stroke-width:1;stroke-linejoin:round;paint-order:stroke fill;}
+  .ordered b{color:var(--ink);}
+  footer.site a{color:#bcd4e6;}
+  footer.site .fl{display:flex;gap:18px;flex-wrap:wrap;}
+  .nohelp{display:flex;align-items:center;justify-content:space-between;gap:16px;border:1.5px solid rgba(32,187,220,.5);border-radius:14px;padding:20px 25px;margin-top:30px;flex-wrap:wrap;background:#fff;}
+  .nohelp > a.btn{flex:0 0 auto;}
+  @media (max-width:640px){
+    .nohelp{flex-direction:column;align-items:stretch;}
+    .nohelp > a.btn{width:100%;justify-content:center;box-sizing:border-box;}
+  }
+  .nohelp b{font-family:var(--display);font-weight:700;font-size:16px;display:block;margin-bottom:3px;color:var(--ink);}
+  .nohelp .t{font-size:13.5px;color:var(--ink-soft);}
+  .rt .r .sub2{display:block;font-size:12.5px;color:var(--ink-faint);font-weight:400;margin-top:2px;}
+  .rt.note ul.ck{list-style:none;margin:6px 0 0;padding:0;}
+  .rt.note ul.ck li{position:relative;padding:5px 0 5px 24px;font-size:13.5px;color:var(--ink-soft);line-height:1.45;}
+  .rt.note ul.ck li:before{content:"";position:absolute;left:2px;top:9px;width:11px;height:6px;border-left:2px solid var(--brand);border-bottom:2px solid var(--brand);transform:rotate(-45deg);}
+  .whyxray .inner,.explain .inner,.ctaband .inner,.band .inner,.site .inner{padding-left:26px;padding-right:26px;}
+  .tquote{background:var(--band-grad);color:#fff;text-align:center;padding:62px 0;}
+  .tquote .tqwrap{max-width:860px;}
+  .tquote .qmark{font-family:var(--serif);font-style:italic;font-weight:700;font-size:58px;line-height:.5;margin-bottom:22px;color:var(--er);}
+  .tquote .tqitem{display:none;margin:0;}
+  .tquote .tqitem.on{display:block;}
+  .tquote .tqitem .tq{font-family:var(--display);font-weight:700;font-size:clamp(16px,2.1vw,23px);line-height:1.32;letter-spacing:-.01em;margin:0 auto;max-width:44ch;display:block;}
+  .tquote .tqby{display:block;margin-top:22px;font-size:14px;font-weight:700;}
+  .tquote .tqby i{display:block;font-style:normal;font-weight:500;font-size:12.5px;color:rgba(255,255,255,.68);margin-top:3px;}
+  .tquote .tqdots{display:flex;gap:10px;justify-content:center;margin-top:30px;}
+  .tquote .tqdots button{width:11px;height:11px;border-radius:50%;border:none;background:rgba(255,255,255,.32);cursor:pointer;padding:0;transition:background .2s;}
+  .tquote .tqdots button.on{background:#fff;}
+  .formlinks{flex-basis:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;padding-top:22px;border-top:1px solid var(--border-soft);}
+  @media(max-width:640px){.formlinks{grid-template-columns:1fr;}}
+  .formlinks .fllabel{grid-column:1 / -1;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:-2px;}
+  .formlinks a{display:flex;align-items:center;gap:11px;padding:15px 18px;background:var(--brand-tint);border:1.5px solid var(--brand);border-radius:12px;font-size:14px;font-weight:600;color:var(--brand-deep);text-decoration:none;line-height:1.3;transition:background .15s,box-shadow .15s,transform .05s;}
+  .formlinks a:hover{background:#fff;box-shadow:var(--shadow);text-decoration:none;}
+  .formlinks a:active{transform:translateY(1px);}
+  .formlinks a svg{flex:none;width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;}
+  .formnote{flex-basis:100%;font-size:13px;color:var(--ink-soft);margin:12px 0 0;}
+  .formnote a{color:var(--brand-deep);font-weight:600;text-decoration:none;}
+  .formnote a:hover{text-decoration:underline;}
+  .ervcard ul.glance{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:13px;}
+  .ervcard ul.glance li{display:flex;gap:11px;align-items:flex-start;font-size:14px;color:var(--ink-soft);line-height:1.45;}
+  .ervcard ul.glance li svg{flex:none;width:18px;height:18px;stroke:var(--brand-deep);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;margin-top:1px;}
+  .ervcard ul.glance li b{color:var(--ink);font-weight:600;}
+  .rt.note p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin:0 0 10px;}
+  .whencard .whenintro{font-size:13.5px;color:var(--ink-soft);margin:-4px 0 14px;line-height:1.5;}
+  .phcta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;margin-bottom:22px;}
+  .btn.dirbtn{background:transparent;color:var(--cta);border-color:var(--cta);}
+  .btn.dirbtn:hover{border-color:var(--brand-deep);color:var(--brand-deep);}
+  @media (max-width:640px){
+  .ctaband .ctas{margin-left:auto;margin-right:auto;}
+}
+  .mob-br{display:none;}
+  @media (max-width:640px){
+    .mob-br{display:inline;}
+    .util .inner{align-items:flex-start;gap:12px;}
+    .status{align-items:flex-start;line-height:1.25;}
+    .status .sep{display:inline;align-self:stretch;width:1px;padding:0;overflow:hidden;color:transparent;background:rgba(255,255,255,.28);}
+    .hdr-call{display:none !important;}
+    .hamburger{margin-left:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="util">
+    <div class="inner">
+      <div class="status">
+        <span class="dot"></span><span class="open">Open today<br class="mob-br"> 8AM – 7PM</span>
+        <span class="sep">|</span><span class="wait">Current wait:<br class="mob-br"> 5-20 min</span>
+      </div>
+      <nav class="util-links">
+        <a href="https://apr-sb4.servicebus.windows.net/ACE6233C-9DF4-45BB-9051-1B8AF3500FF3/portal/12229/index.html#/login" target="_blank" rel="noopener">Patient Portal</a><a href="insurance.html">Insurance</a><a href="careers.html">Careers</a><a href="about-us.html">About</a>
+      </nav>
+    </div>
+  </div>
+  <div class="mainbar">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <img class="logo-img" src="assets/logo-mark.png" alt="Norwood Urgent Care">
+      </a>
+      <nav class="mainnav">
+        <div class="navgroup">
+          <button class="navbtn" aria-haspopup="true">Patients <span class="car"></span></button>
+          <div class="dropdown">
+            <a href="urgent-care.html">Urgent Care</a>
+            <a href="pricing-xrays.html">X-Rays</a>
+            <a href="vaccinations.html">Vaccinations</a>
+            <a href="onsite-labs.html">On-Site Labs</a>
+            <a href="physicals.html">Physicals</a>
+          </div>
+        </div>
+        <div class="navgroup">
+          <button class="navbtn" aria-haspopup="true">Employers <span class="car"></span></button>
+          <div class="dropdown">
+            <a href="dot-physicals.html">DOT Physicals</a>
+            <a href="workplace-injuries.html">Workplace Injuries</a>
+            <a href="work-physicals.html">Work Physicals</a>
+            <a href="drug-testing.html">Drug Testing</a>
+            <a href="return-to-work.html">Return to Work Evaluations</a>
+            <a href="urine-toxicology.html">Urine Toxicology</a><a href="motor-vehicle-accidents.html">Motor Vehicle Accident Claims</a>
+          </div>
+        </div>
+        <a class="navlink" href="pricing-page-full.html">Know Your Cost</a>
+        <a class="navlink" href="contact-us.html">Contact Us</a>
+        <a class="navlink" href="https://checkout.square.site/merchant/MLX7WFBQASHPV/checkout/BD2WBFA3EFNBL3XI3W6DYOFJ" target="_blank" rel="noopener">Pay My Bill</a>
+      </nav>
+      <a class="navcall" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>781-255-0500</a>
+      <a class="hdr-call" href="tel:7812550500" aria-label="Call 781-255-0500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mp-overlay" id="mpOverlay"></div>
+<aside class="mobile-panel" id="mobilePanel">
+  <div class="mp-head"><button class="mp-close" id="mpClose" aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="mp-sec">Patients</div>
+  <div class="sub"><a href="urgent-care.html">Urgent Care</a><a href="pricing-xrays.html">X-Rays</a><a href="vaccinations.html">Vaccinations</a><a href="onsite-labs.html">On-Site Labs</a><a href="physicals.html">Physicals</a></div>
+  <div class="mp-sec">Employers</div>
+  <div class="sub"><a href="dot-physicals.html">DOT Physicals</a><a href="workplace-injuries.html">Workplace Injuries</a><a href="work-physicals.html">Work Physicals</a><a href="drug-testing.html">Drug Testing</a><a href="return-to-work.html">Return to Work Evaluations</a><a href="urine-toxicology.html">Urine Toxicology</a><a href="motor-vehicle-accidents.html">Motor Vehicle Accident Claims</a></div>
+  <div class="mp-sec">More</div>
+  <a href="pricing-page-full.html">Know Your Cost</a>
+  <a href="contact-us.html">Contact Us</a>
+  <a href="https://checkout.square.site/merchant/MLX7WFBQASHPV/checkout/BD2WBFA3EFNBL3XI3W6DYOFJ" target="_blank" rel="noopener">Pay My Bill</a>
+  <a href="https://apr-sb4.servicebus.windows.net/ACE6233C-9DF4-45BB-9051-1B8AF3500FF3/portal/12229/index.html#/login" target="_blank" rel="noopener">Patient Portal</a>
+  <a href="insurance.html">Insurance</a>
+  <a href="careers.html">Careers</a>
+  <a href="about-us.html">About</a>
+  <div class="mp-call"><a class="btn primary" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a><a class="btn mp-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Get Directions</a></div>
+</aside>
+
+
+<section class="phead">
+  <div class="wrap phead-grid">
+    <div>
+      <p class="eyebrow">Employer Services · Motor Vehicle Accident Claims</p>
+      <h1><span class="caps-lead">Motor vehicle<br class="h1-br"> accident claims</span><span class="serif-accent">treated on-site, billed correctly.</span></h1>
+      <p class="sub">Norwood Urgent Care can evaluate and treat many injuries resulting from a motor vehicle accident. Because motor vehicle accident (MVA) claims are processed differently than routine medical visits, accurate insurance and claim information is required before services are rendered whenever possible.</p>
+      <div class="phcta">
+        <a href="tel:7812550500" class="btn dark"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a>
+        <a class="btn dirbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Get Directions</a>
+      </div>
+      <div class="factchips">
+        <span><svg class="ci solid" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44ZM34.7415 17.6709C35.1121 17.2614 35.0805 16.629 34.6709 16.2585C34.2614 15.8879 33.629 15.9195 33.2585 16.3291L21.2809 29.5675L14.6905 23.2766C14.291 22.8953 13.658 22.91 13.2766 23.3095C12.8953 23.709 12.91 24.342 13.3095 24.7234L20.6429 31.7234L21.3858 32.4325L22.0749 31.6709L34.7415 17.6709Z"></path></svg>No appointment needed</span>
+        <span><svg class="ci solid" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 9C6 7.34315 7.34315 6 9 6H39C40.6569 6 42 7.34315 42 9V39C42 40.6569 40.6569 42 39 42H9C7.34315 42 6 40.6569 6 39V9ZM28.5 14.5C28.5 16.9853 26.4853 19 24 19C21.5147 19 19.5 16.9853 19.5 14.5C19.5 12.0147 21.5147 10 24 10C26.4853 10 28.5 12.0147 28.5 14.5ZM13 22C13 21.4477 13.4477 21 14 21H34C34.5523 21 35 21.4477 35 22V37C35 37.5523 34.5523 38 34 38H29C29 37.4027 28.7273 36.8603 28.4298 36.4438C28.119 36.0086 27.7038 35.602 27.2498 35.2552C26.6213 34.7753 25.8253 34.3413 25 34.132V31.1465H26.4C27.3909 31.1465 28.6372 31.5421 29.7118 31.9948C30.2329 32.2143 30.6842 32.4344 31.0047 32.5995C31.1646 32.6818 31.291 32.7499 31.376 32.7967C31.4186 32.82 31.4507 32.838 31.4715 32.8498L31.494 32.8626L31.4987 32.8653C31.4986 32.8652 31.4988 32.8653 32 32C32.5012 31.1347 32.5011 31.1346 32.5009 31.1345L32.4995 31.1337L32.4967 31.132L32.4875 31.1268L32.4555 31.1086C32.4282 31.0932 32.3892 31.0714 32.3396 31.0441C32.2403 30.9895 32.0979 30.9128 31.9203 30.8213C31.5658 30.6388 31.0671 30.3955 30.4882 30.1517C29.3628 29.6776 27.8091 29.1465 26.4 29.1465H25V27H25.8C26.5489 27 27.4846 27.2145 28.285 27.457C28.6741 27.5749 29.0109 27.6931 29.2496 27.7815C29.3686 27.8256 29.4626 27.862 29.5256 27.8869C29.5492 27.8963 29.5684 27.904 29.5829 27.9099C29.5878 27.9118 29.5922 27.9136 29.596 27.9152L29.6124 27.9218L29.6156 27.9232C29.6155 27.9231 29.6154 27.9231 30 27C30.3846 26.0769 30.3845 26.0769 30.3843 26.0768L30.3809 26.0754L30.3737 26.0724L30.3492 26.0624C30.3284 26.0539 30.2988 26.042 30.2611 26.0271C30.1859 25.9974 30.0782 25.9557 29.9442 25.906C29.6766 25.8069 29.3009 25.6751 28.865 25.543C28.0154 25.2855 26.8511 25 25.8 25H25V23H23V25H21.9C20.6996 25 19.6077 25.284 18.8314 25.5564C18.4395 25.6939 18.1185 25.8319 17.8923 25.937C17.7791 25.9897 17.689 26.0345 17.6251 26.0672C17.5932 26.0836 17.5677 26.097 17.5492 26.1069L17.5265 26.1192L17.5191 26.1232L17.5164 26.1247L17.5153 26.1253C17.5151 26.1255 17.5144 26.1258 18 27C18.4856 27.8742 18.4854 27.8743 18.4852 27.8744L18.4923 27.8706C18.5011 27.8659 18.5164 27.8578 18.5378 27.8468C18.5805 27.8249 18.6475 27.7915 18.7358 27.7505C18.9128 27.6681 19.173 27.5561 19.4936 27.4436C20.1423 27.216 21.0004 27 21.9 27H23V29.1465H21.2C19.5905 29.1465 18.1347 29.6754 17.1116 30.1745C16.594 30.4269 16.1714 30.6795 15.8758 30.8706C15.7276 30.9664 15.6104 31.0474 15.5281 31.1061C15.4869 31.1354 15.4544 31.1593 15.431 31.1766L15.4029 31.1978L15.394 31.2045L15.391 31.2069L15.3897 31.2078C15.3895 31.208 15.3888 31.2085 16 32C16.6112 32.7914 16.611 32.7916 16.6108 32.7918L16.6242 32.7817C16.6374 32.7719 16.6592 32.756 16.6891 32.7346C16.749 32.6919 16.8411 32.6281 16.9617 32.5501C17.2036 32.3938 17.556 32.1829 17.9884 31.972C18.8653 31.5443 20.0095 31.1465 21.2 31.1465H23V34.1644C22.1707 34.39 21.3693 34.8145 20.7267 35.2983C20.278 35.6361 19.8677 36.0315 19.5605 36.4598C19.2638 36.8734 19 37.407 19 38H14C13.4477 38 13 37.5523 13 37V22ZM26.9704 37.899C26.9956 37.9619 26.9994 37.9944 26.9999 38H21C21.0001 37.9977 21.0019 37.9661 21.0278 37.9008C21.0556 37.8308 21.1051 37.7378 21.1856 37.6255C21.3485 37.3985 21.6023 37.1425 21.9296 36.896C22.5878 36.4005 23.3896 36.0561 24.0338 36.0004C24.5874 36.0129 25.3594 36.3282 26.0359 36.8448C26.3676 37.098 26.631 37.3664 26.8023 37.6062C26.8872 37.725 26.9403 37.8241 26.9704 37.899Z" fill="currentColor"></path></svg>On-site X-rays &amp; labs</span>
+        <span><svg class="ci solid" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M20.6 13.4L13.4 20.6a2 2 0 0 1-2.8 0l-7-7A2 2 0 0 1 3 12V5a2 2 0 0 1 2-2h7a2 2 0 0 1 1.4.6l7 7a2 2 0 0 1 .2 2.8zM7.5 9A1.5 1.5 0 1 0 7.5 6a1.5 1.5 0 0 0 0 3z"/></svg>$210&nbsp;deposit at registration</span>
+        <span><svg class="ci solid" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 4C18.3431 4 17 5.34315 17 7H13C11.3431 7 10 8.34315 10 10V41C10 42.6569 11.3431 44 13 44H35C36.6569 44 38 42.6569 38 41V10C38 8.34315 36.6569 7 35 7H31C31 5.34315 29.6569 4 28 4H20ZM19 7C19 6.44772 19.4477 6 20 6H28C28.5523 6 29 6.44772 29 7V9C29 9.55228 28.5523 10 28 10H20C19.4477 10 19 9.55228 19 9V7ZM19 15V18H16V20H19V23H21V20H24V18H21V15H19ZM17 26C16.4477 26 16 26.4477 16 27C16 27.5523 16.4477 28 17 28H31C31.5523 28 32 27.5523 32 27C32 26.4477 31.5523 26 31 26H17ZM16 32C16 31.4477 16.4477 31 17 31H31C31.5523 31 32 31.4477 32 32C32 32.5523 31.5523 33 31 33H17C16.4477 33 16 32.5523 16 32ZM17 36C16.4477 36 16 36.4477 16 37C16 37.5523 16.4477 38 17 38H31C31.5523 38 32 37.5523 32 37C32 36.4477 31.5523 36 31 36H17Z" fill="currentColor"></path></svg>Claim submitted for you</span>
+      </div>
+    </div>
+    <div class="vh-photo">
+      <img src="assets/mva-hero-caller.jpg" width="900" height="1350" alt="A driver on the phone beside two damaged cars after a collision">
+    </div>
+    <aside class="vh-cards" aria-label="Before you're seen">
+      <div class="vh-card-compare" style="justify-content:flex-start;">
+        <div class="vh-card-title" style="flex:0 0 auto;margin-bottom:2px;background:transparent;padding:0;justify-content:flex-start;text-align:left;font-size:19.5px;">Before You're Seen</div>
+        <ul class="glance">
+          <li>A <b>$210 deposit</b> is required before you're seen for any MVA-related visit.</li>
+          <li>Bring your <b>auto insurance</b> and <b>claim number</b>, plus a government-issued photo ID.</li>
+          <li>After your visit, we <b>submit the claim</b> to your auto insurance carrier.</li>
+          <li>If the carrier pays the claim in full, your deposit is <b>refunded</b>.</li>
+        </ul>
+      </div>
+      <div class="vh-card-note">Severe injuries—head injury, chest pain, trouble breathing, or heavy bleeding—are an emergency. Call 911 or go to the nearest ER.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="whyxray">
+  <div class="wrap inner">
+    <div class="whycopy">
+      <h2>Prompt care, accurate claims</h2>
+      <p>Our goal is to provide prompt, high-quality medical care while ensuring claims are submitted accurately and in accordance with applicable insurance requirements and state regulations. Because MVA claims are handled differently than routine visits, we collect your accident and coverage details up front—which helps minimize billing delays and claim-processing issues later.</p>
+      <p class="seeprices"><a href="#prices">See how a visit works ↓</a></p>
+    </div>
+    <div class="whencard">
+      <h3>Patient responsibilities</h3>
+      <p class="whenintro">Please provide the following at the time of registration:</p>
+      <ul class="whenlist">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Automobile insurance company name</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Motor vehicle accident (MVA) claim number</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Claim adjuster's name (if assigned)</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Claim adjuster's telephone number (if available)</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Date of the accident</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Attorney information (if represented)</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Government-issued photo identification</li>
+      </ul>
+      <p class="emnote"><span class="em-tile"><svg class="em-ic" viewBox="0 -960 960 960" aria-hidden="true"><path d="M440-280h80v-240h-80v240Zm68.5-331.5Q520-623 520-640t-11.5-28.5Q497-680 480-680t-28.5 11.5Q440-657 440-640t11.5 28.5Q463-600 480-600t28.5-11.5ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z" fill="currentColor"/></svg></span><span>Providing complete and accurate information at the time of your visit helps minimize billing delays and reduces the likelihood of claim-processing issues.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="phead" id="prices" style="padding-top:42px;padding-bottom:3px;">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2 class="priceh">How a motor vehicle accident visit works</h2>
+    <p class="sub">From registration through claim submission, here's what to expect when you come in for care after an accident.</p>
+  </div>
+</section>
+
+<section class="explain">
+  <div class="wrap inner">
+    <div class="ecard">
+      <div class="ic"><svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 10C5.34315 10 4 11.3431 4 13V35C4 36.6569 5.34315 38 7 38H41C42.6569 38 44 36.6569 44 35V13C44 11.3431 42.6569 10 41 10H7ZM37 20C37 22.2091 35.2091 24 33 24C30.7909 24 29 22.2091 29 20C29 17.7909 30.7909 16 33 16C35.2091 16 37 17.7909 37 20ZM24 19H10V17H24V19ZM24 23H10V21H24V23ZM10 27H24V25H10V27ZM24 31H10V29H24V31ZM30.3922 25.4784C29.1546 25.2309 28 26.1775 28 27.4396V32H38V27.4396C38 26.1775 36.8454 25.2309 35.6078 25.4784L33.3922 25.9216C33.1333 25.9733 32.8667 25.9733 32.6078 25.9216L30.3922 25.4784Z"></path></svg></div>
+      <h4>Bring your claim details</h4>
+      <p>At registration, share your auto insurance, MVA claim number, adjuster details, accident date, and a photo ID so we can bill the correct carrier.</p>
+    </div>
+    <div class="ecard">
+      <div class="ic"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M20.6 13.4L13.4 20.6a2 2 0 0 1-2.8 0l-7-7A2 2 0 0 1 3 12V5a2 2 0 0 1 2-2h7a2 2 0 0 1 1.4.6l7 7a2 2 0 0 1 .2 2.8zM7.5 9A1.5 1.5 0 1 0 7.5 6a1.5 1.5 0 0 0 0 3z"/></svg></div>
+      <h4>$210 deposit at registration</h4>
+      <p>A $210 deposit is collected before you're seen for any MVA-related visit. It's refunded if your carrier pays the claim in full.</p>
+    </div>
+    <div class="ecard">
+      <div class="ic"><svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 4C18.3431 4 17 5.34315 17 7H13C11.3431 7 10 8.34315 10 10V41C10 42.6569 11.3431 44 13 44H35C36.6569 44 38 42.6569 38 41V10C38 8.34315 36.6569 7 35 7H31C31 5.34315 29.6569 4 28 4H20ZM19 7C19 6.44772 19.4477 6 20 6H28C28.5523 6 29 6.44772 29 7V9C29 9.55228 28.5523 10 28 10H20C19.4477 10 19 9.55228 19 9V7ZM19 15V18H16V20H19V23H21V20H24V18H21V15H19ZM17 26C16.4477 26 16 26.4477 16 27C16 27.5523 16.4477 28 17 28H31C31.5523 28 32 27.5523 32 27C32 26.4477 31.5523 26 31 26H17ZM16 32C16 31.4477 16.4477 31 17 31H31C31.5523 31 32 31.4477 32 32C32 32.5523 31.5523 33 31 33H17C16.4477 33 16 32.5523 16 32ZM17 36C16.4477 36 16 36.4477 16 37C16 37.5523 16.4477 38 17 38H31C31.5523 38 32 37.5523 32 37C32 36.4477 31.5523 36 31 36H17Z" fill="currentColor"></path></svg></div>
+      <h4>We submit the claim for you</h4>
+      <p>After your visit, we file the claim with the auto insurance carrier tied to your accident, using the information you provide.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tquote">
+  <div class="wrap tqwrap">
+    <div class="qmark">“</div>
+    <div class="tqstage">
+      <blockquote class="tqitem on"><span class="tq">“After my accident they took my claim info, treated me the same day, and handled the billing.”</span><span class="tqby">Rachel S., Foxborough<i>via Google</i></span></blockquote>
+      <blockquote class="tqitem"><span class="tq">“In and out in under 30 minutes. The doctor actually listened — not what I expected from urgent care.”</span><span class="tqby">Sarah K., Walpole<i>via Yelp</i></span></blockquote>
+      <blockquote class="tqitem"><span class="tq">“Went to a competitor first and waited three hours. Here I was seen in fifteen minutes.”</span><span class="tqby">Michael R., Norwood<i>via Google</i></span></blockquote>
+    </div>
+    <div class="tqdots">
+        <button class="on" aria-label="Testimonial 1"></button>
+        <button class="" aria-label="Testimonial 2"></button>
+        <button class="" aria-label="Testimonial 3"></button>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap">
+    <div class="xgrid" id="xgrid">
+
+      <div class="xcard">
+        <div class="xh"><div class="ic"><svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M37.9725 27.9747C39.2563 25.9594 40 23.5665 40 21C40 13.8203 34.1797 8 27 8C24.4335 8 22.0407 8.74375 20.0253 10.0275C18.6579 10.1048 17.3336 10.3437 16.0714 10.7254C18.8073 7.8165 22.6915 6 27 6C35.2843 6 42 12.7157 42 21C42 25.3085 40.1835 29.1927 37.2746 31.9286C37.6563 30.6664 37.8953 29.3422 37.9725 27.9747Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M39.9333 28.6028C39.2073 29.8352 38.3101 30.9547 37.2746 31.9286C37.6563 30.6664 37.8953 29.3422 37.9725 27.9747C37.9725 27.9749 37.9726 27.9745 37.9725 27.9747C39.256 25.9598 39.9997 23.5675 40 21.0015C40 21.001 40 21.0005 40 21C40 13.8203 34.1797 8 27 8C24.4335 8 22.0407 8.74375 20.0253 10.0275C20.0251 10.0275 20.0256 10.0275 20.0253 10.0275C18.6579 10.1048 17.3336 10.3437 16.0714 10.7254C17.0454 9.68988 18.1648 8.79277 19.3972 8.06676C21.6173 6.75886 24.2037 6.00629 26.9654 6.00004C26.9769 6.00001 26.9885 6 27 6C35.2843 6 42 12.7157 42 21C42 21.151 41.9978 21.3014 41.9934 21.4513C41.9164 24.0564 41.1752 26.4947 39.9333 28.6028Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M36 27C36 35.2843 29.2843 42 21 42C12.7157 42 6 35.2843 6 27C6 18.7157 12.7157 12 21 12C29.2843 12 36 18.7157 36 27ZM20 22C18.8954 22 18 22.8954 18 24C18 25.1046 18.8954 26 20 26V22ZM22 20V19H20V20C17.7909 20 16 21.7909 16 24C16 26.2091 17.7909 28 20 28V32C19.1307 32 18.3886 31.4449 18.1135 30.6668C17.9295 30.146 17.3582 29.8731 16.8375 30.0572C16.3167 30.2412 16.0438 30.8125 16.2279 31.3332C16.7765 32.8855 18.2568 34 20 34V35H22V34C24.2091 34 26 32.2091 26 30C26 27.7909 24.2091 26 22 26V22C22.8693 22 23.6114 22.5551 23.8865 23.3332C24.0705 23.854 24.6418 24.1269 25.1625 23.9428C25.6833 23.7588 25.9562 23.1875 25.7721 22.6668C25.2235 21.1145 23.7432 20 22 20ZM22 28V32C23.1046 32 24 31.1046 24 30C24 28.8954 23.1046 28 22 28Z" fill="currentColor"></path></svg></div><h3>How the $210 deposit works</h3></div>
+        <div class="rt note">
+          <ul class="ck">
+            <li>A $210 deposit is required prior to being seen for all MVA-related visits.</li>
+            <li>After your visit, we submit the claim to the auto insurance carrier associated with your accident.</li>
+            <li>If the carrier pays the claim in full, your deposit is refunded to the original payment method whenever possible.</li>
+            <li>If the carrier partially pays or denies the claim, your deposit is applied to your balance and you remain responsible for any unpaid amount.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xcard">
+        <div class="xh"><div class="ic"><svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 36C6 31.0347 17.9925 28 24 28C30.0075 28 42 31.0347 42 36V42H6V36Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M24 26C29.5228 26 34 21.5228 34 16C34 10.4772 29.5228 6 24 6C18.4772 6 14 10.4772 14 16C14 21.5228 18.4772 26 24 26Z" fill="currentColor"></path></svg></div><h3>Patient financial responsibility</h3></div>
+        <div class="rt note">
+          <p>Submission of a claim to an auto insurance carrier does not guarantee payment. Patients are ultimately responsible for all charges not paid by the responsible carrier—including claims that are denied, delayed, limited by policy coverage, or otherwise determined to be the patient's responsibility.</p>
+          <p>If the carrier requests additional information after your visit, timely cooperation may be necessary to avoid delays in claim processing.</p>
+        </div>
+      </div>
+
+      <div class="xcard">
+        <div class="xh"><div class="ic gtk"><svg class="mi" viewBox="0 -960 960 960"><path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Z"/></svg></div><h3>Questions?</h3></div>
+        <div class="rt note">
+          <p>If you have questions about your motor vehicle accident claim or the billing process, our registration staff will be happy to assist you—before or after your visit.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="nohelp">
+      <div><b>Coming in after a car accident?</b><span class="t">Call us first with your claim details and we'll walk you through what to bring.</span></div>
+      <a class="btn dark" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a>
+    </div>
+  </div>
+</section>
+
+<section class="ctaband">
+  <div class="wrap inner">
+    <img class="cta-photo" src="assets/mva-cta-airbag.jpg" width="1100" height="742" alt="A man holding his head beside a deployed airbag after a car accident">
+    <div class="cta-copy">
+    <div class="cta-rating"><span class="stars">★★★★★</span><span class="r-meta"><span class="r-num">4.8</span><span class="r-src">out of 5 · 1,200+ Google reviews</span></span></div>
+    <h2>Injured in a car accident? Walk in today.</h2>
+    <p>We evaluate and treat many motor-vehicle-accident injuries on-site at all three centers—with digital X-ray and rapid labs—and submit the claim to your auto insurance carrier for you. Bring your claim details and a photo ID. Open Mon–Fri 8am–7pm, Sat–Sun 8am–4pm.</p>
+    <div class="ctas">
+      <a href="tel:7812550500" class="btn primary"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a>
+      <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Get Directions</a>
+    </div>
+    <div class="ordered"><span class="ord-tile"><svg class="ord-ic" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M120-160q-33 0-56.5-23.5T40-240v-440h80v440h680v80H120Zm160-160q-33 0-56.5-23.5T200-400v-320q0-33 23.5-56.5T280-800h560q33 0 56.5 23.5T920-720v320q0 33-23.5 56.5T840-320H280Zm80-80q0-33-23.5-56.5T280-480v80h80Zm400 0h80v-80q-33 0-56.5 23.5T760-400Zm-200-40q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM280-640q33 0 56.5-23.5T360-720h-80v80Zm560 0v-80h-80q0 33 23.5 56.5T840-640Z"/></svg></span><span><b>A $210 deposit is required before you're seen</b> for MVA-related visits—refunded if your carrier pays the claim in full. See the deposit details above.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="top">
+      <div class="col"><h5>Get Care</h5>
+        <a href="urgent-care.html">Urgent Care</a>
+        <a href="pricing-xrays.html">X-Rays</a>
+        <a href="vaccinations.html">Vaccinations</a>
+        <a href="onsite-labs.html">On-Site Labs</a>
+        <a href="physicals.html">Physicals</a>
+      </div>
+      <div class="col"><h5>Employers</h5>
+        <a href="dot-physicals.html">DOT Physicals</a>
+        <a href="workplace-injuries.html">Workplace Injuries</a>
+        <a href="work-physicals.html">Work Physicals</a>
+        <a href="drug-testing.html">Drug Testing</a>
+        <a href="return-to-work.html">Return to Work Evaluations</a>
+        <a href="urine-toxicology.html">Urine Toxicology</a><a href="motor-vehicle-accidents.html">Motor Vehicle Accident Claims</a>
+      </div>
+      <div class="col"><h5>Learn More</h5>
+        <a href="pricing-page-full.html">Know Your Cost</a>
+        <a href="insurance.html">Insurance</a>
+        <a href="about-us.html">About Us</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact-us.html">Contact Us</a>
+      </div>
+      <div class="col"><h5>Existing Patients</h5>
+        <a href="https://apr-sb4.servicebus.windows.net/ACE6233C-9DF4-45BB-9051-1B8AF3500FF3/portal/12229/index.html#/login" target="_blank" rel="noopener">Patient Portal</a>
+        <a href="https://checkout.square.site/merchant/MLX7WFBQASHPV/checkout/BD2WBFA3EFNBL3XI3W6DYOFJ" target="_blank" rel="noopener">Pay My Bill</a>
+      </div>
+    </div>
+      <div class="fbrand">
+      <div class="wm"><img class="flogo" src="assets/logo-footer.svg" alt="Norwood Urgent Care" width="66" height="51"></div>
+      <p>Clinician-owned urgent care serving Norwood, Natick &amp; Bellingham since 2005.</p>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 Norwood Urgent Care</span>
+      <div class="lk"><a href="privacy.html">Privacy</a><a href="hipaa.html">HIPAA Notice</a><a href="accessibility.html">Accessibility</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var search = document.getElementById('xsearch');
+  if(!search) return;
+  var clearBtn = document.getElementById('xclear');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#xgrid .xcard'));
+  var noresults = document.getElementById('noresults');
+
+  function applyFilter(q){
+    q = q.trim().toLowerCase();
+    clearBtn.classList.toggle('show', q !== '');
+    var anyVisible = false;
+    cards.forEach(function(card){
+      // the "Good to know" card has no priced rows — hide it during an active search
+      var priced = card.querySelectorAll('.rt .r b').length > 0;
+      var rows = Array.prototype.slice.call(card.querySelectorAll('.rt .r'));
+      var cardHasMatch = false;
+      rows.forEach(function(r){
+        var txt = r.textContent.toLowerCase();
+        var match = q === '' || txt.indexOf(q) > -1;
+        r.classList.toggle('hide', !(match));
+        if(match) cardHasMatch = true;
+      });
+      var show = q === '' ? true : (priced && cardHasMatch);
+      card.classList.toggle('hide', !show);
+      if(show && (q === '' || cardHasMatch)) anyVisible = true;
+    });
+    noresults.classList.toggle('show', q !== '' && !anyVisible);
+  }
+
+  function clearSearch(){ search.value = ''; applyFilter(''); search.focus(); }
+
+  search.addEventListener('input', function(){ applyFilter(search.value); });
+  clearBtn.addEventListener('click', clearSearch);
+  document.querySelectorAll('.qpill').forEach(function(p){
+    p.addEventListener('click', function(){
+      search.value = p.dataset.q;
+      applyFilter(p.dataset.q);
+      search.focus();
+    });
+  });
+  var cs = document.getElementById('clearsearch');
+  if(cs){ cs.addEventListener('click', function(e){ e.preventDefault(); clearSearch(); }); }
+})();
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('.navgroup .navbtn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var g = btn.parentElement, was = g.classList.contains('open');
+      document.querySelectorAll('.navgroup').forEach(function(x){ x.classList.remove('open'); });
+      if(!was) g.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(){ document.querySelectorAll('.navgroup').forEach(function(x){ x.classList.remove('open'); }); });
+  var panel=document.getElementById('mobilePanel'), overlay=document.getElementById('mpOverlay');
+  function oM(){panel.classList.add('show');overlay.classList.add('show');}
+  function cM(){panel.classList.remove('show');overlay.classList.remove('show');}
+  var hb=document.getElementById('hamburger'); if(hb) hb.addEventListener('click',oM);
+  var mc=document.getElementById('mpClose'); if(mc) mc.addEventListener('click',cM);
+  if(overlay) overlay.addEventListener('click',cM);
+})();
+</script>
+<script>
+(function(){
+  var box=document.querySelector('.tquote'); if(!box) return;
+  var items=box.querySelectorAll('.tqitem'), dots=box.querySelectorAll('.tqdots button'), i=0, t;
+  function go(n){ items[i].classList.remove('on'); dots[i].classList.remove('on'); i=n; items[i].classList.add('on'); dots[i].classList.add('on'); }
+  dots.forEach(function(d,n){ d.addEventListener('click',function(){ go(n); reset(); }); });
+  function reset(){ clearInterval(t); t=setInterval(function(){ go((i+1)%items.length); },6000); }
+  reset();
+})();
+</script>
+<nav class="mobilebar" aria-label="Quick actions">
+  <a class="mb-item" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call</a>
+  <a class="mb-item" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Directions</a>
+  <div class="mb-item mb-wait"><span class="mb-wtnum"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>~4 min</span><span class="mb-wtlbl">Wait time</span></div>
+</nav>
+</body>
+</html>

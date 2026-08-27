@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Norwood Urgent Care — Pricing &amp; Fee Transparency</title>
+<link rel="stylesheet" href="site.css">
+<style>
+  /* page-specific styles — shared system lives in site.css */
+  /* page-specific styles — shared system lives in site.css */
+  12..96,500;
+  12..96,600;
+  12..96,700;
+  12..96,800&family=IBM+Plex+Sans:wght@400;
+  500;
+  600;
+  700&display=swap');
+  section{scroll-margin-top:calc(var(--nav-h) + 54px);}
+  .phead{padding:45px 0 60px;background:var(--band-grad);color:#fff;}
+  .phead .eyebrow{color:var(--accent);}
+  .phead h1{font-family:var(--head);font-weight:700;font-size:clamp(38px,4.4vw,46px);line-height:1.05;letter-spacing:0;text-transform:uppercase;margin:0 0 14px;color:#fff;max-width:75%;}
+  .phead p.sub{font-size:17px;color:#c4d8e8;margin:0 0 20px;max-width:75%;}
+  @media (max-width:820px){.phead h1,.phead p.sub{max-width:100%;}}
+  .phead{position:relative;overflow:hidden;}
+  .phead .wrap{position:relative;z-index:1;}
+  .phead-ic{position:absolute;right:max(26px,calc((100% - var(--maxw))/2 + 26px));top:50%;transform:translateY(-50%);width:250px;height:250px;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:0;}
+  .phead-ic svg{width:250px;height:250px;fill:#fff;opacity:.06;stroke:none;}
+  @media (max-width:820px){.phead-ic{display:none;}}
+  .phead .btn.dark{background:#fff;color:var(--cta);}
+  .phead .btn.dark:hover{background:#e8f4fb;}
+  .phead .btn.dirbtn{background:transparent;color:#fff;border-color:rgba(255,255,255,.5);}
+  .phead .btn.dirbtn:hover{background:rgba(255,255,255,.13);border-color:#fff;color:#fff;}
+  .phead .factchips span{background:rgba(255,255,255,.1);color:#e3eef7;}
+  .phead .factchips span svg.ci{stroke:#fff;}
+  .phead .factchips span svg.ci.solid{fill:#fff;stroke:none;}
+  .phead#prices{background:none;color:inherit;}
+  .phead#prices h1,.phead#prices .priceh{color:var(--ink);}
+  .phcta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;margin-bottom:22px;}
+  .btn.dirbtn{background:transparent;color:var(--cta);border-color:var(--cta);}
+  .btn.dirbtn:hover{border-color:var(--brand-deep);color:var(--brand-deep);}
+  .factchips{display:flex;flex-wrap:wrap;gap:10px;}
+  .factchips span{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:500;color:var(--ink-soft);background:rgba(16,42,61,.045);border:0;border-radius:6px;padding:7px 12px;box-shadow:none;}
+  .factchips span svg.ci{width:15px;height:15px;stroke:var(--cta);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;}
+  .factchips span svg.ci.solid{width:16px;height:16px;stroke:none;fill:var(--cta);}
+  .ctas{display:flex;gap:13px;flex-wrap:wrap;}
+  .thesis{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+    box-shadow:var(--shadow-hi);padding:24px;}
+  .thesis .tt{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 7px;}
+  .thesis .ts{font-family:var(--head);font-weight:500;font-size:19.5px;letter-spacing:.025em;text-transform:uppercase;color:var(--cta);margin:0 0 20px;}
+  .gaprow{display:grid;grid-template-columns:1fr auto;grid-template-areas:"lab val" "track track";align-items:baseline;column-gap:12px;row-gap:9px;margin-bottom:20px;}
+  .gaprow .gl{grid-area:lab;font-family:var(--head);font-weight:500;font-size:14.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--cta);line-height:1.2;}
+  .gaprow.er .gl{color:var(--er);}
+  .gaprow .gt{grid-area:track;display:block;height:16px;background:#e9eaec;border-radius:9px;overflow:hidden;}
+  .gaprow .gf{display:block;height:100%;border-radius:9px;transform:scaleX(0);transform-origin:left center;transition:transform 1s cubic-bezier(.22,.7,.25,1) .45s;}
+  body.lit .gaprow .gf{transform:scaleX(1);}
+  .gaprow.us .gf{width:24%;background:linear-gradient(90deg,var(--brand),var(--brand-deep));}
+  .gaprow.er .gf{width:100%;background:linear-gradient(90deg,#e1565b,var(--er));transition-delay:.75s;}
+  .gaprow .gv{grid-area:val;font-family:var(--head);font-weight:600;font-size:16px;letter-spacing:.02em;color:var(--cta);text-align:right;}
+  .gaprow.er .gv{color:var(--er);}
+  .thesis .note{font-size:11.5px;color:var(--ink-faint);margin:6px 0 0;}
+  .trust{padding:6px 0 8px;}
+  .trust .inner{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow);}
+  .stat .num{font-family:var(--display);font-weight:800;font-size:40px;line-height:1;letter-spacing:-.02em;color:var(--ink);}
+  .stat .lbl{font-size:13.5px;color:var(--ink-soft);margin-top:8px;}
+  .subnav{position:sticky;top:var(--nav-h);z-index:40;background:rgba(251,253,254,.94);
+    backdrop-filter:blur(6px);border-bottom:1px solid var(--border);margin-top:6px;}
+  .subnav .inner{max-width:var(--maxw);margin:0 auto;padding:13px 26px;display:flex;gap:9px;overflow-x:auto;}
+  .subnav a{font-size:13.5px;font-weight:500;color:var(--ink-soft);padding:8px 14px;border:0;
+    border-radius:6px;background:rgba(16,42,61,.045);white-space:nowrap;transition:.15s;}
+  .subnav a:hover{background:rgba(32,187,220,.14);color:var(--cta);}
+  .subnav a.active{background:var(--cta);color:#fff;}
+  .block{padding:56px 0;}
+  .block.tint{background:rgba(32,187,220,.07);border-top:0;border-bottom:0;}
+  .secttl{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);letter-spacing:normal;margin:4px 0 10px;line-height:1.15;}
+  .secsub{font-size:16px;color:var(--ink-soft);margin:0 0 30px;max-width:60ch;}
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .bcard{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow);}
+  .bcard .ic{width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .bcard .ic svg.ic-fill{width:36px;height:36px;fill:var(--er);stroke:none;stroke-width:0;}
+  .bcard .ic svg{width:36px;height:36px;stroke:var(--er);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .bcard h4{font-family:var(--display);font-weight:600;font-size:18px;margin:0 0 8px;letter-spacing:-.01em;}
+  .bcard p{font-size:14px;color:var(--ink-soft);margin:0;}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}.cards3{grid-template-columns:1fr;}}
+  @media (max-width:600px){.grid{grid-template-columns:1fr;}}
+  .scard{background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;
+    padding:22px 22px 18px;display:flex;flex-direction:column;transition:transform .25s ease, box-shadow .25s ease;}
+  .scard .stoggle{margin-top:auto;}
+  .scard:hover{transform:translateY(-3px);box-shadow:var(--shadow-hi);}
+  .scard .topline{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px;}
+  .iconwrap{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .iconwrap svg.ic-fill,.iconwrap svg.ic-fill path{fill:var(--er);stroke:none;stroke-width:0;}
+  .iconwrap svg{width:34px;height:34px;stroke:var(--er);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .chip{font-size:13px;font-weight:500;color:var(--ink-soft);background:rgba(16,42,61,.045);border:0;
+    border-radius:6px;padding:6px 11px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;}
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);}
+  .chip.l4{background:rgba(16,42,61,.045);color:var(--ink-soft);}
+  .chip.l4 .dot{background:#d98a2b;}
+  .scard h3{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.01em;margin:0 0 4px;line-height:1.15;}
+  .scard .desc{font-size:13px;color:var(--ink-faint);margin:0 0 18px;min-height:34px;}
+  .pricelead{font-size:12.5px;color:var(--ink-soft);margin:0 0 2px;font-weight:500;}
+  .pricenum{font-family:var(--head);font-weight:700;font-size:36px;letter-spacing:0;line-height:1;color:var(--ink);}
+  .pricenum .cur{font-family:var(--head);font-size:21px;font-weight:500;vertical-align:9px;color:var(--ink);margin-right:1px;}
+  .pricenum .range{font-size:inherit;font-weight:inherit;color:inherit;}
+  .withins{font-size:12.5px;color:var(--ink);font-weight:600;margin:8px 0 0;}
+  .withins span{color:var(--ink);font-weight:600;}
+  .compare{margin:9px 0 4px;padding-top:8px;}
+  .barrow{display:flex;align-items:center;gap:10px;margin-bottom:11px;}
+  .barrow .blabel{flex:0 0 96px;font-family:var(--head);font-weight:500;font-size:12.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--cta);line-height:1.2;}
+  .barrow .track{flex:1;height:16px;background:#e9eaec;border-radius:9px;overflow:hidden;}
+  .barrow .fill{height:100%;width:0;border-radius:9px;transition:width .9s cubic-bezier(.22,1,.36,1);}
+  body.lit .barrow .fill{width:var(--w);}
+  .barrow.us .fill{background:linear-gradient(90deg,var(--brand),var(--brand-deep));}
+  .barrow.er .fill{background:linear-gradient(90deg,#e1565b,var(--er));}
+  .barrow .bval{flex:0 0 auto;font-family:var(--head);font-weight:600;font-size:14px;letter-spacing:.02em;color:var(--cta);width:62px;text-align:right;}
+  .barrow.er .bval{color:var(--er);}
+  .save{margin-top:6px;margin-bottom:14px;font-size:13px;font-weight:600;color:var(--ink);background:rgba(32,187,220,.07);
+    border-radius:10px;padding:9px 12px 9px 33px;display:block;line-height:1.5;position:relative;}
+  .save b{color:var(--brand-deep);}
+  .save svg{width:15px;height:15px;stroke:var(--brand-deep);fill:none;stroke-width:2;position:absolute;left:12px;top:12px;}
+  .ervs{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;font-weight:600;color:var(--er);background:#fdecee;border:0;border-radius:10px;padding:9px 12px;margin-bottom:8px;}
+  .ervs b{font-family:var(--display);font-weight:700;font-size:13px;}
+  .stoggle{margin-top:14px;border:none;background:none;padding:8px 0 2px;font-family:var(--body);font-size:13px;
+    font-weight:600;color:var(--brand-deep);cursor:pointer;display:flex;align-items:center;gap:8px;width:100%;justify-content:space-between;}
+  .stoggle .car{width:14px;height:14px;position:relative;flex:0 0 auto;border:0;transform:none;}
+  .stoggle .car::before,.stoggle .car::after{content:"";position:absolute;background:var(--brand-deep);border-radius:2px;}
+  .stoggle .car::before{left:1px;right:1px;top:6px;height:2px;}
+  .stoggle .car::after{top:1px;bottom:1px;left:6px;width:2px;transition:transform .2s;}
+  .scard.open .stoggle .car::after{transform:scaleY(0);}
+  .breakdown{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .scard.open .breakdown{max-height:280px;}
+  .breakdown .inner2{padding-top:10px;}
+  .breakdown .li{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-soft);padding:7px 0;border-bottom:1px dashed var(--border);}
+  .breakdown .li:last-child{border-bottom:0;}
+  .breakdown .li b{font-family:var(--display);font-weight:600;color:var(--ink);}
+  .breakdown .li.free b{color:var(--brand-deep);}
+  .acc.hide{display:none;}
+  .rt .r.hide,.medrow.hide,.lvlcard.hide,.included.hide,.leadtext.hide,.mednote.hide{display:none;}
+  .pfnores{display:none;text-align:center;color:var(--ink-faint);font-size:15px;padding:34px 0 6px;}
+  .pfnores.show{display:block;}
+  .pfnores a{color:var(--brand-deep);font-weight:600;}
+  .search{display:flex;align-items:center;gap:11px;background:var(--surface);border:1.5px solid var(--border);
+    border-radius:13px;padding:14px 16px;box-shadow:var(--shadow);max-width:620px;}
+  .search .mag{width:17px;height:17px;flex:0 0 auto;}
+  .search .mag svg{stroke:var(--ink-faint);fill:none;stroke-width:2;}
+  .search input{border:none;outline:none;font-family:var(--body);font-size:15px;color:var(--ink);width:100%;background:transparent;}
+  .search input::placeholder{color:var(--ink-faint);}
+  .xclear{flex:0 0 auto;width:24px;height:24px;border-radius:50%;border:none;background:var(--surface-tint);
+    cursor:pointer;display:none;align-items:center;justify-content:center;padding:0;transition:background .15s;}
+  .xclear svg{width:13px;height:13px;stroke:var(--ink-soft);fill:none;stroke-width:2.4;stroke-linecap:round;}
+  .xclear:hover{background:var(--border);}
+  .xclear:hover svg{stroke:var(--ink);}
+  .xclear.show{display:flex;}
+
+  .chips{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0 6px;}
+  .fchip{font-family:var(--body);font-size:13.5px;font-weight:500;padding:8px 14px;border-radius:6px;border:0;
+    background:rgba(16,42,61,.045);color:var(--ink-soft);cursor:pointer;transition:.15s;}
+  .fchip:hover{background:rgba(32,187,220,.14);color:var(--cta);}
+  .fchip.active{background:var(--cta);color:#fff;}
+  .acc{background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-top:13px;overflow:hidden;box-shadow:var(--shadow);}
+  .acc .hd{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px;cursor:pointer;}
+  .acc .hd h4{font-family:var(--display);font-weight:600;font-size:17px;margin:0;letter-spacing:-.01em;}
+  .acc .hd .meta{display:flex;align-items:center;gap:14px;}
+  .acc .hd .ct{font-size:13px;color:var(--ink-faint);}
+  .acc .hd .car{width:18px;height:18px;position:relative;flex:0 0 auto;border:0;transform:none;}
+  .acc .hd .car::before,.acc .hd .car::after{content:"";position:absolute;background:var(--brand-deep);border-radius:2px;}
+  .acc .hd .car::before{left:2px;right:2px;top:8px;height:2px;}
+  .acc .hd .car::after{top:2px;bottom:2px;left:8px;width:2px;transition:transform .2s;}
+  .acc.open .hd .car::after{transform:scaleY(0);}
+  .acc .bd{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .acc .bd .pad{padding:0 20px 22px;}
+  .collapsible{position:relative;}
+  .scopefilter{display:none;align-items:center;gap:9px;background:var(--surface-tint);border:1px solid var(--border);
+    border-radius:10px;padding:9px 13px;margin:2px 0 8px;}
+  .collapsible.expanded .scopefilter{display:flex;}
+  .scopefilter svg{width:15px;height:15px;stroke:var(--ink-faint);fill:none;stroke-width:2;flex:0 0 auto;}
+  .scopefilter input{border:none;outline:none;background:transparent;font-family:var(--body);font-size:14px;color:var(--ink);width:100%;}
+  .scopefilter input::placeholder{color:var(--ink-faint);}
+  .rowswrap{position:relative;}
+  .rows{max-height:248px;overflow:hidden;transition:max-height .4s ease;}
+  .collapsible.expanded .rows{max-height:6000px;}
+  .rfade{position:absolute;left:0;right:0;bottom:0;height:72px;pointer-events:none;
+    background:linear-gradient(180deg,rgba(255,255,255,0),var(--surface));transition:opacity .25s;}
+  .collapsible.expanded .rfade{opacity:0;}
+  .rt .r .fee{font-family:var(--body);font-size:12.5px;font-weight:600;color:var(--ink-soft);text-align:right;padding-left:14px;}
+  .viewall{margin-top:12px;border:none;background:none;padding:4px 0 2px;font-family:var(--body);font-size:13.5px;
+    font-weight:600;color:var(--brand-deep);cursor:pointer;display:inline-flex;align-items:center;gap:8px;}
+  .viewall .ar{width:16px;height:16px;position:relative;display:inline-block;border:0;transform:none;flex:0 0 auto;}
+  .viewall .ar::before,.viewall .ar::after{content:"";position:absolute;background:var(--brand-deep);border-radius:2px;}
+  .viewall .ar::before{left:1px;right:1px;top:7px;height:2px;}
+  .viewall .ar::after{top:1px;bottom:1px;left:7px;width:2px;transition:transform .2s;}
+  .collapsible.expanded .viewall .ar{transform:none;margin-top:0;}
+  .collapsible.expanded .viewall .ar::after{transform:scaleY(0);}
+  .r.more.dedlink{cursor:pointer;}
+  .medtable{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff;margin-top:6px;}
+  .medhead,.medrow{display:grid;grid-template-columns:minmax(0,1.7fr) 1fr 1fr 1fr;align-items:center;gap:12px;padding:13px 18px;}
+  .medhead{background:var(--cta);border-bottom:0;}
+  .medhead span{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;}
+  .medrow{border-bottom:0;}
+  .medrow:nth-child(odd){background:rgba(21,53,129,.02);}
+  .medrow:nth-child(even){background:rgba(21,53,129,.05);}
+  .medrow .mname{font-size:14px;color:var(--ink);font-weight:500;line-height:1.35;}
+  .medrow .mcol{font-family:var(--display);font-weight:600;font-size:14px;color:var(--ink);}
+  .medrow .mcol.dash{color:var(--ink-faint);font-weight:500;}
+  .medhead .hiv{text-align:center;}
+  .medrow .iv{text-align:center;}
+  .medrow .ivnote{font-family:var(--body);font-weight:600;font-size:12.5px;color:var(--ink-soft);text-align:center;line-height:1.3;}
+  .incl{display:inline-block;font-family:var(--body);font-size:11.5px;font-weight:600;color:#3f7d4f;background:#e8f5ec;border:1px solid #cde9d5;border-radius:20px;padding:3px 11px;}
+  .mednote{font-size:12.5px;color:var(--ink-soft);line-height:1.55;margin:14px 2px 0;}
+  @media (max-width:620px){
+    .medhead{display:none;}
+    .medrow{grid-template-columns:1fr;gap:5px;padding:14px 16px;}
+    .medrow .mname{font-weight:600;margin-bottom:3px;}
+    .medrow .mcol::before,.medrow .ivnote::before{content:attr(data-l) ": ";font-family:var(--body);font-weight:600;color:var(--ink-faint);font-size:11px;text-transform:uppercase;letter-spacing:.04em;}
+    .medrow .iv,.medrow .ivnote{text-align:left;}
+  }
+  .lvlcard{display:flex;gap:16px;align-items:center;border:1px solid var(--border);border-radius:12px;padding:15px 16px;margin-top:12px;}
+  .lvlcard .tag{flex:0 0 auto;width:64px;text-align:center;}
+  .lvlcard .tag .lv{font-family:var(--display);font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:6px;}
+  .lvlcard .tag .lv::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;}
+  .lvlcard.l4 .tag .lv::before{background:#d98a2b;}
+  .lvlcard.l5 .tag .lv::before{background:var(--er);}
+  .lvlcard .tag .ac{font-size:11px;color:var(--ink-faint);}
+  .lvlcard .ex{flex:1;font-size:13.5px;color:var(--ink-soft);}
+  .lvlcard .amt{flex:0 0 auto;text-align:right;font-size:13px;color:var(--ink-soft);}
+  .lvlcard .amt b{font-family:var(--display);font-weight:700;color:var(--ink);display:block;font-size:15px;}
+  .leadtext{font-size:14px;color:var(--ink-soft);margin:14px 0 0;}
+  .rt{margin-top:6px;}
+  .rt .r{display:flex;justify-content:space-between;font-size:14px;color:var(--ink-soft);padding:11px 14px;border-bottom:0;}
+  .rt .r:nth-child(odd){background:rgba(21,53,129,.02);}
+  .rt .r:nth-child(even){background:rgba(21,53,129,.05);}
+  .rt a.r.more{background:none !important;padding-left:0;}
+  .rt .r b{font-family:var(--display);font-weight:700;color:var(--ink);}
+  .rt .r.more{color:var(--brand-deep);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:13px;}
+  .rt a.r.more{justify-content:flex-start;gap:8px;}
+  .rt a.r.more b{color:var(--brand-deep);font-weight:700;font-size:15px;}
+  .rt a.r.more:hover{text-decoration:none;}
+  .rt a.r.more:hover span{text-decoration:underline;text-decoration-color:var(--er);text-decoration-thickness:2px;text-underline-offset:4px;}
+  .viewall{text-transform:uppercase;letter-spacing:.03em;}
+  .viewall:hover .vtxt{text-decoration:underline;text-decoration-color:var(--er);text-decoration-thickness:2px;text-underline-offset:4px;}
+  .included{background:rgba(32,187,220,.07);border-radius:12px;padding:18px 20px;margin-top:18px;}
+  .included h5{font-family:var(--display);font-weight:600;font-size:15px;margin:0 0 10px;}
+  .included .tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .included .tags span{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:500;color:var(--ink-soft);background:#fff;border:0;border-radius:6px;padding:7px 12px;}
+  .included .tags span::before{content:"";display:inline-block;width:15px;height:15px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%20-960%20960%20960%27%20fill%3D%27%23153581%27%3E%3Cpath%20d%3D%27M382-240%20154-468l57-57%20171%20171%20367-367%2057%2057-424%20424Z%27%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;flex:0 0 auto;}
+  .why{display:grid;grid-template-columns:.9fr 1.1fr;gap:46px;align-items:center;}
+  @media (max-width:820px){.why{grid-template-columns:1fr;}.hero .inner{grid-template-columns:1fr;}.trust .inner{grid-template-columns:1fr;}}
+  .bars{background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);padding:26px;}
+  .brow{margin-bottom:20px;}
+  .brow:last-child{margin-bottom:0;}
+  .brow .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+  .brow .pc{font-family:var(--display);font-weight:800;font-size:30px;letter-spacing:-.02em;}
+  .brow.home .pc{color:var(--er);}
+  .brow.adm .pc{color:var(--brand-deep);}
+  .brow .lab{font-size:13.5px;color:var(--ink-soft);max-width:30ch;}
+  .brow .gt{height:16px;background:#e9eaec;border-radius:9px;overflow:hidden;}
+  .brow .gf{height:100%;width:0;border-radius:9px;transition:width 1s cubic-bezier(.22,1,.36,1);}
+  .brow.home .gf{background:linear-gradient(90deg,#e1565b,var(--er));}
+  .brow.adm .gf{background:linear-gradient(90deg,var(--brand),var(--brand-deep));}
+  body.lit .brow.home .gf{width:88%;}
+  body.lit .brow.adm .gf{width:12%;}
+  .why .copy h3{font-family:var(--head);font-weight:500;font-size:clamp(24px,2.8vw,30px);letter-spacing:normal;margin:0 0 12px;line-height:1.15;}
+  .why .copy p{font-size:15px;color:var(--ink-soft);margin:0 0 18px;}
+  .credpills{display:flex;flex-wrap:wrap;gap:10px;}
+  .credpills .p{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:500;color:var(--ink-soft);
+    background:#d5eef8;border:0;border-radius:6px;padding:7px 12px;}
+  .credpills .p svg{width:15px;height:15px;stroke:var(--cta);fill:none;stroke-width:2;}
+  .statcard{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);padding:24px 26px;}
+  .sc-lab{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 14px;}
+  .wlock{display:flex;align-items:center;gap:16px;margin:0 0 18px;}
+  .wnum{font-family:var(--head);font-weight:700;font-size:44px;line-height:1;color:var(--er);flex:0 0 auto;}
+  .wcap{font-family:var(--head);font-weight:600;font-size:15px;letter-spacing:.03em;text-transform:uppercase;color:var(--er);line-height:1.3;margin:0;max-width:none;}
+  .waffle{display:grid;grid-template-columns:repeat(25,1fr);gap:5px;width:100%;}
+  .waffle i{aspect-ratio:1/1;border-radius:50%;background:#dfe4ea;opacity:0;transform:scale(.5);transition:opacity .25s ease,transform .25s ease;}
+  .waffle i.on{background:var(--er);}
+  .waffle.run i{opacity:1;transform:scale(1);}
+  .legend{display:flex;gap:16px;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-top:18px;padding-top:14px;border-top:1px solid var(--border-soft);}
+  .legend span{display:inline-flex;align-items:center;gap:7px;}
+  .legend .sw{width:10px;height:10px;border-radius:50%;background:var(--er);}
+  .legend .sw.adm{background:#dfe4ea;}
+  @media (max-width:520px){.waffle{gap:4px;}.wnum{font-size:38px;}.wlock{gap:12px;}.wcap{font-size:14px;}}
+  @media (prefers-reduced-motion:reduce){.waffle i{opacity:1;transform:none;transition:none;}}
+  .ctaband{background:#fbfdfe;color:var(--ink);}
+  .ctaband .inner{padding:54px 0;}
+  .ctaband h2{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;margin:0 0 10px;color:var(--ink);}
+  .ctaband p{font-size:16px;color:var(--ink);margin:0 0 26px;}
+  .ctaband .cta-rating,.ctaband .cta-rating .r-num,.ctaband .cta-rating .r-src{color:var(--ink-soft);}
+  .ctaband .btn.primary{background:var(--cta);color:#fff;}
+  .ctaband .btn.primary:hover{background:var(--cta-deep);}
+  .ctaband .btn.ghost{background:transparent;color:var(--cta);border-color:var(--cta);}
+  .ctaband .btn.ghost:hover{border-color:var(--brand-deep);color:var(--brand-deep);}
+  .ctaband .locgrid{margin-top:34px;}
+  .ctatop{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap;}
+  .ctatop .ctacopy{flex:1 1 420px;min-width:0;}
+  .ctatop .ctacopy p{margin-bottom:0;}
+  .ctatop .ctas{flex:0 0 auto;}
+  @media (max-width:820px){.ctatop{align-items:flex-start;}.ctatop .ctacopy p{margin-bottom:6px;}}
+
+  footer.site a{color:#bcd4e6;}
+  footer.site .fl{display:flex;gap:18px;flex-wrap:wrap;}
+  .disc{font-size:12px;color:var(--ink-faint);line-height:1.55;margin-top:26px;max-width:92ch;}
+  .disc b{color:var(--ink-soft);font-weight:600;}
+  @media (prefers-reduced-motion: reduce){
+  .scard,.fill,.gf,.breakdown,.acc .bd,.rows,.rfade{transition:none;}
+  .gaprow .gf{animation:none;transform:none;}
+}
+  .whyxray .inner,.explain .inner,.ctaband .inner,.band .inner,.site .inner{padding-left:26px;padding-right:26px;}
+  .tquote{background:var(--band-grad);color:#fff;text-align:center;padding:62px 0;}
+  .tquote .tqwrap{max-width:860px;}
+  .tquote .qmark{font-family:var(--serif);font-style:italic;font-weight:700;font-size:58px;line-height:.5;margin-bottom:22px;color:var(--er);}
+  .tquote .tqitem{display:none;margin:0;}
+  .tquote .tqitem.on{display:block;}
+  .tquote .tqitem .tq{font-family:var(--display);font-weight:700;font-size:clamp(16px,2.1vw,23px);line-height:1.32;letter-spacing:-.01em;margin:0 auto;max-width:44ch;display:block;}
+  .tquote .tqby{display:block;margin-top:22px;font-size:14px;font-weight:700;}
+  .tquote .tqby i{display:block;font-style:normal;font-weight:500;font-size:12.5px;color:rgba(255,255,255,.68);margin-top:3px;}
+  .tquote .tqdots{display:flex;gap:10px;justify-content:center;margin-top:30px;}
+  .tquote .tqdots button{width:11px;height:11px;border-radius:50%;border:none;background:rgba(255,255,255,.32);cursor:pointer;padding:0;transition:background .2s;}
+  .tquote .tqdots button.on{background:#fff;}
+  .tbd{color:var(--er);}
+  .costintro{max-width:72ch;}
+  .costintro p{font-size:15.5px;color:var(--ink-soft);line-height:1.7;margin:0 0 14px;}
+  .coststat{display:flex;align-items:center;gap:24px;background:rgba(32,187,220,.07);border:1px solid var(--border);border-radius:16px;padding:22px 26px;margin:24px 0 36px;flex-wrap:wrap;}
+  .coststat .cs-num{font-family:var(--display);font-weight:800;font-size:38px;color:var(--brand-deep);line-height:1;flex:none;}
+  .coststat .cs-lab{font-size:14px;color:var(--ink-soft);line-height:1.55;max-width:62ch;flex:1;min-width:240px;}
+  .costh{font-family:var(--head);font-weight:500;font-size:clamp(24px,3vw,31px);color:var(--ink);margin:52px 0 16px;letter-spacing:normal;line-height:1.15;}
+  .cards2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:34px;}
+  @media(max-width:820px){.cards2{grid-template-columns:1fr;}}
+  .cards2 .bcard{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow);}
+  .cs-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-deep);background:rgba(32,187,220,.07);padding:3px 10px;border-radius:20px;margin-bottom:11px;}
+  .cards2 .bcard h4{font-family:var(--display);font-weight:700;font-size:16.5px;margin:0 0 9px;color:var(--ink);}
+  .cards2 .bcard p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin:0 0 10px;}
+  .cards2 .bcard p.fine{font-size:12.5px;color:var(--ink-faint);margin-top:12px;margin-bottom:0;}
+  .example .fine{font-size:12.5px;color:var(--ink-faint);margin:16px 0 0;padding-top:14px;border-top:1px solid var(--border-soft);}
+  .cklist{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px;}
+  .cklist li{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:500;color:var(--ink-soft);background:rgba(16,42,61,.045);border:0;border-radius:6px;padding:7px 12px;line-height:1.4;}
+  .cklist li::before{content:"";display:inline-block;width:15px;height:15px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%20-960%20960%20960%27%20fill%3D%27%23153581%27%3E%3Cpath%20d%3D%27M382-240%20154-468l57-57%20171%20171%20367-367%2057%2057-424%20424Z%27%2F%3E%3C%2Fsvg%3E") no-repeat center/contain;flex:0 0 auto;}
+  .example{background:rgba(32,187,220,.07);border:0;border-radius:14px;box-shadow:none;padding:22px 24px 24px;margin-bottom:34px;max-width:620px;position:relative;overflow:hidden;}
+  .example::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--cta);}
+  .example .ex-h{font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--brand-deep);margin-bottom:11px;}
+  .example p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin:0 0 10px;}
+  .commit{max-width:72ch;font-size:15px;color:var(--ink-soft);line-height:1.7;margin:0;}
+  .cards2{align-items:stretch;}
+  .cards2 .bcard{display:flex;flex-direction:column;}
+
+  .exlist{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px;}
+  .exlist li{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--ink);}
+  .exlist .pt{flex:none;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:20px;min-width:56px;text-align:center;color:var(--cta);background:#fff;}
+  .commitband{background:var(--band-grad);color:#fff;padding:50px 0;}
+  .commitband .wrap{max-width:860px;text-align:center;}
+  .commitband .ci-ic{width:96px;height:96px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+  .commitband .ci-ic svg{width:44px;height:44px;fill:var(--accent);stroke:none;}
+  .commitband h3{font-family:var(--head);font-weight:500;font-size:clamp(23px,2.7vw,30px);margin:0 0 12px;letter-spacing:normal;color:#fff;}
+  .commitband p{font-size:15.5px;color:#bcd4e6;line-height:1.7;margin:0 auto;max-width:66ch;}
+  .cost-top{display:grid;grid-template-columns:1.25fr .9fr;gap:34px;align-items:center;margin-bottom:36px;}
+  @media(max-width:820px){.cost-top{grid-template-columns:1fr;gap:20px;}}
+  .cost-top .costintro p:last-child{margin-bottom:0;}
+  .cost-top .coststat{flex-direction:column;align-items:flex-start;gap:10px;margin:0;}
+  .cost-top .coststat .cs-num{font-size:44px;}
+  .commitband .commit-call{display:inline-flex;align-items:center;gap:9px;margin-top:24px;background:#fff;color:var(--cta);font-family:var(--body);font-weight:700;font-size:15px;letter-spacing:.03em;text-transform:uppercase;padding:13px 22px;border-radius:11px;border:1.5px solid transparent;}
+  .commitband .commit-call:hover{background:#e8f4fb;}
+  .commitband .commit-call svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;}
+  .commitband .commit-call svg.mi{fill:currentColor;stroke:none;stroke-width:0;}
+  .costcards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px;}
+  @media(max-width:720px){.costcards{grid-template-columns:1fr;}}
+  .ccard{background:transparent;border:0;border-radius:0;padding:0;display:grid;grid-template-columns:auto 1fr;align-items:start;column-gap:16px;}
+  .cc-ic{flex:0 0 auto;width:52px;height:52px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;}
+  .cc-ic svg{width:26px;height:26px;fill:var(--cta);stroke:none;}
+  .ccard .cc-h{font-family:var(--display);font-weight:700;font-size:17px;color:var(--cta);margin-bottom:9px;letter-spacing:-.01em;}
+  .ccard p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin:0;}
+  .costintro{max-width:82ch;margin-bottom:28px;}
+  .costcards.three{grid-template-columns:repeat(3,1fr);align-items:stretch;}
+  @media(max-width:820px){.costcards.three{grid-template-columns:1fr;}}
+  .costcards .coststat{background:rgba(32,187,220,.07);border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;align-items:flex-start;gap:9px;margin:0;}
+  .costcards .coststat .cs-num{font-size:38px;}
+  .costcards .coststat .cs-lab{font-size:14px;max-width:none;}
+  .costsplit{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:stretch;margin-bottom:16px;
+    background:rgba(32,187,220,.07);border-radius:18px;padding:28px 30px;}
+  @media (max-width:820px){.costsplit{grid-template-columns:1fr;gap:22px;padding:22px;}}
+  .costcards-stack{display:grid;gap:20px;grid-template-rows:auto auto;align-content:center;}
+  .costcards-stack .ccard + .ccard{border-top:1px solid rgba(16,42,61,.09);padding-top:20px;}
+  .costsplit .costfocus{margin-bottom:0;background:transparent;border:0;border-radius:0;padding:0;flex-direction:column;align-items:stretch;justify-content:center;gap:18px;}
+  .costfocus{display:flex;align-items:center;gap:34px;background:rgba(32,187,220,.07);border:1px solid var(--border);border-radius:16px;padding:30px 34px;margin-bottom:36px;flex-wrap:wrap;}
+  .costfocus .cf-num{font-family:var(--display);font-weight:800;font-size:clamp(46px,7vw,66px);color:var(--brand-deep);line-height:.92;letter-spacing:-.02em;flex:0 0 auto;}
+  .costfocus .cf-body{flex:1;min-width:280px;}
+  .costfocus .cf-eyebrow{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-deep);margin-bottom:8px;}
+  .costfocus .cf-body p{font-size:15px;color:var(--ink-soft);line-height:1.6;margin:0;max-width:64ch;}
+  .partsbox{margin-bottom:34px;}
+  .parts-grid{display:grid;grid-template-columns:1.9fr 1fr;gap:30px;align-items:start;}
+  @media (max-width:820px){.parts-grid{grid-template-columns:1fr;}}
+  .partsbox{background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px 28px;box-shadow:var(--shadow);}
+  .partsbox .part + .part{margin-top:22px;padding-top:22px;border-top:1px solid var(--border-soft);}
+  .partsbox h4{font-family:var(--display);font-weight:700;font-size:16.5px;margin:0 0 9px;color:var(--ink);}
+  .partsbox p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin:0 0 10px;}
+  .partsbox p.fine{font-size:12.5px;color:var(--ink-faint);margin-top:12px;margin-bottom:0;}
+
+  .parts-grid .example{max-width:none;margin-bottom:0;align-self:center;}
+  .costfocus .cf-compare{width:100%;}
+  .costfocus .cf-compare .gaprow:last-of-type{margin-bottom:8px;}
+  .costsplit-note{font-size:15px;color:var(--ink-soft);line-height:1.6;margin:0 0 50px;max-width:80ch;}
+  .ccard p.cc-note{grid-column:1/-1;font-size:13.5px;font-weight:600;color:var(--ink-soft);line-height:1.55;margin:20px 0 0;padding-top:20px;border-top:1px solid rgba(16,42,61,.09);}
+  @media (max-width:640px){
+  .ctaband .ctas{margin-left:auto;margin-right:auto;}
+}
+  .mob-br{display:none;}
+  @media (max-width:640px){
+    .mob-br{display:none;}
+    .util{font-size:13px;}
+    .util .inner{align-items:center;gap:10px;padding-left:16px;padding-right:16px;}
+    .status{align-items:center;line-height:1.3;gap:8px;white-space:nowrap;min-width:0;}
+    .status .open,.status .wait{white-space:nowrap;}
+    .status .sep{display:inline-block;align-self:center;height:1.15em;width:1px;padding:0;overflow:hidden;color:transparent;background:rgba(255,255,255,.28);}
+    .hdr-call{display:none !important;}
+    .hamburger{margin-left:auto;}
+  }
+  @media (max-width:359px){
+    .mob-br{display:inline;}
+    .util .inner{align-items:flex-start;}
+    .status{align-items:flex-start;white-space:normal;}
+    .status .sep{align-self:stretch;height:auto;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP NAV ============ -->
+<header class="site-header">
+  <div class="util">
+    <div class="inner">
+      <div class="status">
+        <span class="dot"></span><span class="open">Open today<br class="mob-br"> 8AM – 7PM</span>
+        <span class="sep">|</span><span class="wait">Current wait:<br class="mob-br"> 5-20 min</span>
+      </div>
+      <nav class="util-links">
+        <a href="https://apr-sb4.servicebus.windows.net/ACE6233C-9DF4-45BB-9051-1B8AF3500FF3/portal/12229/index.html#/login" target="_blank" rel="noopener">Patient Portal</a><a href="insurance.html">Insurance</a><a href="careers.html">Careers</a><a href="about-us.html">About</a>
+      </nav>
+    </div>
+  </div>
+  <div class="mainbar">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <img class="logo-img" src="assets/logo-mark.png" alt="Norwood Urgent Care">
+      </a>
+      <nav class="mainnav">
+        <div class="navgroup">
+          <button class="navbtn" aria-haspopup="true">Patients <span class="car"></span></button>
+          <div class="dropdown">
+            <a href="urgent-care.html">Urgent Care</a>
+            <a href="pricing-xrays.html">X-Rays</a>
+            <a href="vaccinations.html">Vaccinations</a>
+            <a href="onsite-labs.html">On-Site Labs</a>
+            <a href="physicals.html">Physicals</a>
+          </div>
+        </div>
+        <div class="navgroup">
+          <button class="navbtn" aria-haspopup="true">Employers <span class="car"></span></button>
+          <div class="dropdown">
+            <a href="dot-physicals.html">DOT Physicals</a>
+            <a href="workplace-injuries.html">Workplace Injuries</a>
+            <a href="work-physicals.html">Work Physicals</a>
+            <a href="drug-testing.html">Drug Testing</a>
+            <a href="return-to-work.html">Return to Work Evaluations</a>
+            <a href="urine-toxicology.html">Urine Toxicology</a><a href="motor-vehicle-accidents.html">Motor Vehicle Accident Claims</a>
+          </div>
+        </div>
+        <a class="navlink active" href="pricing-page-full.html">Know Your Cost</a>
+        <a class="navlink" href="contact-us.html">Contact Us</a>
+        <a class="navlink" href="https://checkout.square.site/merchant/MLX7WFBQASHPV/checkout/BD2WBFA3EFNBL3XI3W6DYOFJ" target="_blank" rel="noopener">Pay My Bill</a>
+      </nav>
+      <a class="navcall" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>781-255-0500</a>
+      <a class="hdr-call" href="tel:7812550500" aria-label="Call 781-255-0500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mp-overlay" id="mpOverlay"></div>
+<aside class="mobile-panel" id="mobilePanel">
+  <div class="mp-head"><button class="mp-close" id="mpClose" aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="mp-sec">Patients</div>
+  <div class="sub"><a href="urgent-care.html">Urgent Care</a><a href="pricing-xrays.html">X-Rays</a><a href="vaccinations.html">Vaccinations</a><a href="onsite-labs.html">On-Site Labs</a><a href="physicals.html">Physicals</a></div>
+  <div class="mp-sec">Employers</div>
+  <div class="sub"><a href="dot-physicals.html">DOT Physicals</a><a href="workplace-injuries.html">Workplace Injuries</a><a href="work-physicals.html">Work Physicals</a><a href="drug-testing.html">Drug Testing</a><a href="return-to-work.html">Return to Work Evaluations</a><a href="urine-toxicology.html">Urine Toxicology</a><a href="motor-vehicle-accidents.html">Motor Vehicle Accident Claims</a></div>
+  <div class="mp-sec">More</div>
+  <a href="pricing-page-full.html">Know Your Cost</a>
+  <a href="contact-us.html">Contact Us</a>
+  <a href="https://checkout.square.site/merchant/MLX7WFBQASHPV/checkout/BD2WBFA3EFNBL3XI3W6DYOFJ" target="_blank" rel="noopener">Pay My Bill</a>
+  <a href="https://apr-sb4.servicebus.windows.net/ACE6233C-9DF4-45BB-9051-1B8AF3500FF3/portal/12229/index.html#/login" target="_blank" rel="noopener">Patient Portal</a>
+  <a href="insurance.html">Insurance</a>
+  <a href="careers.html">Careers</a>
+  <a href="about-us.html">About</a>
+  <div class="mp-call"><a class="btn primary" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a><a class="btn mp-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Get Directions</a></div>
+</aside>
+
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<section class="phead">
+  <div class="phead-ic" aria-hidden="true"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 20V23H32V20H16Z"/><path d="M16 28V25H20V28H16Z"/><path d="M16 30V33H20V30H16Z"/><path d="M22 30V33H26V30H22Z"/><path d="M28 30V33H32V30H28Z"/><path d="M28 28V25H32V28H28Z"/><path d="M26 28H22V25H26V28Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M30 4H11C10.4477 4 10 4.44772 10 5V43C10 43.5523 10.4477 44 11 44H37C37.5523 44 38 43.5523 38 43V12H31C30.4477 12 30 11.5523 30 11V4ZM14 19C14 18.4477 14.4477 18 15 18H33C33.5523 18 34 18.4477 34 19V34C34 34.5523 33.5523 35 33 35H15C14.4477 35 14 34.5523 14 34V19Z"/><path d="M37.4142 10H32V4.58579L37.4142 10Z"/></svg></div>
+  <div class="wrap">
+    <p class="eyebrow">Pricing &amp; Fee Transparency</p>
+    <h1>Understanding the cost of your visit.</h1>
+    <p class="sub">We believe healthcare pricing should be simple, transparent, and easy to understand — here’s what makes up a visit and what you’ll typically owe.</p>
+    <div class="phcta">
+      <a href="tel:7812550500" class="btn dark"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a>
+      <a class="btn dirbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Get Directions</a>
+    </div>
+    <div class="factchips">
+      <span><svg class="ci solid" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M20.6 13.4L13.4 20.6a2 2 0 0 1-2.8 0l-7-7A2 2 0 0 1 3 12V5a2 2 0 0 1 2-2h7a2 2 0 0 1 1.4.6l7 7a2 2 0 0 1 .2 2.8zM7.5 9A1.5 1.5 0 1 0 7.5 6a1.5 1.5 0 0 0 0 3z"/></svg>$142 average visit, before insurance</span>
+      <span><svg class="ci solid" viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.17647 8.5C7.42215 8.5 6 9.93908 6 11.7143V31C6 32.7752 7.42215 34.2143 9.17647 34.2143H19.7646V36.3572H15.5293V38.5H32.4705V36.3572H28.2353V34.2143H38.8235C40.5778 34.2143 42 32.7752 42 31V11.7143C42 9.93908 40.5778 8.5 38.8235 8.5H9.17647ZM21.8823 36.3572V34.2143H26.1177V36.3572H21.8823ZM13.4119 12.7858H15.5296V14.9286H17.6475V17.0715H15.5296V19.2143H13.4119V17.0715H11.2945L11.2945 14.9286H13.4119V12.7858ZM11.2939 23.5001C11.2939 22.9083 11.768 22.4286 12.3528 22.4286H16.5881C17.1728 22.4286 17.6469 22.9083 17.6469 23.5001V27.7858C17.6469 28.3775 17.1728 28.8572 16.5881 28.8572H12.3528C11.768 28.8572 11.2939 28.3775 11.2939 27.7858V23.5001ZM20.8234 13.8572C20.8234 13.2655 21.2974 12.7858 21.8822 12.7858H26.1175C26.7023 12.7858 27.1763 13.2655 27.1763 13.8572V18.1429C27.1763 18.7346 26.7023 19.2143 26.1175 19.2143H21.8822C21.2974 19.2143 20.8234 18.7346 20.8234 18.1429V13.8572ZM20.8232 23.5001C20.8232 22.9083 21.2973 22.4286 21.8821 22.4286H26.1174C26.7021 22.4286 27.1762 22.9083 27.1762 23.5001V27.7858C27.1762 28.3775 26.7021 28.8572 26.1174 28.8572H21.8821C21.2973 28.8572 20.8232 28.3775 20.8232 27.7858V23.5001ZM30.3527 13.8572C30.3527 13.2655 30.8268 12.7858 31.4116 12.7858H35.6469C36.2316 12.7858 36.7057 13.2655 36.7057 13.8572V18.1429C36.7057 18.7346 36.2316 19.2143 35.6469 19.2143H31.4116C30.8268 19.2143 30.3527 18.7346 30.3527 18.1429V13.8572Z"/></svg>200+ services priced</span>
+      <span><svg class="ci" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>No card held at check-in</span>
+      <span><svg class="ci solid" viewBox="0 0 48 48"><path fill-rule="evenodd" clip-rule="evenodd" d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44ZM34.7415 17.6709C35.1121 17.2614 35.0805 16.629 34.6709 16.2585C34.2614 15.8879 33.629 15.9195 33.2585 16.3291L21.2809 29.5675L14.6905 23.2766C14.291 22.8953 13.658 22.91 13.2766 23.3095C12.8953 23.709 12.91 24.342 13.3095 24.7234L20.6429 31.7234L21.3858 32.4325L22.0749 31.6709L34.7415 17.6709Z"/></svg>No appointment needed</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<!-- ============ STICKY SUBNAV ============ -->
+<div class="subnav">
+  <div class="inner">
+    <a href="#costs" data-spy="costs">What will it cost?</a>
+    <a href="#scenarios" data-spy="scenarios">Common visits</a>
+    <a href="#billing" data-spy="billing">How billing works</a>
+    <a href="#pricelist" data-spy="pricelist">Full price list</a>
+    <a href="#why" data-spy="why">Why it costs less</a>
+    <a href="#locations" data-spy="locations">Locations</a>
+  </div>
+</div>
+
+<!-- ============ COMMON VISITS / SCENARIOS ============ -->
+<section class="block" id="costs">
+  <div class="wrap">
+    <p class="eyebrow">Understanding your costs</p>
+    <h2 class="secttl">What shapes your out-of-pocket cost.</h2>
+    <div class="costintro">
+      <p>Health insurance plans, benefits, deductibles, and coverage often change from year to year as insurers update policies and raise premiums. As a result, your out-of-pocket cost may differ from a previous visit — even for the same care.</p>
+    </div>
+
+    <div class="costsplit">
+      <div class="costcards-stack">
+        <div class="ccard">
+          <span class="cc-ic"><svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-480H160v480Zm40-40h400L400-680H200v400Zm320-320h240v-80H520v80ZM160-240v-480 480Z"/></svg></span>
+          <div class="cc-body">
+            <div class="cc-h">Fee at the time of your visit</div>
+            <p>You’ll typically owe any copayment your plan requires. Afterward, we submit claims directly to your insurance carrier.</p>
+          </div>
+        </div>
+        <div class="ccard">
+          <span class="cc-ic"><svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M260-361v-40H160v-80h200v-80H200q-17 0-28.5-11.5T160-601v-160q0-17 11.5-28.5T200-801h60v-40h80v40h100v80H240v80h160q17 0 28.5 11.5T440-601v160q0 17-11.5 28.5T400-401h-60v40h-80Zm298 240L388-291l56-56 114 114 226-226 56 56-282 282Z"/></svg></span>
+          <div class="cc-body">
+            <div class="cc-h">Your total fee responsibility</div>
+            <p>Your total, final fee depends on several factors, including your insurance, deductible, and the services rendered.</p>
+          </div>
+          <p class="cc-note">Average total cost of a patient visit at Norwood Urgent Care. Every visit is unique — our goal is high-quality, affordable care while helping you understand exactly what you’re paying for.</p>
+        </div>
+      </div>
+
+      <div class="costfocus">
+        <div class="cf-compare thesis">
+          <p class="tt">A typical visit</p>
+          <p class="ts">Same care, a fraction of the bill</p>
+          <div class="gaprow us"><span class="gl">Norwood Urgent Care Average Bill</span><span class="gt"><span class="gf"></span></span><span class="gv">$142</span></div>
+          <div class="gaprow er"><span class="gl">Average MA ER visit</span><span class="gt"><span class="gf"></span></span><span class="gv">$5,000</span></div>
+          <p class="note">Before insurance. MA ER figure is a moderate-severity state average; see full note below.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="costh">Your visit is typically made up of two parts</h3>
+    <div class="partsbox">
+      <div class="parts-grid">
+        <div class="parts-col">
+          <div class="part">
+            <div class="cs-tag">Part 1</div>
+            <h4>Office visit</h4>
+            <p>Every patient is billed for an Evaluation and Management (E/M) service based on the complexity of the evaluation, exam, medical decision-making, and care required—not simply the time spent.</p>
+          </div>
+          <div class="part">
+            <div class="cs-tag">Part 2</div>
+            <h4>Additional services (when necessary)</h4>
+            <p>Depending on your provider’s clinical judgment, added services may help diagnose or treat your condition. These may include:</p>
+            <ul class="cklist"><li>Digital X-Rays</li><li>Laboratory testing</li><li>EKGs</li><li>Splinting or casting</li><li>Laceration (stitches) repair</li><li>IV fluids or medications</li><li>Other in-office procedures</li></ul>
+            <p class="fine">Like most physician offices and hospital outpatient departments, each service is submitted as a separate insurance claim line. Together, these make up the total cost of your visit.</p>
+          </div>
+        </div>
+        <div class="example">
+          <div class="ex-h">Example</div>
+          <p>A patient who comes in with a painful wrist after a fall may receive:</p>
+          <ul class="exlist">
+            <li><span class="pt">Part 1</span><span>Office visit (Evaluation &amp; Management)</span></li>
+            <li><span class="pt">Part 2</span><span>Wrist X-Ray</span></li>
+            <li><span class="pt">Part 2</span><span>Wrist splint</span></li>
+          </ul>
+          <p class="fine">The office visit is your Part 1 charge; the X-Ray and splint are Part 2 services. They appear as separate lines on the insurance claim — but together, they represent a single urgent care visit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="commitband">
+  <div class="wrap">
+    <div class="ci-ic"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 20V23H32V20H16Z"/><path d="M16 28V25H20V28H16Z"/><path d="M16 30V33H20V30H16Z"/><path d="M22 30V33H26V30H22Z"/><path d="M28 30V33H32V30H28Z"/><path d="M28 28V25H32V28H28Z"/><path d="M26 28H22V25H26V28Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M30 4H11C10.4477 4 10 4.44772 10 5V43C10 43.5523 10.4477 44 11 44H37C37.5523 44 38 43.5523 38 43V12H31C30.4477 12 30 11.5523 30 11V4ZM14 19C14 18.4477 14.4477 18 15 18H33C33.5523 18 34 18.4477 34 19V34C34 34.5523 33.5523 35 33 35H15C14.4477 35 14 34.5523 14 34V19Z"/><path d="M37.4142 10H32V4.58579L37.4142 10Z"/></svg></div>
+    <h3>Our commitment to price transparency</h3>
+    <p>We understand that medical billing can be confusing. Our goal is to provide high-quality, affordable care while helping you understand the services you receive and any associated costs. If you have questions about your insurance benefits or expected charges, our team is happy to help explain them before or after your visit whenever possible.</p>
+    <a class="btn commit-call" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a>
+  </div>
+</section>
+
+<section class="block" id="scenarios">
+  <div class="wrap">
+    <p class="eyebrow">What will it cost?</p>
+    <h2 class="secttl">Fee estimates for common complaints.</h2>
+    <p class="secsub">Real visit estimates before insurance — and how each compares to the average Massachusetts emergency room visit. Tap any card for the full breakdown.</p>
+
+    <div class="grid">
+
+      <!-- 1 -->
+      <div class="scard">
+        <div class="topline"><div class="iconwrap"><svg class="ic-fill" viewBox="0 0 24 24" aria-hidden="true">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10 7.97641L11.1049 7.97639C11.5772 5.70592 13.5894 4 16 4C18.7615 4 21 6.23857 21 9V16C21 18.7614 18.7615 21 16 21C14.8506 21 13.7917 20.6121 12.9472 19.9601C12.2108 19.4005 11.6802 18.8428 11.2255 18.3648C10.4722 17.573 9.92709 17 9.00003 17L7 17C6.04587 17 5.49016 17.3459 5.13157 17.8579C4.73385 18.4257 4.5 19.3166 4.5 20.5V21.5H2.5V20.5C2.5 19.1079 2.76615 17.7488 3.49343 16.7105C4.24841 15.6326 5.41861 15.0185 6.93108 15.0004C7.02625 14.9899 7.12219 14.9859 7.18758 14.9834C7.30966 14.9788 7.45832 14.9761 7.61996 14.9747C7.94445 14.9718 8.34634 14.9737 8.74394 14.9775C8.90404 14.979 9.06223 14.9808 9.21441 14.9827C10.5934 14.7578 11.4758 12.3789 11 10C10.8324 10.0006 10.6725 10.0001 10.5298 9.99876C10.3906 9.99748 10.2613 9.99508 10.1542 9.99088C10.1021 9.98884 10.0187 9.98548 9.9321 9.97608C8.95095 9.96661 8.11869 9.75052 7.46409 9.27143C6.78674 8.7757 6.42137 8.08774 6.22434 7.38216C6.03198 6.69328 5.98468 5.93383 5.97662 5.21058C5.97243 4.83471 5.98038 4.38766 5.98812 3.95236C5.99412 3.61499 6 3.28466 6 3V2H8V3C8 3.39217 7.99322 3.73249 7.98675 4.0577C7.97922 4.43574 7.9721 4.79339 7.9765 5.18829C7.98406 5.86687 8.03051 6.41402 8.15065 6.84425C8.26612 7.25776 8.432 7.50141 8.64528 7.6575C8.86626 7.81923 9.2607 7.9764 10 7.97641ZM13.0261 12.6392C13.8927 12.9118 14.9796 12.9387 15.7895 11.9C16.7464 10.6727 18.09 10.9331 19 11.3286V9C19 7.34314 17.6569 6 16 6C14.3432 6 13 7.34314 13 9C13 9.08825 13.0038 9.17516 13.0111 9.26062L13.1485 10.8715L13.1192 10.8805C13.1491 11.48 13.1168 12.0728 13.0261 12.6392Z" fill="currentColor"></path>
+</svg></div></div>
+        <h3>Vomiting &amp; dehydration</h3>
+        <p class="desc">Often treated with IV fluids and anti-nausea medication.</p>
+        <div class="pricenum"><span class="cur">$</span>280<span class="range">–330</span></div>
+        <p class="withins">Before insurance · about $140 <span>with 50% insurance coverage</span></p>
+        <div class="compare">
+          <div class="save"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>About <b>$870 less</b> than the average MA ER visit (~$1,200)</div>
+        </div>
+        <button class="stoggle">See cost breakdown<span class="car"></span></button>
+        <div class="breakdown"><div class="inner2">
+          <div class="li"><span>Visit fee (established / new)</span><b>$170 / $220</b></div>
+          <div class="li"><span>IV hydration</span><b>$65</b></div>
+          <div class="li free"><span>Anti-nausea medication</span><b>No fee</b></div>
+          <div class="li"><span>Bloodwork (CBC + CMP)</span><b>$35</b></div>
+        </div></div>
+      </div>
+
+      <!-- 2 -->
+      <div class="scard">
+        <div class="topline"><div class="iconwrap"><svg class="ic-fill" viewBox="0 0 24 24" aria-hidden="true">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.3103 3H17.63L17.4869 3.61362C17.141 5.09602 16.8205 6.12556 16.2046 7.30116C15.6241 8.40911 14.7866 9.63592 13.4425 11.4991C13.515 11.6242 13.6052 11.7831 13.7019 11.9616C13.9313 12.3847 14.2122 12.9445 14.3721 13.4256C14.7264 14.4913 14.7246 15.32 14.6388 16.1563C14.6143 16.3945 14.5844 16.6267 14.554 16.8621C14.4823 17.417 14.4083 17.9901 14.3987 18.7044C14.5106 18.8548 14.6374 18.997 14.774 19.1503C14.8428 19.2274 14.914 19.3072 14.987 19.3923C15.1042 19.5289 15.2282 19.6829 15.3225 19.8444C15.4153 20.0033 15.5065 20.2146 15.4997 20.4584C15.4926 20.7158 15.4165 21.0022 15.2888 21.2558C15.1622 21.5072 14.9589 21.7769 14.6595 21.9394C14.5096 22.0208 14.3546 22.0353 14.2409 22.0336C14.123 22.0318 14.0056 22.0117 13.9004 21.9872C13.6914 21.9386 13.4609 21.8554 13.254 21.7775C13.1962 21.7558 13.14 21.7343 13.0854 21.7135C12.9326 21.6551 12.7914 21.6013 12.6574 21.5565C12.4649 21.4921 12.3584 21.4722 12.3157 21.4722C11.9664 21.4722 11.4636 21.5855 10.9495 21.7199C10.8552 21.7445 10.7589 21.7703 10.6646 21.7955C10.5185 21.8345 10.3773 21.8723 10.2559 21.9026C10.0716 21.9487 9.85104 22 9.68414 22H8.05256C7.42024 22 7.02633 21.5499 6.82839 21.2436C6.72187 21.0787 6.64646 20.9177 6.59792 20.7999C6.57334 20.7403 6.55486 20.6898 6.54215 20.653C6.53578 20.6345 6.53081 20.6194 6.5272 20.6081L6.5228 20.594L6.52134 20.5892L6.5208 20.5874L6.52048 20.5863C6.52048 20.5863 6.54216 20.653 6.5208 20.5874L6.52048 20.5863C6.47585 20.4351 6.50506 20.2714 6.59945 20.1451C6.69385 20.0188 6.84227 19.9444 6.99993 19.9444H8.38586L11.1762 18.6014L9.20642 12.6757C9.09134 12.3041 9.01258 11.9667 9.00674 11.5798C9.00105 11.2033 9.06479 10.8089 9.19386 10.3151L10.3103 3Z" fill="currentColor"></path>
+</svg></div></div>
+        <h3>Knee pain</h3>
+        <p class="desc">May involve an X-Ray and a steroid injection if needed.</p>
+        <div class="pricenum"><span class="cur">$</span>287<span class="range">–290</span></div>
+        <p class="withins">Before insurance · about $144 <span>with 50% insurance coverage</span></p>
+        <div class="compare">
+          <div class="save"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>About <b>$910 less</b> than the average MA ER visit (~$1,200)</div>
+        </div>
+        <button class="stoggle">See cost breakdown<span class="car"></span></button>
+        <div class="breakdown"><div class="inner2">
+          <div class="li"><span>Visit fee (established / new)</span><b>$162 / $165</b></div>
+          <div class="li"><span>Knee X-Ray</span><b>$50</b></div>
+          <div class="li"><span>Steroid injection (if needed)</span><b>$75</b></div>
+          <div class="li free"><span>Ace wrap</span><b>No fee</b></div>
+        </div></div>
+      </div>
+
+      <!-- 3 -->
+      <div class="scard">
+        <div class="topline"><div class="iconwrap"><svg class="ic-fill" viewBox="0 0 24 24" aria-hidden="true">
+<path d="M11.25 19.7254V22H12.75V19.7284C14.0219 19.6513 14.8547 19.3746 15.4467 18.9986C15.4643 18.9995 15.4821 19 15.5 19C16.0523 19 16.5 18.5523 16.5 18C16.5 17.4477 16.0523 17 15.5 17C15.0147 17 14.6101 17.3458 14.5191 17.8044C14.1742 17.9911 13.6369 18.1631 12.75 18.2254V13.7284C14.0219 13.6513 14.8547 13.3746 15.4467 12.9986C15.4643 12.9995 15.4821 13 15.5 13C16.0523 13 16.5 12.5523 16.5 12C16.5 11.4477 16.0523 11 15.5 11C15.0147 11 14.6101 11.3458 14.5191 11.8044C14.1742 11.9911 13.6369 12.1631 12.75 12.2254V7.72836C14.0219 7.65129 14.8547 7.37457 15.4467 6.9986C15.4643 6.99953 15.4821 7 15.5 7C16.0523 7 16.5 6.55228 16.5 6C16.5 5.44772 16.0523 5 15.5 5C15.0147 5 14.6101 5.34577 14.5191 5.80441C14.1742 5.99109 13.6369 6.16314 12.75 6.22538V2H11.25V6.22116C10.7218 6.17735 10.3351 6.08765 10.0309 5.98026C9.81749 5.90495 9.63505 5.81802 9.46008 5.71936C9.33878 5.30368 8.95486 5 8.5 5C7.94772 5 7.5 5.44772 7.5 6C7.5 6.55228 7.94772 7 8.5 7C8.55327 7 8.60556 6.99584 8.65657 6.98781C8.90654 7.13268 9.19217 7.27493 9.53163 7.39474C10.0029 7.56107 10.5558 7.67743 11.25 7.72545V12.2212C10.7218 12.1773 10.3351 12.0876 10.0309 11.9803C9.81749 11.9049 9.63505 11.818 9.46008 11.7194C9.33878 11.3037 8.95486 11 8.5 11C7.94772 11 7.5 11.4477 7.5 12C7.5 12.5523 7.94772 13 8.5 13C8.55327 13 8.60556 12.9958 8.65657 12.9878C8.90654 13.1327 9.19217 13.2749 9.53163 13.3947C10.0029 13.5611 10.5558 13.6774 11.25 13.7254V18.2212C10.7218 18.1773 10.3351 18.0876 10.0309 17.9803C9.81749 17.9049 9.63505 17.818 9.46008 17.7194C9.33878 17.3037 8.95486 17 8.5 17C7.94772 17 7.5 17.4477 7.5 18C7.5 18.5523 7.94772 19 8.5 19C8.55327 19 8.60555 18.9958 8.65657 18.9878C8.90653 19.1327 9.19217 19.2749 9.53163 19.3947C10.0029 19.5611 10.5558 19.6774 11.25 19.7254Z" fill="currentColor"></path>
+</svg></div></div>
+        <h3>Cut needing stitches</h3>
+        <p class="desc">A facial laceration under 2.5 cm, cleaned and repaired.</p>
+        <div class="pricenum"><span class="cur">$</span>292<span class="range">–295</span></div>
+        <p class="withins">Before insurance · about $146 <span>with 50% insurance coverage</span></p>
+        <div class="compare">
+          <div class="save"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>About <b>$905 less</b> than the average MA ER visit (~$1,200)</div>
+        </div>
+        <button class="stoggle">See cost breakdown<span class="car"></span></button>
+        <div class="breakdown"><div class="inner2">
+          <div class="li"><span>Visit fee (established / new)</span><b>$162 / $165</b></div>
+          <div class="li"><span>Laceration repair</span><b>$130</b></div>
+        </div></div>
+      </div>
+
+      <!-- 4 -->
+      <div class="scard">
+        <div class="topline"><div class="iconwrap"><svg class="ic-fill" viewBox="0 0 48 48" aria-hidden="true">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M29.9999 4C27.2385 4 24.9999 6.39847 24.9999 9.35714V29.7546C23.171 31.2208 21.9999 33.4736 21.9999 36C21.9999 40.4183 25.5816 44 29.9999 44C34.4182 44 37.9999 40.4183 37.9999 36C37.9999 33.4736 36.8288 31.2208 34.9999 29.7546V9.35714C34.9999 6.39847 32.7613 4 29.9999 4ZM32.9999 22.061C31.5428 22.0854 30.1777 21.7313 28.9823 21.4212C28.2524 21.2319 27.5857 21.0589 26.9999 20.9986V9.35714C26.9999 7.58194 28.3431 6.14286 29.9999 6.14286C31.6568 6.14286 32.9999 7.58194 32.9999 9.35714V9.97595H30.9999C30.4476 9.97595 29.9999 10.4237 29.9999 10.976C29.9999 11.5282 30.4476 11.976 30.9999 11.976H32.9999V13.976H30.9999C30.4476 13.976 29.9999 14.4237 29.9999 14.976C29.9999 15.5282 30.4476 15.976 30.9999 15.976H32.9999V17.976H30.9999C30.4476 17.976 29.9999 18.4237 29.9999 18.976C29.9999 19.5282 30.4476 19.976 30.9999 19.976H32.9999V22.061Z" fill="currentColor"></path>
+<path d="M16.3301 12C16.3301 11.4477 15.8824 11 15.3301 11C14.7778 11 14.3301 11.4477 14.3301 12V15.268L11.5 13.6341C11.0217 13.3579 10.4101 13.5218 10.134 14.0001C9.85782 14.4784 10.0217 15.09 10.5 15.3661L13.3299 17L10.4999 18.6339C10.0216 18.91 9.85776 19.5216 10.1339 19.9999C10.41 20.4782 11.0216 20.6421 11.4999 20.3659L14.3301 18.7319V22C14.3301 22.5523 14.7778 23 15.3301 23C15.8824 23 16.3301 22.5523 16.3301 22V18.7321L19.1602 20.3661C19.6385 20.6423 20.2501 20.4784 20.5263 20.0001C20.8024 19.5218 20.6385 18.9102 20.1602 18.6341L17.3299 17L20.1602 15.3659C20.6385 15.0898 20.8023 14.4782 20.5262 13.9999C20.2501 13.5216 19.6385 13.3577 19.1602 13.6339L16.3301 15.2678V12Z" fill="currentColor"></path>
+</svg></div></div>
+        <h3>Cough, fever, possible pneumonia</h3>
+        <p class="desc">May need a chest X-Ray and an antibiotic injection.</p>
+        <div class="pricenum"><span class="cur">$</span>232<span class="range">–235</span></div>
+        <p class="withins">Before insurance · about $116 <span>with 50% insurance coverage</span></p>
+        <div class="compare">
+          <div class="save"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>About <b>$965 less</b> than the average MA ER visit (~$1,200)</div>
+        </div>
+        <button class="stoggle">See cost breakdown<span class="car"></span></button>
+        <div class="breakdown"><div class="inner2">
+          <div class="li"><span>Visit fee (established / new)</span><b>$162 / $165</b></div>
+          <div class="li"><span>Chest X-Ray</span><b>$45</b></div>
+          <div class="li"><span>Antibiotic injection (if needed)</span><b>$25</b></div>
+        </div></div>
+      </div>
+
+      <!-- 5 -->
+      <div class="scard">
+        <div class="topline"><div class="iconwrap"><svg class="ic-fill" viewBox="0 0 24 24" aria-hidden="true">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.495 4.08901L13.5828 12.341C13.3523 13.8333 9.59793 15.7743 7.42709 16.5666C7.23527 16.6367 7.05621 16.691 6.89073 16.7373C6.4875 16.85 6.06543 17.0425 5.6366 17.2381C4.93413 17.5585 4.21348 17.8872 3.52761 17.8872H2.35214C2.15766 17.8872 2 18.0448 2 18.2393C2 19.2117 2.78829 20 3.76069 20H4.82334C5.10864 20 5.39065 19.939 5.65042 19.821L5.98761 19.6678C6.04016 19.6439 6.10047 19.6439 6.15303 19.6678L6.49022 19.821C6.74998 19.939 7.03199 20 7.3173 20H9.44943C9.90427 20 10.3532 19.8966 10.7622 19.6975L11.6899 19.246C12.0989 19.047 12.5478 18.9436 13.0027 18.9436H14.2671C14.5894 18.9436 14.9095 18.9955 15.2153 19.0974L17.6172 19.8975C17.821 19.9654 18.0365 20.0013 18.2513 19.9963C22.3743 19.8999 22.9736 17.9337 20.6508 13.879C20.4695 13.5626 20.3671 13.2046 20.3671 12.84V4.1C20.3671 4.04477 20.3223 4 20.2671 4H14.5944C14.5434 4 14.5006 4.03835 14.495 4.08901ZM18.7123 14.0218C18.7072 13.6075 18.3673 13.276 17.9531 13.2814C17.539 13.2867 17.2074 13.6268 17.2126 14.041C17.2189 14.5468 17.2168 14.8796 17.108 15.1495C17.0293 15.3448 16.8631 15.5811 16.3039 15.7526C15.9078 15.8741 15.6851 16.2936 15.8064 16.6896C15.9277 17.0857 16.347 17.3083 16.7431 17.1869C17.6671 16.9035 18.2262 16.387 18.4991 15.71C18.7285 15.1407 18.7195 14.5212 18.7134 14.0945L18.7123 14.0218Z" fill="currentColor"></path>
+</svg></div></div>
+        <h3>Ankle injury / fracture</h3>
+        <p class="desc">X-Ray to check for a fracture, plus a walking boot.</p>
+        <div class="pricenum"><span class="cur">$</span>247<span class="range">–250</span></div>
+        <p class="withins">Before insurance · about $124 <span>with 50% insurance coverage</span></p>
+        <div class="compare">
+          <div class="save"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>About <b>$950 less</b> than the average MA ER visit (~$1,200)</div>
+        </div>
+        <button class="stoggle">See cost breakdown<span class="car"></span></button>
+        <div class="breakdown"><div class="inner2">
+          <div class="li"><span>Visit fee (established / new)</span><b>$162 / $165</b></div>
+          <div class="li"><span>Ankle X-Ray</span><b>$45</b></div>
+          <div class="li"><span>Walking boot</span><b>$40</b></div>
+        </div></div>
+      </div>
+
+      <!-- 6 -->
+      <div class="scard">
+        <div class="topline"><div class="iconwrap"><svg class="ic-fill" viewBox="0 -960 960 960" aria-hidden="true"><path d="M191.5-651.5Q180-663 180-680t11.5-28.5Q203-720 220-720t28.5 11.5Q260-697 260-680t-11.5 28.5Q237-640 220-640t-28.5-11.5ZM400-80q-66 0-113-47t-47-113v-240q0-100 70-170t170-70h73q69 0 118 46.5T720-559q0 46-24.5 84.5T629-416q-32 15-50.5 44.5T560-307v67q0 67-46.5 113.5T400-80ZM291.5-731.5Q280-743 280-760v-20q0-17 11.5-28.5T320-820q17 0 28.5 11.5T360-780v20q0 17-11.5 28.5T320-720q-17 0-28.5-11.5Zm120-40Q400-783 400-800v-20q0-17 11.5-28.5T440-860q17 0 28.5 11.5T480-820v20q0 17-11.5 28.5T440-760q-17 0-28.5-11.5Zm120 0Q520-783 520-800v-40q0-17 11.5-28.5T560-880q17 0 28.5 11.5T600-840v40q0 17-11.5 28.5T560-760q-17 0-28.5-11.5Zm126 34Q640-755 640-780v-40q0-25 17.5-42.5T700-880q25 0 42.5 17.5T760-820v40q0 25-17.5 42.5T700-720q-25 0-42.5-17.5Z"></path></svg></div></div>
+        <h3>Ingrown or damaged toenail</h3>
+        <p class="desc">Removal of the nail due to trauma or a chronic issue.</p>
+        <div class="pricenum"><span class="cur">$</span>242<span class="range">–245</span></div>
+        <p class="withins">Before insurance · about $121 <span>with 50% insurance coverage</span></p>
+        <div class="compare">
+          <div class="save"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>About <b>$955 less</b> than the average MA ER visit (~$1,200)</div>
+        </div>
+        <button class="stoggle">See cost breakdown<span class="car"></span></button>
+        <div class="breakdown"><div class="inner2">
+          <div class="li"><span>Visit fee (established / new)</span><b>$162 / $165</b></div>
+          <div class="li"><span>Nail removal</span><b>$80</b></div>
+        </div></div>
+      </div>
+
+    </div>
+
+    <p class="disc"><b>About the comparison.</b> Urgent care totals are sample estimates before insurance and may vary with your specific care. The Massachusetts ER figure is a state average of roughly $1,200 for a moderate-severity emergency room visit (billed charges), used as a consistent reference point — actual ER costs vary widely by hospital, severity, and coverage. Source: Hospital Pricing Specialists state billing analysis. This is not an estimate of your individual out-of-pocket cost.</p>
+  </div>
+</section>
+
+<!-- ============ HOW BILLING WORKS ============ -->
+<section class="block tint" id="billing">
+  <div class="wrap">
+    <p class="eyebrow">How billing works</p>
+    <h2 class="secttl">Three things to know before your visit.</h2>
+    <p class="secsub">No surprises, no card on file. Here is exactly how you'll be charged.</p>
+    <div class="cards3">
+      <div class="bcard">
+        <div class="ic"><svg class="ic-fill" viewBox="0 -960 960 960" aria-hidden="true"><path d="m438-338 226-226-57-57-169 169-84-84-57 57 141 141Zm42 258q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Z"></path></svg></div>
+        <h4>With insurance</h4>
+        <p>You pay only your required copay at the time of your visit. Everything else is billed to your insurer first.</p>
+      </div>
+      <div class="bcard">
+        <div class="ic"><svg class="ic-fill" viewBox="0 -960 960 960" aria-hidden="true"><path d="m396-340 84-84 84 84 56-56-84-84 84-84-56-56-84 84-84-84-56 56 84 84-84 84 56 56Zm84 260q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Z"></path></svg></div>
+        <h4>Without insurance</h4>
+        <p>You pay only the initial visit fee today. Any added services are billed to you afterward, due on receipt.</p>
+      </div>
+      <div class="bcard">
+        <div class="ic"><svg class="ic-fill" viewBox="0 -960 960 960" aria-hidden="true"><path d="m480-80-10-120h-10q-142 0-241-99t-99-241q0-142 99-241t241-99q71 0 132.5 26.5t108 73q46.5 46.5 73 108T800-540q0 75-24.5 144t-67 128q-42.5 59-101 107T480-80Zm8-253q12-12 12-29t-12-29q-12-12-29-12t-29 12q-12 12-12 29t12 29q12 12 29 12t29-12Zm-58-115h60q0-30 6-42t38-44q18-18 30-39t12-45q0-51-34.5-76.5T460-720q-44 0-74 24.5T344-636l56 22q5-17 19-33.5t41-16.5q27 0 40.5 15t13.5 33q0 17-10 30.5T480-558q-35 30-42.5 47.5T430-448Z"></path></svg></div>
+        <h4>You're always asked first</h4>
+        <p>If we recommend a test, you'll see the price and agree before anything is done. No card is held at check-in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FULL PRICE LIST ============ -->
+<section class="tquote">
+  <div class="wrap tqwrap">
+    <div class="qmark">“</div>
+    <div class="tqstage">
+      <blockquote class="tqitem on"><span class="tq">“Knew exactly what I’d pay before I walked in. No surprise bill afterward.”</span><span class="tqby">Rachel S., Foxborough<i>via Google</i></span></blockquote>
+      <blockquote class="tqitem"><span class="tq">“In and out in under 30 minutes. The doctor actually listened — not what I expected from urgent care.”</span><span class="tqby">Sarah K., Walpole<i>via Yelp</i></span></blockquote>
+      <blockquote class="tqitem"><span class="tq">“Went to a competitor first and waited three hours. Here I was seen in fifteen minutes.”</span><span class="tqby">Michael R., Norwood<i>via Google</i></span></blockquote>
+    </div>
+    <div class="tqdots">
+        <button class="on" aria-label="Testimonial 1"></button>
+        <button class="" aria-label="Testimonial 2"></button>
+        <button class="" aria-label="Testimonial 3"></button>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="pricelist">
+  <div class="wrap">
+    <p class="eyebrow">Full price list</p>
+    <h2 class="secttl">Every service, test, and medication — priced.</h2>
+    <p class="secsub">Search a service, or browse by category. Charges are billed to your insurer first; uninsured patients are billed directly, with no hidden fees.</p>
+
+    <div class="search">
+      <span class="mag"><svg viewBox="0 0 24 24" width="17" height="17"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+      <input id="pfSearch" type="text" placeholder="Search 200+ services, tests, and medications…">
+      <button id="pfClear" class="xclear" aria-label="Clear search" type="button"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+
+    <div class="chips">
+      <button class="fchip active" data-acc="acc-visit">Visit fees</button>
+      <button class="fchip" data-acc="acc-lab">Lab tests</button>
+      <button class="fchip" data-acc="acc-xray">X-Rays</button>
+      <button class="fchip" data-acc="acc-meds">Medications</button>
+      <button class="fchip" data-acc="acc-vax">Vaccines</button>
+      <button class="fchip" data-acc="acc-proc">Procedures</button>
+      <button class="fchip" data-acc="acc-phys">Physicals</button>
+      <button class="fchip" data-acc="acc-lac">Laceration care</button>
+    </div>
+
+    <div class="acc open" id="acc-visit">
+      <div class="hd"><h4>Visit fees</h4><div class="meta"><span class="ct">3 levels</span><span class="car"></span></div></div>
+      <div class="bd"><div class="pad">
+        <p class="leadtext">Every visit has a base fee for being seen — registration, triage, and assessment. The level reflects how serious the concern is. New-patient fees run slightly higher for the more in-depth intake.</p>
+        <div class="lvlcard"><div class="tag"><div class="lv">L3</div><div class="ac">low acuity</div></div><div class="ex">Cough, ear pain, finger injury, sore throat</div><div class="amt"><b>$162 / $165</b>established / new</div></div>
+        <div class="lvlcard l4"><div class="tag"><div class="lv">L4</div><div class="ac">higher</div></div><div class="ex">Abdominal pain, headache, rib fracture, shortness of breath</div><div class="amt"><b>$170 / $220</b>established / new</div></div>
+        <div class="lvlcard l5"><div class="tag"><div class="lv">L5</div><div class="ac">highest</div></div><div class="ex">Chest pain, multiple procedures, serious illness or injury</div><div class="amt"><b>$215 / $260</b>established / new</div></div>
+        <div class="included">
+          <h5>Included free with your visit fee</h5>
+          <div class="tags"><span>Ace wraps</span><span>Burn dressings</span><span>Finger splint</span><span>Nursemaid elbow reduction</span><span>Toe strapping</span><span>Vision (Snellen) test</span><span>Wound bandaging</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- LAB TESTS · dedicated page -->
+    <div class="acc" id="acc-lab">
+      <div class="hd"><h4>Lab tests</h4><div class="meta"><span class="ct">11 on-site · from $4</span><span class="car"></span></div></div>
+      <div class="bd"><div class="pad"><div class="rt">
+        <div class="r"><span>COVID-19</span><b class="tbd">$XX</b></div>
+        <div class="r"><span>Flu A / Flu B</span><b>$17 each</b></div>
+        <div class="r"><span>Glucose finger stick</span><b>$7</b></div>
+        <div class="r"><span>Mononucleosis</span><b>$18</b></div>
+        <div class="r"><span>Rapid strep test</span><b>$18</b></div>
+        <div class="r"><span>Urinalysis</span><b>$4</b></div>
+        <a class="r more dedlink" data-live href="onsite-labs.html#find"><span>View all 11 lab tests</span><b>→</b></a>
+      </div></div></div>
+    </div>
+
+    <!-- X-RAYS · dedicated page -->
+    <div class="acc" id="acc-xray">
+      <div class="hd"><h4>X-Rays</h4><div class="meta"><span class="ct">~40 views · one price, no read fee</span><span class="car"></span></div></div>
+      <div class="bd"><div class="pad"><div class="rt">
+        <div class="r"><span>Ankle</span><b>$45</b></div>
+        <div class="r"><span>Chest, single view</span><b>$40</b></div>
+        <div class="r"><span>Knee, 3 views</span><b>$50</b></div>
+        <div class="r"><span>Shoulder</span><b>$45</b></div>
+        <a class="r more dedlink" data-live href="pricing-xrays.html#find"><span>View all 36 X-Rays</span><b>→</b></a>
+      </div></div></div>
+    </div>
+
+    <!-- MEDICATIONS · in-place expand -->
+    <div class="acc" id="acc-meds">
+      <div class="hd"><h4>Medications</h4><div class="meta"><span class="ct">Oral included · injection &amp; IV fees</span><span class="car"></span></div></div>
+      <div class="bd"><div class="pad">
+        <div class="medtable">
+          <div class="medhead"><span>Medication</span><span>Oral</span><span>Injection</span><span class="hiv">IV</span></div>
+          <div class="medrow"><span class="mname">Albuterol / Atrovent</span><span class="mcol" data-l="Oral">$5</span><span class="mcol dash" data-l="Injection">—</span><span class="mcol dash iv" data-l="IV">—</span></div><div class="medrow"><span class="mname">Amoxicillin / Bactrim / Doxycycline / Keflex</span><span class="mcol" data-l="Oral">$5</span><span class="mcol dash" data-l="Injection">—</span><span class="mcol dash iv" data-l="IV">—</span></div><div class="medrow"><span class="mname">Aspirin / Ibuprofen / Tylenol</span><span class="mcol" data-l="Oral">$5</span><span class="mcol dash" data-l="Injection">—</span><span class="mcol dash iv" data-l="IV">—</span></div><div class="medrow"><span class="mname">Ativan</span><span class="mcol" data-l="Oral">$5</span><span class="mcol" data-l="Injection">$25</span><span class="mcol iv" data-l="IV">$50</span></div><div class="medrow"><span class="mname">Benadryl</span><span class="mcol" data-l="Oral">$5</span><span class="mcol" data-l="Injection">$25</span><span class="mcol iv" data-l="IV">$50</span></div><div class="medrow"><span class="mname">Decadron / Kenalog</span><span class="mcol dash" data-l="Oral">—</span><span class="mcol" data-l="Injection">$25</span><span class="mcol iv" data-l="IV">$50</span></div><div class="medrow"><span class="mname">Dilaudid / Toradol / Phenergan</span><span class="mcol dash" data-l="Oral">—</span><span class="mcol" data-l="Injection">$25</span><span class="mcol iv" data-l="IV">$50</span></div><div class="medrow"><span class="mname">Epinephrine</span><span class="mcol dash" data-l="Oral">—</span><span class="mcol" data-l="Injection"><span class="incl">incl.</span></span><span class="mcol dash iv" data-l="IV">—</span></div><div class="medrow"><span class="mname">Insulin</span><span class="mcol dash" data-l="Oral">—</span><span class="mcol" data-l="Injection"><span class="incl">incl.</span></span><span class="mcol iv" data-l="IV"><span class="incl">incl.</span></span></div><div class="medrow"><span class="mname">Lasix / Metoprolol</span><span class="mcol" data-l="Oral">$5</span><span class="mcol" data-l="Injection">$25</span><span class="mcol iv" data-l="IV">$50</span></div><div class="medrow"><span class="mname">Prednisone / Nitroglycerine / Clonidine / Azo / Antivert</span><span class="mcol" data-l="Oral">$5</span><span class="mcol dash" data-l="Injection">—</span><span class="mcol dash iv" data-l="IV">—</span></div><div class="medrow"><span class="mname">Rocephin (Ceftriaxone)</span><span class="mcol dash" data-l="Oral">—</span><span class="mcol" data-l="Injection">$25</span><span class="ivnote" data-l="IV">Included in hydration fee</span></div><div class="medrow"><span class="mname">Zofran</span><span class="mcol" data-l="Oral">$5</span><span class="mcol dash" data-l="Injection">—</span><span class="mcol dash iv" data-l="IV">—</span></div>
+        </div>
+        <p class="mednote">Oral medications are $5 each. For injected or IV delivery, a small administration fee applies (shown above). We do not send patients home with medications; prescriptions are e-scribed to your pharmacy.</p>
+      </div></div>
+    </div>
+
+    <!-- VACCINES · dedicated page -->
+    <div class="acc" id="acc-vax">
+      <div class="hd"><h4>Vaccines</h4><div class="meta"><span class="ct">5 vaccines · no visit charge</span><span class="car"></span></div></div>
+      <div class="bd"><div class="pad"><div class="rt">
+        <div class="r"><span>Tdap</span><b>$65</b></div>
+        <div class="r"><span>Tuberculin (PPD), incl. reading</span><b>$40</b></div>
+        <a class="r more dedlink" data-live href="vaccinations.html#find"><span>View all vaccines</span><b>→</b></a>
+      </div></div></div>
+    </div>
+
+    <!-- PROCEDURES · in-place expand -->
+    <div class="acc" id="acc-proc">
+      <div class="hd"><h4>Procedures</h4><div class="meta"><span class="ct">52 items · from $12</span><span class="car"></span></div></div>
+      <div class="bd"><div class="pad">
+        <p class="leadtext">In-office procedures and durable items. You'll always see the price and agree before anything is done.</p>
+        <div class="collapsible">
+          <div class="scopefilter"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="text" placeholder="Filter procedures…"></div>
+          <div class="rowswrap">
+            <div class="rt rows">
+              <div class="r"><span>Cane</span><b>$22</b></div>
+              <div class="r"><span>Carpal tunnel injection</span><b>$50</b></div>
+              <div class="r"><span>Cervical hard collar</span><b>$50</b></div>
+              <div class="r"><span>Cervical soft collar</span><b>$25</b></div>
+              <div class="r"><span>Change bladder catheter</span><b>$60</b></div>
+              <div class="r"><span>Clavicle strap</span><b>$25</b></div>
+              <div class="r"><span>Control of anterior nosebleed, extensive w/ packing</span><b>$130</b></div>
+              <div class="r"><span>Control of anterior nosebleed, simple</span><b>$75</b></div>
+              <div class="r"><span>Crutches</span><b>$20</b></div>
+              <div class="r"><span>Destruction of lesion with cautery</span><b>$75</b></div>
+              <div class="r"><span>Drain blood from under nail (subungual hematoma)</span><b>$50</b></div>
+              <div class="r"><span>Drainage of Bartholin's cyst</span><b>$100</b></div>
+              <div class="r"><span>Drainage of complex skin abscess w/ packing</span><b>$150</b></div>
+              <div class="r"><span>Drainage of ganglion cyst</span><b>$60</b></div>
+              <div class="r"><span>Drainage of hematoma</span><b>$130</b></div>
+              <div class="r"><span>Drainage of pilonidal abscess</span><b>$130</b></div>
+              <div class="r"><span>Drainage of simple abscess</span><b>$100</b></div>
+              <div class="r"><span>Drainage of thrombosed hemorrhoid</span><b>$130</b></div>
+              <div class="r"><span>Drug injection</span><b>$25</b></div>
+              <div class="r"><span>Drug toxicology screen</span><b>$35</b></div>
+              <div class="r"><span>EKG</span><b>$25</b></div>
+              <div class="r"><span>Finger splint</span><b>$25</b></div>
+              <div class="r"><span>Forearm splint</span><b>$50</b></div>
+              <div class="r"><span>Insert bladder catheter</span><b>$100</b></div>
+              <div class="r"><span>IV drug push, first drug (additional $25)</span><b>$50</b></div>
+              <div class="r"><span>IV hydration, first bag (additional bag $10)</span><b>$65</b></div>
+              <div class="r"><span>Joint injection, shoulder / knee</span><b>$60</b></div>
+              <div class="r"><span>Joint injection, wrist / ankle</span><b>$40</b></div>
+              <div class="r"><span>Knee immobilizer</span><b>$40</b></div>
+              <div class="r"><span>Long arm splint</span><b>$70</b></div>
+              <div class="r"><span>Long leg splint</span><b>$85</b></div>
+              <div class="r"><span>Lower leg splint</span><b>$70</b></div>
+              <div class="r"><span>Nebulizer airway treatment</span><b>$25</b></div>
+              <div class="r"><span>Peripheral nerve block</span><b>$30</b></div>
+              <div class="r"><span>Plantar fasciitis injection</span><b>$40</b></div>
+              <div class="r"><span>Pneumatic walking boot</span><b>$45</b></div>
+              <div class="r"><span>Post-op shoe</span><b>$15</b></div>
+              <div class="r"><span>Remove eye foreign body w/ instrument</span><b>$80</b></div>
+              <div class="r"><span>Remove foreign body from ear</span><b>$50</b></div>
+              <div class="r"><span>Remove impacted cerumen (one ear)</span><b>$50</b></div>
+              <div class="r"><span>Remove nail bed</span><b>$80</b></div>
+              <div class="r"><span>Remove nail fold (ingrown toenail)</span><b>$100</b></div>
+              <div class="r"><span>Remove nail plate</span><b>$150</b></div>
+              <div class="r"><span>Remove nasal foreign body</span><b>$75</b></div>
+              <div class="r"><span>Remove skin tags (multiple)</span><b>$60</b></div>
+              <div class="r"><span>Remove soft-tissue foreign body, complex</span><b>$150</b></div>
+              <div class="r"><span>Remove soft-tissue foreign body, simple</span><b>$100</b></div>
+              <div class="r"><span>Remove superficial eye foreign body</span><b>$40</b></div>
+              <div class="r"><span>Shoulder dislocation reduction</span><b>$200</b></div>
+              <div class="r"><span>Shoulder immobilizer</span><b>$20</b></div>
+              <div class="r"><span>Sling</span><b>$12</b></div>
+              <div class="r"><span>Trigger point steroid injection</span><b>$40</b></div>
+            </div>
+            <div class="rfade"></div>
+          </div>
+          <button class="viewall" data-label="View all 52 procedures"><span class="vtxt">View all 52 procedures</span><span class="ar"></span></button>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- PHYSICALS · dedicated page (split out from procedures) -->
+    <div class="acc" id="acc-phys">
+      <div class="hd"><h4>Physicals</h4><div class="meta"><span class="ct">7 exams · most $100</span><span class="car"></span></div></div>
+      <div class="bd"><div class="pad"><div class="rt">
+        <div class="r"><span>Adult physical exam</span><b>$100</b></div>
+        <div class="r"><span>Child physical exam</span><b>$35</b></div>
+        <div class="r"><span>DOT physical exam</span><b>$100</b></div>
+        <a class="r more dedlink" data-live href="physicals.html#find"><span>View all physicals</span><b>→</b></a>
+      </div></div></div>
+    </div>
+
+    <!-- LACERATION CARE · in-place expand -->
+    <div class="acc" id="acc-lac">
+      <div class="hd"><h4>Laceration care</h4><div class="meta"><span class="ct">8 repair types · by area &amp; length</span><span class="car"></span></div></div>
+      <div class="bd"><div class="pad">
+        <p class="leadtext">Priced by repair type (simple or intermediate), body area, and length of the cut.</p>
+        <div class="collapsible">
+          <div class="scopefilter"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="text" placeholder="Filter by body area…"></div>
+          <div class="rowswrap">
+            <div class="rt rows">
+              <div class="r"><span>Intermediate · extremities, &lt; 2.5 cm</span><b>$100</b></div>
+              <div class="r"><span>Intermediate · extremities, &gt; 2.5 cm</span><b>$140</b></div>
+              <div class="r"><span>Intermediate · face / lips / eyelids, &lt; 2.5 cm</span><b>$150</b></div>
+              <div class="r"><span>Intermediate · face / lips / eyelids, &gt; 2.5 cm</span><b>$200</b></div>
+              <div class="r"><span>Simple · extremities, &lt; 2.5 cm</span><b>$70</b></div>
+              <div class="r"><span>Simple · extremities, &gt; 2.5 cm</span><b>$120</b></div>
+              <div class="r"><span>Simple · face / lips / eyelids, &lt; 2.5 cm</span><b>$130</b></div>
+              <div class="r"><span>Simple · face / lips / eyelids, &gt; 2.5 cm</span><b>$160</b></div>
+            </div>
+            <div class="rfade"></div>
+          </div>
+          <button class="viewall" data-label="View all 8 repair types"><span class="vtxt">View all 8 repair types</span><span class="ar"></span></button>
+        </div>
+      </div></div>
+    </div>
+    <p class="pfnores" id="pfNoresults">Nothing matches that search. Try another service, or <a href="#" id="pfReset">clear the search</a>.</p>
+  </div>
+</section>
+
+<!-- ============ WHY IT COSTS LESS ============ -->
+<section class="block tint" id="why">
+  <div class="wrap">
+    <p class="eyebrow">Why it costs less here</p>
+    <h2 class="secttl">High-quality care, without the ER price tag.</h2>
+    <div class="why" style="margin-top:26px;">
+      <div class="statcard">
+        <p class="sc-lab">Out of 100 emergency room patients</p>
+        <div class="wlock">
+          <div class="wnum">88%</div>
+          <p class="wcap">are sent home the same day — after being billed at ER rates.</p>
+        </div>
+        <div class="waffle" id="waffle" aria-hidden="true"></div>
+        <div class="legend"><span><i class="sw"></i>Discharged</span><span><i class="sw adm"></i>Admitted</span></div>
+      </div>
+      <div class="copy">
+        <h3>Most ER trips end in discharge — with the cost of an ER trip.</h3>
+        <p>We treat the same non-emergency concerns at a fraction of the price, and we never order a test for profit. If something does need a hospital, that's where the fewer than 1% of our patients go.</p>
+        <div class="credpills">
+          <span class="p"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Board-certified MDs, PAs &amp; radiologists</span>
+          <span class="p"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>On-site lab, X-Ray &amp; cardiac monitoring</span>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER CTA ============ -->
+<section class="ctaband" id="locations">
+  <div class="wrap inner">
+    <div class="ctatop">
+    <div class="ctacopy">
+    <div class="cta-rating"><span class="stars">★★★★★</span><span class="r-meta"><span class="r-num">4.8</span><span class="r-src">out of 5 · 1,200+ Google reviews</span></span></div>
+    <h2>Walk in, or call ahead.</h2>
+    <p><b style="color:var(--ink);">No appointment needed.</b> Open 7 days — Mon–Fri 8am–7pm, Sat–Sun 8am–4pm.</p>
+    </div>
+    <div class="ctas">
+      <a href="tel:7812550500" class="btn primary"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a>
+      <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Get Directions</a>
+    </div>
+    </div>
+    <div class="locgrid">
+      <div class="loc">
+        <h4>Norwood Urgent Care</h4>
+        <div class="ln"><svg class="mi" viewBox="0 -960 960 960"><path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg><span>103 Providence Hwy, Walpole, MA 02081 · 3.2 miles away</span></div>
+        <div class="ln"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg><span><a href="tel:7812550500">781-255-0500</a></span></div>
+        <div class="foot"><span class="w"><span class="dot"></span>Wait: ~4 min</span><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener">Directions →</a></div>
+      </div>
+      <div class="loc">
+        <h4>Natick Urgent Care</h4>
+        <div class="ln"><svg class="mi" viewBox="0 -960 960 960"><path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg><span>4 Mercer Road, Natick, MA 01760 · 8.7 miles away</span></div>
+        <div class="ln"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg><span><a href="tel:5083184466">508-318-4466</a></span></div>
+        <div class="foot"><span class="w"><span class="dot"></span>Wait: ~3 min</span><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Natick+Urgent+Care,+4+Mercer+Road,+Natick,+MA+01760" target="_blank" rel="noopener">Directions →</a></div>
+      </div>
+      <div class="loc">
+        <h4>Bellingham Urgent Care</h4>
+        <div class="ln"><svg class="mi" viewBox="0 -960 960 960"><path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg><span>1 Wrentham Street, Bellingham, MA 02019 · 12.1 miles away</span></div>
+        <div class="ln"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg><span><a href="tel:5084885488">508-488-5488</a></span></div>
+        <div class="foot"><span class="w"><span class="dot"></span>Wait: ~6 min</span><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Bellingham+Urgent+Care,+1+Wrentham+Street,+Bellingham,+MA+02019" target="_blank" rel="noopener">Directions →</a></div>
+      </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="top">
+      <div class="col"><h5>Get Care</h5>
+        <a href="urgent-care.html">Urgent Care</a>
+        <a href="pricing-xrays.html">X-Rays</a>
+        <a href="vaccinations.html">Vaccinations</a>
+        <a href="onsite-labs.html">On-Site Labs</a>
+        <a href="physicals.html">Physicals</a>
+      </div>
+      <div class="col"><h5>Employers</h5>
+        <a href="dot-physicals.html">DOT Physicals</a>
+        <a href="workplace-injuries.html">Workplace Injuries</a>
+        <a href="work-physicals.html">Work Physicals</a>
+        <a href="drug-testing.html">Drug Testing</a>
+        <a href="return-to-work.html">Return to Work Evaluations</a>
+        <a href="urine-toxicology.html">Urine Toxicology</a><a href="motor-vehicle-accidents.html">Motor Vehicle Accident Claims</a>
+      </div>
+      <div class="col"><h5>Learn More</h5>
+        <a href="pricing-page-full.html">Know Your Cost</a>
+        <a href="insurance.html">Insurance</a>
+        <a href="about-us.html">About Us</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact-us.html">Contact Us</a>
+      </div>
+      <div class="col"><h5>Existing Patients</h5>
+        <a href="https://apr-sb4.servicebus.windows.net/ACE6233C-9DF4-45BB-9051-1B8AF3500FF3/portal/12229/index.html#/login" target="_blank" rel="noopener">Patient Portal</a>
+        <a href="https://checkout.square.site/merchant/MLX7WFBQASHPV/checkout/BD2WBFA3EFNBL3XI3W6DYOFJ" target="_blank" rel="noopener">Pay My Bill</a>
+      </div>
+    </div>
+      <div class="fbrand">
+      <div class="wm"><img class="flogo" src="assets/logo-footer.svg" alt="Norwood Urgent Care" width="66" height="51"></div>
+      <p>Clinician-owned urgent care serving Norwood, Natick &amp; Bellingham since 2005.</p>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 Norwood Urgent Care</span>
+      <div class="lk"><a href="privacy.html">Privacy</a><a href="hipaa.html">HIPAA Notice</a><a href="accessibility.html">Accessibility</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // waffle dots
+  (function(){
+    var w=document.getElementById('waffle');
+    if(!w) return;
+    for(var i=0;i<100;i++){ var d=document.createElement('i'); if(i<88) d.className='on'; d.style.transitionDelay=((i%25)*0.018)+'s'; w.appendChild(d); }
+    if(!('IntersectionObserver' in window)){ w.classList.add('run'); return; }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ w.classList.add('run'); io.disconnect(); } });
+    }, {threshold:.35});
+    io.observe(w);
+  })();
+
+  // reveal bar animations
+  requestAnimationFrame(function(){ setTimeout(function(){ document.body.classList.add('lit'); }, 140); });
+
+  // scenario breakdown toggles
+  document.querySelectorAll('.scard .stoggle').forEach(function(b){
+    b.addEventListener('click', function(){ b.closest('.scard').classList.toggle('open'); });
+  });
+
+  // ---- price-list accordions (JS-managed heights for dynamic content) ----
+  function bdOf(acc){ return acc.querySelector(':scope > .bd'); }
+  function openAcc(acc){ var bd = bdOf(acc); acc.classList.add('open'); bd.style.maxHeight = bd.scrollHeight + 'px'; }
+  function closeAcc(acc){
+    var bd = bdOf(acc);
+    bd.style.maxHeight = bd.scrollHeight + 'px';          // pin real height first
+    requestAnimationFrame(function(){ acc.classList.remove('open'); bd.style.maxHeight = '0px'; });
+  }
+
+  document.querySelectorAll('.acc').forEach(function(acc){
+    acc.querySelector('.hd').addEventListener('click', function(){
+      if(acc.classList.contains('open')) closeAcc(acc); else openAcc(acc);
+    });
+    if(acc.classList.contains('open')){ var bd = bdOf(acc); bd.style.maxHeight = bd.scrollHeight + 'px'; }
+  });
+
+  // arriving with #acc-… opens that group and scrolls it into view
+  (function(){
+    var id=(location.hash||'').replace('#','');
+    if(!id) return;
+    var acc=document.getElementById(id);
+    if(!acc||!acc.classList.contains('acc')) return;
+    if(!acc.classList.contains('open')) openAcc(acc);
+    setTimeout(function(){
+      window.scrollTo({top:acc.getBoundingClientRect().top+window.scrollY-100,behavior:'instant'});
+    },60);
+  })();
+
+  // keep open accordions sized when the layout reflows (chips wrap on narrow screens)
+  var reflowT;
+  window.addEventListener('resize', function(){
+    clearTimeout(reflowT);
+    reflowT = setTimeout(function(){
+      document.querySelectorAll('.acc.open').forEach(function(acc){
+        var bd = bdOf(acc);
+        bd.style.maxHeight = 'none';
+        var h = bd.scrollHeight;
+        bd.style.maxHeight = h + 'px';
+      });
+    }, 120);
+  });
+
+  // category chips: open matching accordion, scroll to it
+  document.querySelectorAll('.fchip').forEach(function(c){
+    c.addEventListener('click', function(){
+      document.querySelectorAll('.fchip').forEach(function(x){ x.classList.remove('active'); });
+      c.classList.add('active');
+      var target = document.getElementById(c.dataset.acc);
+      document.querySelectorAll('.acc').forEach(function(a){ if(a !== target && a.classList.contains('open')) closeAcc(a); });
+      openAcc(target);
+      var y = target.getBoundingClientRect().top + window.scrollY - 130;
+      window.scrollTo({ top:y, behavior:'smooth' });
+    });
+  });
+
+  // in-place "view all" expand with fade-truncation
+  document.querySelectorAll('.viewall').forEach(function(btn){
+    var coll = btn.closest('.collapsible');
+    var acc  = btn.closest('.acc');
+    var rows = coll.querySelector('.rows');
+    var vtxt = btn.querySelector('.vtxt');
+    btn.addEventListener('click', function(){
+      var exp = coll.classList.toggle('expanded');
+      vtxt.textContent = exp ? 'Show less' : btn.dataset.label;
+      bdOf(acc).style.maxHeight = '7000px';               // give room while it grows
+      if(exp){
+        var inp = coll.querySelector('.scopefilter input');
+        if(inp) setTimeout(function(){ inp.focus(); }, 60);
+      } else {
+        var inp2 = coll.querySelector('.scopefilter input');
+        if(inp2){ inp2.value = ''; coll.querySelectorAll('.rows .r').forEach(function(r){ r.style.display = ''; }); }
+      }
+    });
+    rows.addEventListener('transitionend', function(e){
+      if(e.propertyName === 'max-height' && acc.classList.contains('open')){
+        bdOf(acc).style.maxHeight = bdOf(acc).scrollHeight + 'px';
+      }
+    });
+  });
+
+  // scoped filter within an expanded category
+  document.querySelectorAll('.scopefilter input').forEach(function(inp){
+    var coll = inp.closest('.collapsible');
+    var acc  = inp.closest('.acc');
+    inp.addEventListener('input', function(){
+      var q = inp.value.trim().toLowerCase();
+      coll.querySelectorAll('.rows .r').forEach(function(r){
+        r.style.display = r.textContent.toLowerCase().indexOf(q) > -1 ? '' : 'none';
+      });
+      bdOf(acc).style.maxHeight = '7000px';
+    });
+  });
+
+  // dedicated "view all" links are stubs for separate pages in this prototype,
+  // except ones marked data-live (a real page exists) which navigate normally
+  document.querySelectorAll('.dedlink').forEach(function(a){
+    a.addEventListener('click', function(e){ if(!a.hasAttribute('data-live')) e.preventDefault(); });
+  });
+
+  // subnav scroll-spy
+  var spies = document.querySelectorAll('.subnav a[data-spy]');
+  var secs = Array.prototype.map.call(spies, function(a){ return document.getElementById(a.dataset.spy); });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        spies.forEach(function(a){ a.classList.toggle('active', a.dataset.spy === e.target.id); });
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+  secs.forEach(function(s){ if(s) obs.observe(s); });
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('.navgroup .navbtn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var g = btn.parentElement, was = g.classList.contains('open');
+      document.querySelectorAll('.navgroup').forEach(function(x){ x.classList.remove('open'); });
+      if(!was) g.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(){ document.querySelectorAll('.navgroup').forEach(function(x){ x.classList.remove('open'); }); });
+  var panel=document.getElementById('mobilePanel'), overlay=document.getElementById('mpOverlay');
+  function oM(){panel.classList.add('show');overlay.classList.add('show');}
+  function cM(){panel.classList.remove('show');overlay.classList.remove('show');}
+  var hb=document.getElementById('hamburger'); if(hb) hb.addEventListener('click',oM);
+  var mc=document.getElementById('mpClose'); if(mc) mc.addEventListener('click',cM);
+  if(overlay) overlay.addEventListener('click',cM);
+})();
+</script>
+<script>
+(function(){
+  var box=document.querySelector('.tquote'); if(!box) return;
+  var items=box.querySelectorAll('.tqitem'), dots=box.querySelectorAll('.tqdots button'), i=0, t;
+  function go(n){ items[i].classList.remove('on'); dots[i].classList.remove('on'); i=n; items[i].classList.add('on'); dots[i].classList.add('on'); }
+  dots.forEach(function(d,n){ d.addEventListener('click',function(){ go(n); reset(); }); });
+  function reset(){ clearInterval(t); t=setInterval(function(){ go((i+1)%items.length); },6000); }
+  reset();
+})();
+</script>
+<nav class="mobilebar" aria-label="Quick actions">
+  <a class="mb-item" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call</a>
+  <a class="mb-item" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Directions</a>
+  <div class="mb-item mb-wait"><span class="mb-wtnum"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>~4 min</span><span class="mb-wtlbl">Wait time</span></div>
+</nav>
+<script>
+(function(){
+  var input=document.getElementById('pfSearch'), clearBtn=document.getElementById('pfClear');
+  var nores=document.getElementById('pfNoresults'), reset=document.getElementById('pfReset');
+  if(!input) return;
+  var accs=Array.prototype.slice.call(document.querySelectorAll('#pricelist .acc'));
+  var chips=Array.prototype.slice.call(document.querySelectorAll('.fchip'));
+
+  function rowsOf(acc){
+    return Array.prototype.slice.call(acc.querySelectorAll('.rt .r:not(.more), .medrow, .lvlcard'));
+  }
+  function sizeOpen(){
+    document.querySelectorAll('#pricelist .acc.open').forEach(function(a){
+      var bd=a.querySelector(':scope > .bd');
+      bd.style.maxHeight='none';
+      var h=bd.scrollHeight;
+      bd.style.maxHeight=h+'px';
+    });
+  }
+  function resetAll(){
+    accs.forEach(function(acc){
+      acc.classList.remove('hide');
+      rowsOf(acc).forEach(function(r){ r.classList.remove('hide'); });
+      acc.querySelectorAll('.included,.leadtext,.mednote,.r.more').forEach(function(e){ e.classList.remove('hide'); });
+      acc.querySelectorAll('.collapsible').forEach(function(c){ c.classList.remove('expanded'); });
+      var bd=acc.querySelector(':scope > .bd');
+      if(acc.id!=='acc-visit'){ acc.classList.remove('open'); bd.style.maxHeight='0px'; }
+      else { acc.classList.add('open'); bd.style.maxHeight=bd.scrollHeight+'px'; }
+    });
+    nores.classList.remove('show');
+    chips.forEach(function(c){ c.classList.toggle('active', c.dataset.acc==='acc-visit'); });
+  }
+
+  function applyFilter(q){
+    q=q.trim().toLowerCase();
+    clearBtn.classList.toggle('show', q.length>0);
+    if(!q){ resetAll(); return; }
+    var any=false;
+    accs.forEach(function(acc){
+      var hits=0;
+      rowsOf(acc).forEach(function(r){
+        var match=r.textContent.toLowerCase().indexOf(q)>-1;
+        r.classList.toggle('hide', !match);
+        if(match) hits++;
+      });
+      acc.querySelectorAll('.included,.leadtext,.mednote').forEach(function(e){ e.classList.add('hide'); });
+      acc.querySelectorAll('.r.more').forEach(function(e){ e.classList.toggle('hide', hits===0); });
+      acc.querySelectorAll('.collapsible').forEach(function(c){ c.classList.add('expanded'); });
+      acc.classList.toggle('hide', hits===0);
+      var bd=acc.querySelector(':scope > .bd');
+      if(hits>0){ any=true; acc.classList.add('open'); bd.style.maxHeight='none'; bd.style.maxHeight=bd.scrollHeight+'px'; }
+      else { acc.classList.remove('open'); bd.style.maxHeight='0px'; }
+    });
+    chips.forEach(function(c){ c.classList.remove('active'); });
+    nores.classList.toggle('show', !any);
+  }
+
+  input.addEventListener('input', function(){ applyFilter(input.value); });
+  clearBtn.addEventListener('click', function(){ input.value=''; applyFilter(''); input.focus(); });
+  if(reset) reset.addEventListener('click', function(e){ e.preventDefault(); input.value=''; applyFilter(''); input.focus(); });
+  window.addEventListener('resize', function(){ setTimeout(sizeOpen, 120); });
+})();
+</script>
+</body>
+</html>

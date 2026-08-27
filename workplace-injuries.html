@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workplace injuries &amp; workers’ comp — Norwood Urgent Care</title>
+<link rel="stylesheet" href="site.css">
+<style>
+  /* page-specific styles — shared system lives in site.css */
+  /* page-specific styles — shared system lives in site.css */
+  12..96,500;
+  12..96,600;
+  12..96,700;
+  12..96,800&family=IBM+Plex+Sans:wght@400;
+  500;
+  600;
+  700&display=swap');
+  .crumb{padding:20px 0 0;font-size:13px;color:var(--ink-faint);display:flex;align-items:center;gap:8px;}
+  .crumb a:hover{color:var(--brand-deep);}
+  .crumb .sep{opacity:.6;}
+  .crumb .cur{color:var(--ink-soft);font-weight:600;}
+  .phead{padding:45px 0 60px;}
+  .phead h1{font-family:var(--head);font-weight:700;font-size:clamp(30px,4.4vw,46px);line-height:1.05;letter-spacing:0;text-transform:uppercase;margin:0 0 14px;}
+  .phead h1 .caps-lead{color:#102a3d;text-transform:uppercase;letter-spacing:0;}
+  @media (max-width:1020px){.phead h1 .h1-br,.whyxray h2 .h1-br{display:none;}}
+  .phead h1 .serif-accent{display:block;width:fit-content;font-family:var(--serif);font-style:italic;font-weight:700;
+    font-size:.48em;color:#fff;background:var(--er);padding:.3em .85em .36em;border-radius:4px;line-height:1.15;margin-top:14px;text-transform:none;}
+  @media (max-width:640px){.phead h1 .serif-accent{font-size:calc(.48em + 4px);}}
+  .phead p.sub{font-size:17px;color:var(--ink-soft);margin:0 0 20px;max-width:54ch;}
+  .factchips{display:flex;flex-wrap:wrap;gap:10px;}
+  .factchips span{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:500;color:var(--ink-soft);background:rgba(16,42,61,.045);border:0;border-radius:6px;padding:7px 12px;box-shadow:none;}
+  .factchips span .d{width:7px;height:7px;border-radius:50%;background:var(--cta);}
+  .factchips span svg.ci{width:15px;height:15px;stroke:var(--cta);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;}
+  .factchips span svg.ci.solid{width:16px;height:16px;stroke:none;fill:var(--cta);color:var(--cta);}
+  .factchips span svg.ci.solid path{fill:var(--cta);}
+  .ervcard{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-hi);padding:22px 24px;}
+  .ervtitle{font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin:0 0 18px;letter-spacing:-.01em;}
+  .ervmetric{margin-bottom:20px;}
+  .ervmetric:last-of-type{margin-bottom:0;}
+  .ervmlabel{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:11px;}
+  .ervbar{display:flex;align-items:center;gap:11px;margin-bottom:10px;}
+  .ervbar:last-child{margin-bottom:0;}
+  .ervbar .bl{flex:0 0 82px;font-size:11px;font-weight:600;color:var(--ink-soft);line-height:1.2;}
+  .ervbar.er .bl{color:var(--er);}
+  .ervbar .bt{flex:1;display:block;height:20px;background:var(--surface-tint);border-radius:11px;overflow:hidden;}
+  .ervbar .bf{display:block;height:100%;border-radius:11px;}
+  .ervbar.us .bf{width:18%;background:linear-gradient(90deg,var(--brand),var(--brand-deep));}
+  .ervbar.er .bf{width:100%;background:linear-gradient(90deg,#e1565b,var(--er));}
+  .ervbar .bv{flex:0 0 auto;font-family:var(--display);font-weight:700;font-size:12.5px;width:92px;text-align:right;}
+  .ervbar.er .bv{color:var(--er);}
+  .ervfoot{font-size:11px;color:var(--ink-faint);margin:16px 0 0;line-height:1.45;}
+  /* hero right-hand tile composition */
+  .vh-photo{background:#e9eaec;border-radius:20px;overflow:hidden;display:flex;align-items:flex-start;justify-content:center;min-height:330px;}
+  .vh-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+  .vh-cards{display:flex;flex-direction:column;gap:12px;}
+  .vh-cardrow{display:flex;gap:11px;align-items:stretch;}
+  .vh-card-title{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;background:#e9eaec;border-radius:13px;padding:11px 18px;
+    font-family:var(--head);font-weight:600;font-size:19.5px;letter-spacing:.025em;text-transform:uppercase;color:var(--cta);}
+  .vh-icontile{flex:0 0 auto;width:52px;border-radius:13px;background:rgba(32,187,220,.07);display:flex;align-items:center;justify-content:center;}
+  .vh-icontile img{width:29px;height:29px;display:block;}
+  .vh-icontile svg{width:31px;height:31px;stroke:var(--cta);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .vh-icontile svg.solid{fill:var(--cta);stroke:none;}
+  .vh-card-compare{flex:1;background:#e9eaec;border-radius:13px;padding:14px 20px;display:flex;flex-direction:column;justify-content:center;gap:24px;}
+  .vh-cmp-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px;}
+  .vh-cmp-l{font-family:var(--head);font-weight:500;font-size:14.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--cta);}
+  .vh-cmp-v{font-family:var(--head);font-weight:600;font-size:16px;letter-spacing:.02em;color:var(--cta);}
+  .vh-cmp.er .vh-cmp-l,.vh-cmp.er .vh-cmp-v{color:var(--er);}
+  .vh-track{display:block;height:16px;border-radius:9px;background:#fff;overflow:hidden;}
+  .vh-fill{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--brand),var(--brand-deep));width:33%;
+    transform:scaleX(0);transform-origin:left center;transition:transform 1s cubic-bezier(.22,.7,.25,1) .45s;}
+  .vh-cmp.er .vh-fill{background:linear-gradient(90deg,#e1565b,var(--er));width:100%;transition-delay:.75s;}
+  .vh-cmp.run .vh-fill{transform:scaleX(1);}
+  @media (prefers-reduced-motion:reduce){.vh-fill{transform:none;transition:none;}}
+  .vh-right{grid-column:2/-1;display:grid;grid-template-columns:240px 1fr;column-gap:20px;row-gap:20px;align-content:end;align-self:end;}
+  .vh-cmp-note{grid-column:1/-1;margin:0;font-size:12px;line-height:1.45;color:var(--ink-soft);}
+  .vh-card-note{background:rgba(32,187,220,.07);border-radius:13px;padding:13px 16px;font-size:13px;line-height:1.45;color:var(--ink-soft);}
+  
+  .phead-grid{display:grid;grid-template-columns:1.85fr 240px 1fr;gap:20px;align-items:stretch;}
+  @media (min-width:1021px){
+    .vh-photo{height:360px;min-height:0;align-self:start;position:relative;overflow:hidden;}
+    .vh-photo img{position:absolute;inset:0;width:100%;height:100%;}
+    .vh-cards{min-height:360px;align-self:start;}
+  }
+  /* narrow desktop: card column gets tight — step type/padding down so nothing overflows */
+  @media (min-width:1021px) and (max-width:1220px){
+    .phead-grid{grid-template-columns:1.5fr 240px 1.15fr;column-gap:16px;}
+    .vh-right{grid-template-columns:240px 1.15fr;column-gap:16px;}
+    .phead-grid,.phead-grid > *{min-width:0;}
+    .vh-cards{gap:9px;}
+    .vh-cardrow{gap:8px;}
+    .vh-card-title{font-size:15px;padding:9px 11px;}
+    .vh-icontile{width:42px;}
+    .vh-card-compare{padding:13px 14px;gap:16px;}
+    .vh-cmp-l{font-size:12.5px;}
+    .vh-cmp-v{font-size:14px;}
+    .vh-card-note{font-size:13.5px;padding:12px 14px;}
+  }
+  @media (max-width:1020px){
+    .phead-grid{grid-template-columns:1fr 1fr;}
+    .phead-grid > div:first-child{grid-column:1/-1;}
+    .phead-grid > div:first-child p.sub{max-width:100%;}
+    .vh-right{display:contents;}
+    .phead-grid .vh-cmp-note{grid-column:1/-1;}
+    .vh-photo{min-height:0;aspect-ratio:1/1;}
+  }
+  @media (min-width:641px) and (max-width:1020px){
+    .phead-grid{grid-template-columns:1fr 1fr;column-gap:16px;}
+    .phead-grid,.phead-grid > *{min-width:0;}
+    .vh-photo{aspect-ratio:1/1;min-height:0;width:100%;max-width:100%;}
+    .vh-photo img{max-width:100%;}
+    .vh-cards{gap:9px;}
+    .vh-cardrow{gap:8px;}
+    .vh-card-title{font-size:13px;padding:9px 10px;}
+    .vh-icontile{width:38px;}
+    .vh-icontile img{width:22px;height:22px;}
+    .vh-card-compare{padding:13px 14px;gap:13px;}
+    .vh-cmp-l{font-size:12px;}
+    .vh-cmp-v{font-size:13.5px;}
+    .vh-card-note{font-size:13px;padding:12px 14px;}
+  }
+  @media (max-width:640px){
+    /* photo shrinks to half width; the same-visit tile sits beside it */
+    .phead-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:11px;row-gap:11px;}
+    .phead-grid,.phead-grid > *{min-width:0;}
+    .phead-grid > div:first-child{grid-column:1/-1;}
+    .phead-grid .vh-cards{display:contents;}
+    /* photo becomes a full-width cropped band, roughly the height of the two tiles beside it */
+    .phead-grid .vh-photo{grid-column:1/-1;grid-row:2;aspect-ratio:auto;min-height:0;height:clamp(160px,44vw,240px);width:100%;max-width:100%;}
+    .phead-grid .vh-photo img{max-width:100%;height:100%;object-fit:cover;object-position:center 42%;}
+    .phead-grid .vh-cardrow{display:none;}
+    .phead-grid .vh-card-compare{grid-column:1/-1;grid-row:4;}
+    .phead-grid .vh-card-note{grid-column:1/-1;grid-row:5;}
+    .phead-grid .vh-cmp-note{grid-column:1/-1;grid-row:6;}
+  }
+  @media (max-width:380px){
+    .phead-grid,.phead-grid > *{min-width:0;}
+    .vh-photo{min-height:0;width:100%;max-width:100%;}
+    .vh-photo img{max-width:100%;}
+  }
+  .whyxray{background:var(--band-grad);margin-top:0;}
+  .whyxray .inner{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;padding:54px 0;}
+  @media (max-width:820px){.whyxray .inner{grid-template-columns:1fr;gap:22px;}}
+  .whyxray h2{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;margin:0 0 14px;color:#fff;}
+  .whyxray .whycopy p{font-size:15.5px;color:#f4f9fd;line-height:1.6;margin:0 0 16px;max-width:48ch;}
+  @media (max-width:1020px){.whyxray .whycopy p{max-width:100%;}}
+  .whyxray .seeprices a{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:#9cc0db;display:inline-flex;align-items:center;gap:5px;}
+  .whyxray .seeprices a:hover{text-decoration:underline;text-decoration-color:var(--er);text-decoration-thickness:2px;text-underline-offset:4px;}
+  .whencard{background:#fbfdfe;border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow);}
+  .whencard h3{font-family:var(--display);font-weight:600;font-size:17px;margin:0 0 16px;letter-spacing:-.01em;}
+  .whenlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .whenlist li{display:flex;align-items:flex-start;gap:11px;font-size:14px;color:var(--ink);line-height:1.45;}
+  .whenlist li svg{width:18px;height:18px;stroke:var(--brand-deep);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;margin-top:1px;}
+  .whencard .emnote{display:flex;align-items:center;gap:12px;font-size:12.5px;color:#fdecee;background:var(--er);border:1px solid var(--er);border-radius:10px;padding:11px 13px;margin:18px 0 0;line-height:1.45;}
+  .whencard .em-tile{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.16);flex:0 0 auto;}
+  .whencard .em-ic{width:22px;height:22px;color:#fff;}
+  @media (max-width:640px){.whencard .emnote .em-tile{display:none;}}
+  .priceh{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;color:var(--ink);margin:0 0 14px;}
+  #prices .wrap{display:block;}
+  #prices .sub{max-width:66%;}
+  #prices .factchips{justify-content:flex-start;margin-top:18px;margin-bottom:0;}
+  @media (max-width:1020px){#prices .sub{max-width:100%;}}
+  .explain{background:linear-gradient(180deg,#fff,var(--surface-tint));border-bottom:1px solid var(--border);}
+  .explain .inner{padding:4px 0 34px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media (max-width:820px){.explain .inner{grid-template-columns:1fr;}}
+  .ecard{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--shadow);}
+  .ecard .ic{width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .ecard .ic svg{width:36px;height:36px;fill:var(--er);color:var(--er);stroke:none;}
+  .ecard .ic svg path{fill:var(--er);}
+  .ecard .ic svg circle{fill:var(--er);}
+  .ecard .ic svg rect.chk{fill:#fff;}
+  .ecard h4{font-family:var(--display);font-weight:600;font-size:16px;margin:0 0 7px;letter-spacing:-.01em;}
+  .ecard p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+  .finder{padding:46px 0 12px;}
+  .finder h2{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;margin:0 0 6px;}
+  .finder p.s{font-size:15px;color:var(--ink-soft);margin:0 0 22px;}
+  .search{display:flex;align-items:center;gap:11px;background:#fff;border:1.5px solid var(--border);border-radius:13px;padding:14px 16px;box-shadow:var(--shadow);max-width:560px;}
+  .search svg{width:18px;height:18px;stroke:var(--ink-faint);fill:none;stroke-width:2;flex:0 0 auto;}
+  .search input{border:none;outline:none;font-family:var(--body);font-size:15px;color:var(--ink);width:100%;background:transparent;}
+  .search input::placeholder{color:var(--ink-faint);}
+  .xclear{flex:0 0 auto;width:24px;height:24px;border-radius:50%;border:none;background:var(--surface-tint);
+    cursor:pointer;display:none;align-items:center;justify-content:center;padding:0;transition:background .15s;}
+  .xclear svg{width:13px;height:13px;stroke:var(--ink-soft);fill:none;stroke-width:2.4;stroke-linecap:round;}
+  .xclear:hover{background:var(--border);}
+  .xclear:hover svg{stroke:var(--ink);}
+  .xclear.show{display:flex;}
+  .common{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:16px;}
+  .common .lbl{font-size:12.5px;font-weight:600;color:var(--ink-faint);margin-right:2px;}
+  .qpill{font-size:13px;font-weight:600;color:var(--ink-soft);background:#fff;border:1px solid var(--border);border-radius:24px;padding:8px 14px;cursor:pointer;transition:.15s;display:inline-flex;gap:8px;align-items:center;}
+  .qpill:hover{border-color:var(--brand);color:var(--brand-deep);}
+  .qpill b{font-family:var(--display);color:var(--ink);}
+  .xgrid{padding:24px 0 10px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:stretch;}
+  @media (max-width:760px){.xgrid{grid-template-columns:1fr;}}
+  .xcard{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:20px 22px;}
+  .xcard .xh{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+  .xcard .xh .ic{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .xcard .xh .ic svg{width:36px;height:36px;fill:var(--brand);color:var(--brand);stroke:none;}
+  .xcard .xh .ic svg path{fill:var(--brand);}
+  .xcard .xh .ic.gtk svg,.xcard .xh .ic.gtk svg path{fill:var(--er);color:var(--er);}
+  .xcard .xh h3{font-family:var(--display);font-weight:600;font-size:17px;margin:0;letter-spacing:-.01em;}
+  .xcard .xh .ct{margin-left:auto;font-size:12px;color:var(--ink-faint);font-weight:600;}
+  .rt .r{display:flex;justify-content:space-between;gap:14px;font-size:14px;color:var(--ink-soft);padding:11px 0;border-bottom:1px dashed var(--border);}
+  .rt .r:last-child{border-bottom:0;}
+  .rt .r b{font-family:var(--display);font-weight:700;color:var(--ink);}
+  .rt .r mark{background:#fff3c4;color:inherit;padding:0 1px;border-radius:2px;}
+  .xcard.hide{display:none;}
+  .rt .r.hide{display:none;}
+  .noresults{display:none;text-align:center;color:var(--ink-faint);font-size:15px;padding:40px 0;}
+  .noresults.show{display:block;}
+  .disc{font-size:12px;color:var(--ink-faint);line-height:1.55;margin:18px 0 0;max-width:none;}
+  .disc b{color:var(--ink-soft);font-weight:600;}
+  .ctaband{background:rgba(32,187,220,.18);color:var(--ink);margin-top:46px;}
+  .ctaband .inner{padding:50px 0;display:grid;grid-template-columns:1fr 2fr;gap:38px;align-items:center;}
+  .ctaband .cta-photo{width:100%;height:100%;max-height:400px;object-fit:cover;object-position:center center;border-radius:16px;box-shadow:var(--shadow);display:block;}
+  @media (max-width:880px){
+    .ctaband .inner{grid-template-columns:1fr;gap:24px;}
+    .ctaband .cta-photo{max-height:260px;}
+  }
+  .ctaband h2{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;margin:0 0 10px;color:var(--ink);}
+  .ctaband p{font-size:16px;color:var(--ink-soft);margin:0 0 24px;max-width:58ch;}
+  .ctaband .cta-rating{color:var(--ink-soft);}
+  .ctaband .cta-rating .r-num{color:var(--ink-soft);font-size:14px;font-weight:600;letter-spacing:normal;}
+  .ctaband .cta-rating .r-src{color:var(--ink-soft);}
+  .ctaband .ctas{display:flex;gap:13px;flex-wrap:wrap;}
+  .ctaband .primary{background:var(--cta);color:#fff;}
+  .ctaband .primary:hover{background:var(--cta-deep);}
+  .ctaband .ghost{background:transparent;color:var(--cta);border-color:var(--cta);}
+  .ctaband .ghost:hover{background:transparent;border-color:var(--brand-deep);color:var(--brand-deep);}
+  .ordered{display:flex;align-items:center;gap:14px;margin-top:22px;font-size:13.5px;color:var(--ink-soft);background:none;border:0;border-radius:0;padding:0;}
+  .ordered .ord-tile{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:rgba(32,187,220,.18);flex:0 0 auto;}
+  .ordered .ord-ic{width:28px;height:28px;fill:var(--cta);color:var(--cta);}
+  .ordered .ord-ic path:last-child{stroke:var(--cta);stroke-width:1;stroke-linejoin:round;paint-order:stroke fill;}
+  .ordered b{color:var(--ink);}
+  footer.site a{color:#bcd4e6;}
+  footer.site .fl{display:flex;gap:18px;flex-wrap:wrap;}
+  .nohelp{display:flex;align-items:center;justify-content:space-between;gap:16px;border:1.5px solid rgba(32,187,220,.5);border-radius:14px;padding:20px 25px;margin-top:30px;flex-wrap:wrap;background:#fff;}
+  .nohelp > a.btn{flex:0 0 auto;}
+  @media (max-width:640px){
+    .nohelp{flex-direction:column;align-items:stretch;}
+    .nohelp > a.btn{width:100%;justify-content:center;box-sizing:border-box;}
+  }
+  .nohelp h2{font-family:var(--head);font-weight:500;font-size:27px;line-height:1.2;display:block;margin:0 0 6px;color:var(--ink);letter-spacing:normal;text-transform:none;}
+  .nohelp .t{font-size:13.5px;color:var(--ink-soft);}
+  .rt .r .sub2{display:block;font-size:12.5px;color:var(--ink-faint);font-weight:400;margin-top:2px;}
+  .rt.note ul.ck{list-style:none;margin:6px 0 0;padding:0;}
+  .rt.note ul.ck li{position:relative;padding:5px 0 5px 24px;font-size:13.5px;color:var(--ink-soft);line-height:1.45;}
+  .rt.note ul.ck li:before{content:"";position:absolute;left:2px;top:9px;width:11px;height:6px;border-left:2px solid var(--brand);border-bottom:2px solid var(--brand);transform:rotate(-45deg);}
+  .whyxray .inner,.explain .inner,.ctaband .inner,.band .inner,.site .inner{padding-left:26px;padding-right:26px;}
+  .tquote{background:var(--band-grad);color:#fff;text-align:center;padding:62px 0;}
+  .tquote .tqwrap{max-width:860px;}
+  .tquote .qmark{font-family:var(--serif);font-style:italic;font-weight:700;font-size:58px;line-height:.5;margin-bottom:22px;color:var(--er);}
+  .tquote .tqitem{display:none;margin:0;}
+  .tquote .tqitem.on{display:block;}
+  .tquote .tqitem .tq{font-family:var(--display);font-weight:700;font-size:clamp(16px,2.1vw,23px);line-height:1.32;letter-spacing:-.01em;margin:0 auto;max-width:44ch;display:block;}
+  .tquote .tqby{display:block;margin-top:22px;font-size:14px;font-weight:700;}
+  .tquote .tqby i{display:block;font-style:normal;font-weight:500;font-size:12.5px;color:rgba(255,255,255,.68);margin-top:3px;}
+  .tquote .tqdots{display:flex;gap:10px;justify-content:center;margin-top:30px;}
+  .tquote .tqdots button{width:11px;height:11px;border-radius:50%;border:none;background:rgba(255,255,255,.32);cursor:pointer;padding:0;transition:background .2s;}
+  .tquote .tqdots button.on{background:#fff;}
+  .formlinks{flex-basis:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;padding-top:22px;border-top:1px solid var(--border-soft);}
+  @media(max-width:640px){.formlinks{grid-template-columns:1fr;}}
+  .formlinks .fllabel{grid-column:1 / -1;font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-deep);margin-bottom:-2px;}
+  .formlinks a{display:flex;align-items:center;gap:9px;padding:13px 22px;background:transparent;border:1.5px solid var(--cta);border-radius:11px;font-family:var(--body);font-size:15px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--cta);text-decoration:none;line-height:1.3;box-shadow:none;transition:.15s;}
+  .formlinks a:hover{border-color:var(--brand-deep);color:var(--brand-deep);text-decoration:none;}
+  .formlinks a:active{transform:translateY(1px);}
+  .formlinks a svg{flex:none;width:18px;height:18px;fill:currentColor;stroke:none;}
+  .formnote{flex-basis:100%;font-size:13px;color:var(--ink-soft);margin:12px 0 0;}
+  .formnote a{color:var(--brand-deep);font-weight:600;letter-spacing:.03em;text-decoration:none;}
+  .formnote a:hover{text-decoration:underline;text-decoration-color:var(--er);text-decoration-thickness:2px;text-underline-offset:4px;}
+  .phcta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;margin-bottom:22px;}
+  .btn.dirbtn{background:transparent;color:var(--cta);border-color:var(--cta);}
+  .btn.dirbtn:hover{border-color:var(--brand-deep);color:var(--brand-deep);}
+  @media (max-width:640px){
+  .ctaband .ctas{margin-left:auto;margin-right:auto;}
+}
+  .mob-br{display:none;}
+  @media (max-width:640px){
+    .mob-br{display:inline;}
+    .util .inner{align-items:flex-start;gap:12px;}
+    .status{align-items:flex-start;line-height:1.25;}
+    .status .sep{display:inline;align-self:stretch;width:1px;padding:0;overflow:hidden;color:transparent;background:rgba(255,255,255,.28);}
+    .hdr-call{display:none !important;}
+    .hamburger{margin-left:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="util">
+    <div class="inner">
+      <div class="status">
+        <span class="dot"></span><span class="open">Open today<br class="mob-br"> 8AM – 7PM</span>
+        <span class="sep">|</span><span class="wait">Current wait:<br class="mob-br"> 5-20 min</span>
+      </div>
+      <nav class="util-links">
+        <a href="https://apr-sb4.servicebus.windows.net/ACE6233C-9DF4-45BB-9051-1B8AF3500FF3/portal/12229/index.html#/login" target="_blank" rel="noopener">Patient Portal</a><a href="insurance.html">Insurance</a><a href="careers.html">Careers</a><a href="about-us.html">About</a>
+      </nav>
+    </div>
+  </div>
+  <div class="mainbar">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <img class="logo-img" src="assets/logo-mark.png" alt="Norwood Urgent Care">
+      </a>
+      <nav class="mainnav">
+        <div class="navgroup">
+          <button class="navbtn" aria-haspopup="true">Patients <span class="car"></span></button>
+          <div class="dropdown">
+            <a href="urgent-care.html">Urgent Care</a>
+            <a href="pricing-xrays.html">X-Rays</a>
+            <a href="vaccinations.html">Vaccinations</a>
+            <a href="onsite-labs.html">On-Site Labs</a>
+            <a href="physicals.html">Physicals</a>
+          </div>
+        </div>
+        <div class="navgroup">
+          <button class="navbtn" aria-haspopup="true">Employers <span class="car"></span></button>
+          <div class="dropdown">
+            <a href="dot-physicals.html">DOT Physicals</a>
+            <a href="workplace-injuries.html">Workplace Injuries</a>
+            <a href="work-physicals.html">Work Physicals</a>
+            <a href="drug-testing.html">Drug Testing</a>
+            <a href="return-to-work.html">Return to Work Evaluations</a>
+            <a href="urine-toxicology.html">Urine Toxicology</a><a href="motor-vehicle-accidents.html">Motor Vehicle Accident Claims</a>
+          </div>
+        </div>
+        <a class="navlink" href="pricing-page-full.html">Know Your Cost</a>
+        <a class="navlink" href="contact-us.html">Contact Us</a>
+        <a class="navlink" href="https://checkout.square.site/merchant/MLX7WFBQASHPV/checkout/BD2WBFA3EFNBL3XI3W6DYOFJ" target="_blank" rel="noopener">Pay My Bill</a>
+      </nav>
+      <a class="navcall" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>781-255-0500</a>
+      <a class="hdr-call" href="tel:7812550500" aria-label="Call 781-255-0500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mp-overlay" id="mpOverlay"></div>
+<aside class="mobile-panel" id="mobilePanel">
+  <div class="mp-head"><button class="mp-close" id="mpClose" aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="mp-sec">Patients</div>
+  <div class="sub"><a href="urgent-care.html">Urgent Care</a><a href="pricing-xrays.html">X-Rays</a><a href="vaccinations.html">Vaccinations</a><a href="onsite-labs.html">On-Site Labs</a><a href="physicals.html">Physicals</a></div>
+  <div class="mp-sec">Employers</div>
+  <div class="sub"><a href="dot-physicals.html">DOT Physicals</a><a href="workplace-injuries.html">Workplace Injuries</a><a href="work-physicals.html">Work Physicals</a><a href="drug-testing.html">Drug Testing</a><a href="return-to-work.html">Return to Work Evaluations</a><a href="urine-toxicology.html">Urine Toxicology</a><a href="motor-vehicle-accidents.html">Motor Vehicle Accident Claims</a></div>
+  <div class="mp-sec">More</div>
+  <a href="pricing-page-full.html">Know Your Cost</a>
+  <a href="contact-us.html">Contact Us</a>
+  <a href="https://checkout.square.site/merchant/MLX7WFBQASHPV/checkout/BD2WBFA3EFNBL3XI3W6DYOFJ" target="_blank" rel="noopener">Pay My Bill</a>
+  <a href="https://apr-sb4.servicebus.windows.net/ACE6233C-9DF4-45BB-9051-1B8AF3500FF3/portal/12229/index.html#/login" target="_blank" rel="noopener">Patient Portal</a>
+  <a href="insurance.html">Insurance</a>
+  <a href="careers.html">Careers</a>
+  <a href="about-us.html">About</a>
+  <div class="mp-call"><a class="btn primary" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a><a class="btn mp-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Get Directions</a></div>
+</aside>
+
+
+<section class="phead">
+  <div class="wrap phead-grid">
+    <div>
+      <p class="eyebrow">Employer Services · Workplace Injuries</p>
+      <h1><span class="caps-lead">Workplace injuries<br class="h1-br"> treated fast</span><span class="serif-accent">Billed to workers' comp.</span></h1>
+      <p class="sub">When someone gets hurt on the job, every minute off the floor counts. We treat work injuries by walk-in at all three centers, diagnose most on-site with digital X-ray and rapid labs, bill workers' comp directly, and send work-status reports the same day.</p>
+      <div class="phcta">
+        <a href="tel:7812550500" class="btn dark"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a>
+        <a class="btn dirbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Get Directions</a>
+      </div>
+      <div class="factchips">
+        <span><svg class="ci solid" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 9C6 7.34315 7.34315 6 9 6H39C40.6569 6 42 7.34315 42 9V39C42 40.6569 40.6569 42 39 42H9C7.34315 42 6 40.6569 6 39V9ZM28.5 14.5C28.5 16.9853 26.4853 19 24 19C21.5147 19 19.5 16.9853 19.5 14.5C19.5 12.0147 21.5147 10 24 10C26.4853 10 28.5 12.0147 28.5 14.5ZM13 22C13 21.4477 13.4477 21 14 21H34C34.5523 21 35 21.4477 35 22V37C35 37.5523 34.5523 38 34 38H29C29 37.4027 28.7273 36.8603 28.4298 36.4438C28.119 36.0086 27.7038 35.602 27.2498 35.2552C26.6213 34.7753 25.8253 34.3413 25 34.132V31.1465H26.4C27.3909 31.1465 28.6372 31.5421 29.7118 31.9948C30.2329 32.2143 30.6842 32.4344 31.0047 32.5995C31.1646 32.6818 31.291 32.7499 31.376 32.7967C31.4186 32.82 31.4507 32.838 31.4715 32.8498L31.494 32.8626L31.4987 32.8653C31.4986 32.8652 31.4988 32.8653 32 32C32.5012 31.1347 32.5011 31.1346 32.5009 31.1345L32.4995 31.1337L32.4967 31.132L32.4875 31.1268L32.4555 31.1086C32.4282 31.0932 32.3892 31.0714 32.3396 31.0441C32.2403 30.9895 32.0979 30.9128 31.9203 30.8213C31.5658 30.6388 31.0671 30.3955 30.4882 30.1517C29.3628 29.6776 27.8091 29.1465 26.4 29.1465H25V27H25.8C26.5489 27 27.4846 27.2145 28.285 27.457C28.6741 27.5749 29.0109 27.6931 29.2496 27.7815C29.3686 27.8256 29.4626 27.862 29.5256 27.8869C29.5492 27.8963 29.5684 27.904 29.5829 27.9099C29.5878 27.9118 29.5922 27.9136 29.596 27.9152L29.6124 27.9218L29.6156 27.9232C29.6155 27.9231 29.6154 27.9231 30 27C30.3846 26.0769 30.3845 26.0769 30.3843 26.0768L30.3809 26.0754L30.3737 26.0724L30.3492 26.0624C30.3284 26.0539 30.2988 26.042 30.2611 26.0271C30.1859 25.9974 30.0782 25.9557 29.9442 25.906C29.6766 25.8069 29.3009 25.6751 28.865 25.543C28.0154 25.2855 26.8511 25 25.8 25H25V23H23V25H21.9C20.6996 25 19.6077 25.284 18.8314 25.5564C18.4395 25.6939 18.1185 25.8319 17.8923 25.937C17.7791 25.9897 17.689 26.0345 17.6251 26.0672C17.5932 26.0836 17.5677 26.097 17.5492 26.1069L17.5265 26.1192L17.5191 26.1232L17.5164 26.1247L17.5153 26.1253C17.5151 26.1255 17.5144 26.1258 18 27C18.4856 27.8742 18.4854 27.8743 18.4852 27.8744L18.4923 27.8706C18.5011 27.8659 18.5164 27.8578 18.5378 27.8468C18.5805 27.8249 18.6475 27.7915 18.7358 27.7505C18.9128 27.6681 19.173 27.5561 19.4936 27.4436C20.1423 27.216 21.0004 27 21.9 27H23V29.1465H21.2C19.5905 29.1465 18.1347 29.6754 17.1116 30.1745C16.594 30.4269 16.1714 30.6795 15.8758 30.8706C15.7276 30.9664 15.6104 31.0474 15.5281 31.1061C15.4869 31.1354 15.4544 31.1593 15.431 31.1766L15.4029 31.1978L15.394 31.2045L15.391 31.2069L15.3897 31.2078C15.3895 31.208 15.3888 31.2085 16 32C16.6112 32.7914 16.611 32.7916 16.6108 32.7918L16.6242 32.7817C16.6374 32.7719 16.6592 32.756 16.6891 32.7346C16.749 32.6919 16.8411 32.6281 16.9617 32.5501C17.2036 32.3938 17.556 32.1829 17.9884 31.972C18.8653 31.5443 20.0095 31.1465 21.2 31.1465H23V34.1644C22.1707 34.39 21.3693 34.8145 20.7267 35.2983C20.278 35.6361 19.8677 36.0315 19.5605 36.4598C19.2638 36.8734 19 37.407 19 38H14C13.4477 38 13 37.5523 13 37V22ZM26.9704 37.899C26.9956 37.9619 26.9994 37.9944 26.9999 38H21C21.0001 37.9977 21.0019 37.9661 21.0278 37.9008C21.0556 37.8308 21.1051 37.7378 21.1856 37.6255C21.3485 37.3985 21.6023 37.1425 21.9296 36.896C22.5878 36.4005 23.3896 36.0561 24.0338 36.0004C24.5874 36.0129 25.3594 36.3282 26.0359 36.8448C26.3676 37.098 26.631 37.3664 26.8023 37.6062C26.8872 37.725 26.9403 37.8241 26.9704 37.899Z" fill="currentColor"></path></svg>On-site X-rays &amp; labs</span>
+        
+        <span><svg class="ci solid" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><rect x="11.1" y="5.5" width="1.8" height="7" rx="0.9" fill="#fff"/><rect x="11.1" y="10.5" width="6" height="1.8" rx="0.9" fill="#fff" transform="rotate(45 12 12)"/></svg>Same-day work-status reports</span>
+        <span><svg class="ci solid" viewBox="0 -960 960 960"><path d="M444-200h70v-50q50-9 86-39t36-89q0-42-24-77t-96-61q-60-20-83-35t-23-41q0-26 18.5-41t53.5-15q32 0 50 15.5t26 38.5l64-26q-11-35-40.5-61T516-710v-50h-70v50q-50 11-78 44t-28 74q0 47 27.5 76t86.5 50q63 23 87.5 41t24.5 47q0 33-23.5 48.5T486-314q-33 0-58.5-20.5T390-396l-66 26q14 48 43.5 77.5T444-252v52Zm36 120q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>Workers' comp billed directly</span>
+      </div>
+    </div>
+    <div class="vh-right">
+      <div class="vh-photo">
+        <img src="assets/injury-hero-crew.jpg" width="900" height="1297" alt="Coworkers helping an injured colleague on a shop floor">
+      </div>
+      <aside class="vh-cards" aria-label="Work injury cost comparison">
+        <div class="vh-cardrow">
+          <div class="vh-card-title">Walk in today</div>
+          <div class="vh-icontile" aria-hidden="true"><svg class="solid" style="width:34px;height:34px;fill:var(--cta);stroke:none;" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M38.8492 9.15076C35.7251 6.02657 30.6597 6.02657 27.5355 9.15076L9.15076 27.5355C6.02657 30.6597 6.02657 35.7251 9.15076 38.8492C12.275 41.9734 17.3403 41.9734 20.4645 38.8492L38.8492 20.4645C41.9734 17.3403 41.9734 12.275 38.8492 9.15076ZM26.8283 16.9285C26.0473 16.1474 24.7809 16.1474 23.9999 16.9285L16.9288 23.9995C16.1478 24.7806 16.1478 26.0469 16.9288 26.828L21.1715 31.0706C21.9525 31.8517 23.2188 31.8517 23.9999 31.0706L31.071 23.9995C31.852 23.2185 31.852 21.9522 31.071 21.1711L26.8283 16.9285ZM25.4141 18.3427L29.6567 22.5853L22.5857 29.6564L18.343 25.4138L25.4141 18.3427ZM33.1213 16.1211C32.7308 16.5116 32.0976 16.5116 31.7071 16.1211C31.3166 15.7306 31.3166 15.0974 31.7071 14.7069C32.0976 14.3164 32.7308 14.3164 33.1213 14.7069C33.5119 15.0974 33.5119 15.7306 33.1213 16.1211ZM32.7071 12.1211C33.0976 12.5116 33.7308 12.5116 34.1213 12.1211C34.5119 11.7306 34.5119 11.0974 34.1213 10.7069C33.7308 10.3164 33.0976 10.3164 32.7071 10.7069C32.3166 11.0974 32.3166 11.7306 32.7071 12.1211ZM30.1213 13.1211C29.7308 13.5116 29.0976 13.5116 28.7071 13.1211C28.3166 12.7306 28.3166 12.0974 28.7071 11.7069C29.0976 11.3164 29.7308 11.3164 30.1213 11.7069C30.5119 12.0974 30.5119 12.7306 30.1213 13.1211ZM34.7071 19.1211C35.0976 19.5116 35.7308 19.5116 36.1213 19.1211C36.5119 18.7306 36.5119 18.0974 36.1213 17.7069C35.7308 17.3164 35.0976 17.3164 34.7071 17.7069C34.3166 18.0974 34.3166 18.7306 34.7071 19.1211ZM37.1213 15.1211C36.7308 15.5116 36.0976 15.5116 35.7071 15.1211C35.3166 14.7306 35.3166 14.0974 35.7071 13.7069C36.0976 13.3164 36.7308 13.3164 37.1213 13.7069C37.5119 14.0974 37.5119 14.7306 37.1213 15.1211ZM16.1213 31.7071C15.7308 31.3165 15.0976 31.3165 14.7071 31.7071C14.3166 32.0976 14.3166 32.7308 14.7071 33.1213C15.0976 33.5118 15.7308 33.5118 16.1213 33.1213C16.5119 32.7308 16.5119 32.0976 16.1213 31.7071ZM15.1213 35.7071C15.5119 36.0976 15.5119 36.7308 15.1213 37.1213C14.7308 37.5118 14.0976 37.5118 13.7071 37.1213C13.3166 36.7308 13.3166 36.0976 13.7071 35.7071C14.0976 35.3165 14.7308 35.3165 15.1213 35.7071ZM19.1213 34.7071C18.7308 34.3165 18.0976 34.3165 17.7071 34.7071C17.3166 35.0976 17.3166 35.7308 17.7071 36.1213C18.0976 36.5118 18.7308 36.5118 19.1213 36.1213C19.5119 35.7308 19.5119 35.0976 19.1213 34.7071ZM11.7071 28.7071C12.0976 28.3165 12.7308 28.3165 13.1213 28.7071C13.5119 29.0976 13.5119 29.7308 13.1213 30.1213C12.7308 30.5118 12.0976 30.5118 11.7071 30.1213C11.3166 29.7308 11.3166 29.0976 11.7071 28.7071ZM12.1213 32.7071C11.7308 32.3165 11.0976 32.3165 10.7071 32.7071C10.3166 33.0976 10.3166 33.7308 10.7071 34.1213C11.0976 34.5118 11.7308 34.5118 12.1213 34.1213C12.5119 33.7308 12.5119 33.0976 12.1213 32.7071Z" fill="currentColor"></path></svg></div>
+        </div>
+        <div class="vh-card-compare" style="justify-content:center;">
+          <div class="vh-card-title" style="flex:0 0 auto;margin-bottom:2px;background:transparent;padding:0;justify-content:flex-start;text-align:left;font-size:19.5px;">Cost to the Claim</div>
+          <div class="vh-cmp us">
+            <div class="vh-cmp-row"><span class="vh-cmp-l">Norwood Urgent Care</span><span class="vh-cmp-v">Smaller rates</span></div>
+            <span class="vh-track"><span class="vh-fill"></span></span>
+          </div>
+          <div class="vh-cmp er">
+            <div class="vh-cmp-row"><span class="vh-cmp-l">Hospital ER</span><span class="vh-cmp-v">ER facility fees</span></div>
+            <span class="vh-track"><span class="vh-fill"></span></span>
+          </div>
+        </div>
+        <div class="vh-card-note">Cost and time figures are typical estimates and vary.</div>
+      </aside>
+      <p class="vh-cmp-note">For minor and moderate injuries. Anything life- or limb-threatening should go to 911 or the nearest ER.</p>
+    </div>
+  </div>
+</section>
+
+<section class="whyxray">
+  <div class="wrap inner">
+    <div class="whycopy">
+      <h2>Why employers send injured<br class="h1-br"> workers to us</h2>
+      <p>For most on-the-job injuries, an ER means hours in a waiting room and a hospital-sized bill. We get your employee seen right away, x-rayed and treated on-site, and back to you with a clear work-status report—often the same hour. We handle the workers'-comp billing and keep you and your adjuster updated, so your team can focus on recovery and getting back to work.</p>
+      <p class="seeprices"><a href="#prices">See how a visit works ↓</a></p>
+    </div>
+    <div class="whencard">
+      <h3>Common workplace injuries we treat</h3>
+      <ul class="whenlist">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Cuts, lacerations, and puncture wounds</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Sprains, strains, and pulled muscles</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Fractures and dislocations</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Burns, bruises, and contusions</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Eye injuries and foreign-body removal</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Back and repetitive-strain injuries</li>
+      </ul>
+      <p class="emnote"><span class="em-tile"><svg class="em-ic" viewBox="0 0 48 48" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.9639 3.98039C12.9182 3.98943 3.9712 12.9511 3.98025 23.9968C3.98929 35.0425 12.9509 43.9894 23.9966 43.9804C35.0423 43.9713 43.9893 35.0097 43.9802 23.964C43.9712 12.9183 35.0096 3.97134 23.9639 3.98039ZM19.9913 33.0475L19.9913 26.0475L27.9913 26.0475L27.9913 33.0475L31.9913 33.0475L31.9913 15.0475L27.9913 15.0475L27.9913 22.0475L19.9913 22.0475L19.9913 15.0475L15.9913 15.0475L15.9913 33.0475L19.9913 33.0475Z" fill="currentColor"/></svg></span><span>Severe bleeding, a head injury, chest pain, or trouble breathing is an emergency—call 911, don't drive to urgent care.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="phead" id="prices" style="padding-top:42px;padding-bottom:11px;">
+  <div class="wrap">
+    <p class="eyebrow">How a visit works</p>
+    <h2 class="priceh">Care that gets your team back to work</h2>
+    <p class="sub">Most workplace injuries are handled start to finish in a single walk-in visit—examined, x-rayed or tested on-site, treated, and documented—with the billing and reporting handled for you.</p>
+  </div>
+</section>
+
+<section class="explain">
+  <div class="wrap inner">
+    <div class="ecard">
+      <div class="ic"><svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 9C6 7.34315 7.34315 6 9 6H39C40.6569 6 42 7.34315 42 9V39C42 40.6569 40.6569 42 39 42H9C7.34315 42 6 40.6569 6 39V9ZM28.5 14.5C28.5 16.9853 26.4853 19 24 19C21.5147 19 19.5 16.9853 19.5 14.5C19.5 12.0147 21.5147 10 24 10C26.4853 10 28.5 12.0147 28.5 14.5ZM13 22C13 21.4477 13.4477 21 14 21H34C34.5523 21 35 21.4477 35 22V37C35 37.5523 34.5523 38 34 38H29C29 37.4027 28.7273 36.8603 28.4298 36.4438C28.119 36.0086 27.7038 35.602 27.2498 35.2552C26.6213 34.7753 25.8253 34.3413 25 34.132V31.1465H26.4C27.3909 31.1465 28.6372 31.5421 29.7118 31.9948C30.2329 32.2143 30.6842 32.4344 31.0047 32.5995C31.1646 32.6818 31.291 32.7499 31.376 32.7967C31.4186 32.82 31.4507 32.838 31.4715 32.8498L31.494 32.8626L31.4987 32.8653C31.4986 32.8652 31.4988 32.8653 32 32C32.5012 31.1347 32.5011 31.1346 32.5009 31.1345L32.4995 31.1337L32.4967 31.132L32.4875 31.1268L32.4555 31.1086C32.4282 31.0932 32.3892 31.0714 32.3396 31.0441C32.2403 30.9895 32.0979 30.9128 31.9203 30.8213C31.5658 30.6388 31.0671 30.3955 30.4882 30.1517C29.3628 29.6776 27.8091 29.1465 26.4 29.1465H25V27H25.8C26.5489 27 27.4846 27.2145 28.285 27.457C28.6741 27.5749 29.0109 27.6931 29.2496 27.7815C29.3686 27.8256 29.4626 27.862 29.5256 27.8869C29.5492 27.8963 29.5684 27.904 29.5829 27.9099C29.5878 27.9118 29.5922 27.9136 29.596 27.9152L29.6124 27.9218L29.6156 27.9232C29.6155 27.9231 29.6154 27.9231 30 27C30.3846 26.0769 30.3845 26.0769 30.3843 26.0768L30.3809 26.0754L30.3737 26.0724L30.3492 26.0624C30.3284 26.0539 30.2988 26.042 30.2611 26.0271C30.1859 25.9974 30.0782 25.9557 29.9442 25.906C29.6766 25.8069 29.3009 25.6751 28.865 25.543C28.0154 25.2855 26.8511 25 25.8 25H25V23H23V25H21.9C20.6996 25 19.6077 25.284 18.8314 25.5564C18.4395 25.6939 18.1185 25.8319 17.8923 25.937C17.7791 25.9897 17.689 26.0345 17.6251 26.0672C17.5932 26.0836 17.5677 26.097 17.5492 26.1069L17.5265 26.1192L17.5191 26.1232L17.5164 26.1247L17.5153 26.1253C17.5151 26.1255 17.5144 26.1258 18 27C18.4856 27.8742 18.4854 27.8743 18.4852 27.8744L18.4923 27.8706C18.5011 27.8659 18.5164 27.8578 18.5378 27.8468C18.5805 27.8249 18.6475 27.7915 18.7358 27.7505C18.9128 27.6681 19.173 27.5561 19.4936 27.4436C20.1423 27.216 21.0004 27 21.9 27H23V29.1465H21.2C19.5905 29.1465 18.1347 29.6754 17.1116 30.1745C16.594 30.4269 16.1714 30.6795 15.8758 30.8706C15.7276 30.9664 15.6104 31.0474 15.5281 31.1061C15.4869 31.1354 15.4544 31.1593 15.431 31.1766L15.4029 31.1978L15.394 31.2045L15.391 31.2069L15.3897 31.2078C15.3895 31.208 15.3888 31.2085 16 32C16.6112 32.7914 16.611 32.7916 16.6108 32.7918L16.6242 32.7817C16.6374 32.7719 16.6592 32.756 16.6891 32.7346C16.749 32.6919 16.8411 32.6281 16.9617 32.5501C17.2036 32.3938 17.556 32.1829 17.9884 31.972C18.8653 31.5443 20.0095 31.1465 21.2 31.1465H23V34.1644C22.1707 34.39 21.3693 34.8145 20.7267 35.2983C20.278 35.6361 19.8677 36.0315 19.5605 36.4598C19.2638 36.8734 19 37.407 19 38H14C13.4477 38 13 37.5523 13 37V22ZM26.9704 37.899C26.9956 37.9619 26.9994 37.9944 26.9999 38H21C21.0001 37.9977 21.0019 37.9661 21.0278 37.9008C21.0556 37.8308 21.1051 37.7378 21.1856 37.6255C21.3485 37.3985 21.6023 37.1425 21.9296 36.896C22.5878 36.4005 23.3896 36.0561 24.0338 36.0004C24.5874 36.0129 25.3594 36.3282 26.0359 36.8448C26.3676 37.098 26.631 37.3664 26.8023 37.6062C26.8872 37.725 26.9403 37.8241 26.9704 37.899Z" fill="currentColor"></path></svg></div>
+      <h4>On-site X-rays &amp; labs</h4>
+      <p>Digital X-ray and rapid lab testing in-house, so most injuries are diagnosed and treated in one visit—no second trip.</p>
+    </div>
+    <div class="ecard">
+      <div class="ic"><svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.671 6.80092C23.4182 5.73302 25.6603 5.73303 27.4076 6.80092L29.4455 8.04646C32.3025 9.79264 35.5581 10.1824 38.8277 10.5739C39.8847 10.7005 40.9432 10.8272 41.9901 11C41.9901 11 42.0132 12.8335 41.9889 13.6659L41.78 20.817C41.6008 26.9498 38.8735 32.7654 34.1951 36.991C31.988 38.9844 29.7054 40.7851 27.0825 42.2813C25.5274 43.1684 23.6035 43.2387 21.9814 42.4676C18.953 41.028 16.271 39.2023 13.8227 36.991C9.14422 32.7654 6.41696 26.9498 6.23778 20.817L6.02952 13.6887C6.00485 12.8445 6.02952 11 6.02952 11C6.8795 10.8996 7.74583 10.8173 8.61872 10.7344C12.4722 10.3682 16.4534 9.98986 19.7195 7.99367L21.671 6.80092ZM21.9998 22V15H25.9998V22H32.9998V26H25.9998V33H21.9998V26H14.9998V22H21.9998Z"></path></svg></div>
+      <h4>Workers' comp billed directly</h4>
+      <p>We bill your workers'-compensation carrier and handle the paperwork—not your injured employee.</p>
+    </div>
+    <div class="ecard">
+      <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><rect class="chk" x="11.1" y="5.5" width="1.8" height="7" rx="0.9" transform="none"/><rect class="chk" x="11.1" y="10.5" width="6" height="1.8" rx="0.9" transform="rotate(45 12 12)"/></svg></div>
+      <h4>Same-day work-status reports</h4>
+      <p>Clear return-to-work or restricted-duty documentation for you and your employee before they leave.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tquote">
+  <div class="wrap tqwrap">
+    <div class="qmark">“</div>
+    <div class="tqstage">
+      <blockquote class="tqitem on"><span class="tq">“They saw our injured tech right away and handled all the comp paperwork.”</span><span class="tqby">Operations Manager<i>Local employer</i></span></blockquote>
+      <blockquote class="tqitem"><span class="tq">“In and out in under 30 minutes. The doctor actually listened—not what I expected from urgent care.”</span><span class="tqby">Sarah K., Walpole<i>via Yelp</i></span></blockquote>
+      <blockquote class="tqitem"><span class="tq">“Went to a competitor first and waited three hours. Here I was seen in fifteen minutes.”</span><span class="tqby">Michael R., Norwood<i>via Google</i></span></blockquote>
+    </div>
+    <div class="tqdots">
+        <button class="on" aria-label="Testimonial 1"></button>
+        <button class="" aria-label="Testimonial 2"></button>
+        <button class="" aria-label="Testimonial 3"></button>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap">
+    <div class="xgrid" id="xgrid">
+
+      <div class="xcard">
+        <div class="xh"><div class="ic"><svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M38.8492 9.15076C35.7251 6.02657 30.6597 6.02657 27.5355 9.15076L9.15076 27.5355C6.02657 30.6597 6.02657 35.7251 9.15076 38.8492C12.275 41.9734 17.3403 41.9734 20.4645 38.8492L38.8492 20.4645C41.9734 17.3403 41.9734 12.275 38.8492 9.15076ZM26.8283 16.9285C26.0473 16.1474 24.7809 16.1474 23.9999 16.9285L16.9288 23.9995C16.1478 24.7806 16.1478 26.0469 16.9288 26.828L21.1715 31.0706C21.9525 31.8517 23.2188 31.8517 23.9999 31.0706L31.071 23.9995C31.852 23.2185 31.852 21.9522 31.071 21.1711L26.8283 16.9285ZM25.4141 18.3427L29.6567 22.5853L22.5857 29.6564L18.343 25.4138L25.4141 18.3427ZM33.1213 16.1211C32.7308 16.5116 32.0976 16.5116 31.7071 16.1211C31.3166 15.7306 31.3166 15.0974 31.7071 14.7069C32.0976 14.3164 32.7308 14.3164 33.1213 14.7069C33.5119 15.0974 33.5119 15.7306 33.1213 16.1211ZM32.7071 12.1211C33.0976 12.5116 33.7308 12.5116 34.1213 12.1211C34.5119 11.7306 34.5119 11.0974 34.1213 10.7069C33.7308 10.3164 33.0976 10.3164 32.7071 10.7069C32.3166 11.0974 32.3166 11.7306 32.7071 12.1211ZM30.1213 13.1211C29.7308 13.5116 29.0976 13.5116 28.7071 13.1211C28.3166 12.7306 28.3166 12.0974 28.7071 11.7069C29.0976 11.3164 29.7308 11.3164 30.1213 11.7069C30.5119 12.0974 30.5119 12.7306 30.1213 13.1211ZM34.7071 19.1211C35.0976 19.5116 35.7308 19.5116 36.1213 19.1211C36.5119 18.7306 36.5119 18.0974 36.1213 17.7069C35.7308 17.3164 35.0976 17.3164 34.7071 17.7069C34.3166 18.0974 34.3166 18.7306 34.7071 19.1211ZM37.1213 15.1211C36.7308 15.5116 36.0976 15.5116 35.7071 15.1211C35.3166 14.7306 35.3166 14.0974 35.7071 13.7069C36.0976 13.3164 36.7308 13.3164 37.1213 13.7069C37.5119 14.0974 37.5119 14.7306 37.1213 15.1211ZM16.1213 31.7071C15.7308 31.3165 15.0976 31.3165 14.7071 31.7071C14.3166 32.0976 14.3166 32.7308 14.7071 33.1213C15.0976 33.5118 15.7308 33.5118 16.1213 33.1213C16.5119 32.7308 16.5119 32.0976 16.1213 31.7071ZM15.1213 35.7071C15.5119 36.0976 15.5119 36.7308 15.1213 37.1213C14.7308 37.5118 14.0976 37.5118 13.7071 37.1213C13.3166 36.7308 13.3166 36.0976 13.7071 35.7071C14.0976 35.3165 14.7308 35.3165 15.1213 35.7071ZM19.1213 34.7071C18.7308 34.3165 18.0976 34.3165 17.7071 34.7071C17.3166 35.0976 17.3166 35.7308 17.7071 36.1213C18.0976 36.5118 18.7308 36.5118 19.1213 36.1213C19.5119 35.7308 19.5119 35.0976 19.1213 34.7071ZM11.7071 28.7071C12.0976 28.3165 12.7308 28.3165 13.1213 28.7071C13.5119 29.0976 13.5119 29.7308 13.1213 30.1213C12.7308 30.5118 12.0976 30.5118 11.7071 30.1213C11.3166 29.7308 11.3166 29.0976 11.7071 28.7071ZM12.1213 32.7071C11.7308 32.3165 11.0976 32.3165 10.7071 32.7071C10.3166 33.0976 10.3166 33.7308 10.7071 34.1213C11.0976 34.5118 11.7308 34.5118 12.1213 34.1213C12.5119 33.7308 12.5119 33.0976 12.1213 32.7071Z" fill="currentColor"></path></svg></div><h3>Injuries we treat</h3></div>
+        <div class="rt note">
+          <ul class="ck">
+            <li>Cuts, lacerations, and puncture wounds</li>
+            <li>Sprains, strains, and pulled muscles</li>
+            <li>Fractures and dislocations</li>
+            <li>Burns, bruises, and contusions</li>
+            <li>Eye injuries and foreign-body removal</li>
+            <li>Back injuries and repetitive-strain conditions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xcard">
+        <div class="xh"><div class="ic"><svg fill="currentColor" viewBox="7 7 34 32" xmlns="http://www.w3.org/2000/svg"><path d="M30.5,19.6c-.2-1.6-1.4-3-3-3.3-2.5-.4-4.5-.4-7,0-1.6.3-2.8,1.7-3,3.3l-1.5,12.3h16l-1.5-12.4ZM20.8,27.9c0,.5-.6.9-1.1.9-.5,0-.9-.6-.9-1.1l.9-7.2c0-.5.6-.9,1.1-.9.5,0,.9.6.9,1.1l-.9,7.2Z"></path>
+  <path d="M10,23v2h3c0-.3,0-.7,0-1s0-.7,0-1h-3Z"></path>
+  <path d="M25,13v-3h-2v3c.3,0,.7,0,1,0s.7,0,1,0Z"></path>
+  <path d="M31.9,12.4l-1.7-1-1.5,2.6c.6.3,1.2.6,1.7,1l1.5-2.6Z"></path>
+  <path d="M19.4,14l-1.5-2.6-1.7,1,1.5,2.6c.5-.4,1.1-.7,1.7-1Z"></path>
+  <path d="M35.6,16.1l-2.6,1.5c.4.5.7,1.1,1,1.7l2.6-1.5-1-1.7Z"></path>
+  <path d="M35,23c0,.3,0,.7,0,1s0,.7,0,1h3v-2h-3Z"></path>
+  <path d="M12.4,16.1l-1,1.7,2.6,1.5c.3-.6.6-1.2,1-1.7l-2.6-1.5Z"></path>
+  <rect x="15" y="34" width="18" height="2"></rect></svg></div><h3>Injured at work? What to do</h3></div>
+        <div class="rt note">
+          <ul class="ck">
+            <li>Report the injury to your supervisor right away</li>
+            <li>Come straight in—or call 911 if it's severe</li>
+            <li>Bring your employer and claim or insurance details</li>
+            <li>We examine, treat, and document the injury in one visit</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xcard">
+        <div class="xh"><div class="ic"><svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M30.4921 17.1415C31.0192 17.0056 31.5582 17.3162 31.7048 17.8404C31.8974 18.5285 32 19.2531 32 20C32 24.4183 28.4183 28 24 28C19.5817 28 16 24.4183 16 20C16 19.2531 16.1026 18.5285 16.2952 17.8404C16.4418 17.3162 16.9808 17.0056 17.5079 17.1415C21.2297 18.1011 26.7703 18.1011 30.4921 17.1415ZM18.0387 19.3137C18.0132 19.5387 18 19.7677 18 20C18 23.3137 20.6863 26 24 26C27.3137 26 30 23.3137 30 20C30 19.7677 29.9868 19.5387 29.9613 19.3137C26.3446 20.0437 21.6554 20.0437 18.0387 19.3137Z" fill="currentColor"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19 28.4896C13.0133 29.5349 6 32.2029 6 36.0001V42.0001H42V36.0001C42 32.2029 34.9867 29.5349 29 28.4896V33H19V28.4896ZM13 42V33H15V42H13ZM34 33V42H36V33H34Z" fill="currentColor"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M25 6.05774V10.4805C25 11.0327 24.5523 11.4805 24 11.4805C23.4477 11.4805 23 11.0327 23 10.4805V6C21.8662 6.069 20.8677 6.31725 20 6.69004V12.4805C20 13.0327 19.5523 13.4805 19 13.4805C18.4477 13.4805 18 13.0327 18 12.4805V7.93466C16.6296 9.11342 15.8407 10.6412 15.589 11.9805C15.5802 12.0274 15.572 12.0742 15.5645 12.1207C15.5581 12.127 15.5517 12.1333 15.5454 12.1396C15.4562 12.7689 15.5052 13.2867 15.633 13.6426C15.8196 14.1624 15.5494 14.7351 15.0296 14.9217C14.5098 15.1083 13.9372 14.8381 13.7506 14.3183C13.7339 14.2719 13.7181 14.225 13.7032 14.1776C7.89609 21.7599 40.1357 21.7558 34.2873 14.1652C34.2721 14.2142 34.256 14.2628 34.2391 14.3111C34.0565 14.8323 33.4859 15.1068 32.9647 14.9242C32.4434 14.7416 32.1689 14.171 32.3516 13.6498C32.4964 13.2364 32.5382 12.7206 32.4595 12.1498C32.4541 12.1458 32.4483 12.1416 32.4421 12.1372C32.2258 10.7852 31.404 9.28999 30 8.11163V12.4805C30 13.0327 29.5523 13.4805 29 13.4805C28.4477 13.4805 28 13.0327 28 12.4805V6.8623C27.6223 6.69204 27.2213 6.54226 26.7972 6.41673C26.2397 6.25338 25.6407 6.13074 25 6.05774Z" fill="currentColor"></path></svg></div><h3>For employers</h3></div>
+        <div class="rt note">
+          <ul class="ck">
+            <li>We bill and coordinate with your workers'-comp carrier</li>
+            <li>Post-incident drug and urine drug testing</li>
+            <li>Same-day work-status and restricted-duty reports</li>
+            <li>Help getting employees safely back to work</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xcard">
+        <div class="xh"><div class="ic gtk"><svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44ZM34.7415 17.6709C35.1121 17.2614 35.0805 16.629 34.6709 16.2585C34.2614 15.8879 33.629 15.9195 33.2585 16.3291L21.2809 29.5675L14.6905 23.2766C14.291 22.8953 13.658 22.91 13.2766 23.3095C12.8953 23.709 12.91 24.342 13.3095 24.7234L20.6429 31.7234L21.3858 32.4325L22.0749 31.6709L34.7415 17.6709Z"></path></svg></div><h3>Good to know</h3></div>
+        <div class="rt note">
+          <p>We keep your employer and claims adjuster in the loop on each visit—diagnosis, treatment, and any work restrictions—so there are no surprises and no chasing paperwork.</p>
+          <p>For anything life- or limb-threatening—severe bleeding, a head injury, chest pain, or trouble breathing—call <b>911</b> first. Urgent care is for everything short of a true emergency.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="nohelp">
+      <div><h2>Setting up workplace-injury care for your team?</h2><span class="t">Call us first, we'll walk you through getting started in a few minutes.</span></div>
+      <a class="btn dark" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a>
+      <div class="formlinks">
+        <span class="fllabel">Employer forms</span>
+        <a href="credit-card-authorization-form.pdf" download><svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M160-80v-80h640v80H160Zm320-160L200-600h160v-280h240v280h160L480-240Z"/></svg>Credit Card Authorization Form</a>
+        <a href="facility-account-setup-form.pdf" download><svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M160-80v-80h640v80H160Zm320-160L200-600h160v-280h240v280h160L480-240Z"/></svg>Facility Account Setup</a>
+        <a href="corporate-authorization-form.pdf" download><svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M160-80v-80h640v80H160Zm320-160L200-600h160v-280h240v280h160L480-240Z"/></svg>Corporate Authorization Form</a>
+      </div>
+      <p class="formnote">Once complete, email the forms to <a href="mailto:management@norwoodurgentcare.com">management@norwoodurgentcare.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ctaband">
+  <div class="wrap inner">
+    <img class="cta-photo" src="assets/injury-cta-worker.jpg" width="900" height="1350" alt="A construction worker sitting on the floor holding his neck after an injury">
+    <div class="cta-copy">
+    <div class="cta-rating"><span class="stars">★★★★★</span><span class="r-meta"><span class="r-num">4.8</span><span class="r-src">out of 5 · 1,200+ Google reviews</span></span></div>
+    <h2>Injured on the job? <span style="display:inline-block;white-space:nowrap;">Walk in today.</span></h2>
+    <p><b style="color:var(--ink);">No appointment needed.</b> Work injuries treated on-site at all three centers, with X-rays, labs, workers'-comp billing, and same-day work-status reports. Open Mon–Fri 8am–7pm, Sat–Sun 8am–4pm.</p>
+    <div class="ctas">
+      <a href="tel:7812550500" class="btn primary"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a>
+      <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Get Directions</a>
+    </div>
+    <div class="ordered"><span class="ord-tile"><svg class="ord-ic" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M80-160v-112q0-34 17-62.5t47-43.5q60-30 124.5-46T400-440q25 0 50 3.5t50 8.5v63q-45 22-72.5 58T400-213v53H80Zm400 0v-56q0-24 12.5-44.5T528-290q36-15 74.5-22.5T680-320q39 0 77.5 7.5T832-290q23 9 35.5 29.5T880-216v56H480Zm129-229q-29-29-29-71t29-71q29-29 71-29t71 29q29 29 29 71t-29 71q-29 29-71 29t-71-29ZM287-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47Z"/></svg></span><span><b>Employers—want to set up an account?</b> Call us to arrange direct workers'-comp billing and streamlined injury reporting for your team.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="top">
+      <div class="col"><h5>Get Care</h5>
+        <a href="urgent-care.html">Urgent Care</a>
+        <a href="pricing-xrays.html">X-Rays</a>
+        <a href="vaccinations.html">Vaccinations</a>
+        <a href="onsite-labs.html">On-Site Labs</a>
+        <a href="physicals.html">Physicals</a>
+      </div>
+      <div class="col"><h5>Employers</h5>
+        <a href="dot-physicals.html">DOT Physicals</a>
+        <a href="workplace-injuries.html">Workplace Injuries</a>
+        <a href="work-physicals.html">Work Physicals</a>
+        <a href="drug-testing.html">Drug Testing</a>
+        <a href="return-to-work.html">Return to Work Evaluations</a>
+        <a href="urine-toxicology.html">Urine Toxicology</a><a href="motor-vehicle-accidents.html">Motor Vehicle Accident Claims</a>
+      </div>
+      <div class="col"><h5>Learn More</h5>
+        <a href="pricing-page-full.html">Know Your Cost</a>
+        <a href="insurance.html">Insurance</a>
+        <a href="about-us.html">About Us</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact-us.html">Contact Us</a>
+      </div>
+      <div class="col"><h5>Existing Patients</h5>
+        <a href="https://apr-sb4.servicebus.windows.net/ACE6233C-9DF4-45BB-9051-1B8AF3500FF3/portal/12229/index.html#/login" target="_blank" rel="noopener">Patient Portal</a>
+        <a href="https://checkout.square.site/merchant/MLX7WFBQASHPV/checkout/BD2WBFA3EFNBL3XI3W6DYOFJ" target="_blank" rel="noopener">Pay My Bill</a>
+      </div>
+    </div>
+      <div class="fbrand">
+      <div class="wm"><img class="flogo" src="assets/logo-footer.svg" alt="Norwood Urgent Care" width="66" height="51"></div>
+      <p>Clinician-owned urgent care serving Norwood, Natick &amp; Bellingham since 2005.</p>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 Norwood Urgent Care</span>
+      <div class="lk"><a href="privacy.html">Privacy</a><a href="hipaa.html">HIPAA Notice</a><a href="accessibility.html">Accessibility</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var search = document.getElementById('xsearch');
+  if(!search) return;
+  var clearBtn = document.getElementById('xclear');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#xgrid .xcard'));
+  var noresults = document.getElementById('noresults');
+
+  function applyFilter(q){
+    q = q.trim().toLowerCase();
+    clearBtn.classList.toggle('show', q !== '');
+    var anyVisible = false;
+    cards.forEach(function(card){
+      // the "Good to know" card has no priced rows — hide it during an active search
+      var priced = card.querySelectorAll('.rt .r b').length > 0;
+      var rows = Array.prototype.slice.call(card.querySelectorAll('.rt .r'));
+      var cardHasMatch = false;
+      rows.forEach(function(r){
+        var txt = r.textContent.toLowerCase();
+        var match = q === '' || txt.indexOf(q) > -1;
+        r.classList.toggle('hide', !(match));
+        if(match) cardHasMatch = true;
+      });
+      var show = q === '' ? true : (priced && cardHasMatch);
+      card.classList.toggle('hide', !show);
+      if(show && (q === '' || cardHasMatch)) anyVisible = true;
+    });
+    noresults.classList.toggle('show', q !== '' && !anyVisible);
+  }
+
+  function clearSearch(){ search.value = ''; applyFilter(''); search.focus(); }
+
+  search.addEventListener('input', function(){ applyFilter(search.value); });
+  clearBtn.addEventListener('click', clearSearch);
+  document.querySelectorAll('.qpill').forEach(function(p){
+    p.addEventListener('click', function(){
+      search.value = p.dataset.q;
+      applyFilter(p.dataset.q);
+      search.focus();
+    });
+  });
+  var cs = document.getElementById('clearsearch');
+  if(cs){ cs.addEventListener('click', function(e){ e.preventDefault(); clearSearch(); }); }
+})();
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('.navgroup .navbtn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var g = btn.parentElement, was = g.classList.contains('open');
+      document.querySelectorAll('.navgroup').forEach(function(x){ x.classList.remove('open'); });
+      if(!was) g.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(){ document.querySelectorAll('.navgroup').forEach(function(x){ x.classList.remove('open'); }); });
+  var panel=document.getElementById('mobilePanel'), overlay=document.getElementById('mpOverlay');
+  function oM(){panel.classList.add('show');overlay.classList.add('show');}
+  function cM(){panel.classList.remove('show');overlay.classList.remove('show');}
+  var hb=document.getElementById('hamburger'); if(hb) hb.addEventListener('click',oM);
+  var mc=document.getElementById('mpClose'); if(mc) mc.addEventListener('click',cM);
+  if(overlay) overlay.addEventListener('click',cM);
+})();
+</script>
+<script>
+(function(){
+  var box=document.querySelector('.tquote'); if(!box) return;
+  var items=box.querySelectorAll('.tqitem'), dots=box.querySelectorAll('.tqdots button'), i=0, t;
+  function go(n){ items[i].classList.remove('on'); dots[i].classList.remove('on'); i=n; items[i].classList.add('on'); dots[i].classList.add('on'); }
+  dots.forEach(function(d,n){ d.addEventListener('click',function(){ go(n); reset(); }); });
+  function reset(){ clearInterval(t); t=setInterval(function(){ go((i+1)%items.length); },6000); }
+  reset();
+})();
+</script>
+<nav class="mobilebar" aria-label="Quick actions">
+  <a class="mb-item" href="tel:7812550500"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call</a>
+  <a class="mb-item" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Directions</a>
+  <div class="mb-item mb-wait"><span class="mb-wtnum"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>~4 min</span><span class="mb-wtlbl">Wait time</span></div>
+</nav>
+<script>
+(function(){
+  var bars=document.querySelectorAll('.vh-cmp');
+  if(!bars.length) return;
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      bars.forEach(function(b){b.classList.add('run');});
+    });
+  });
+})();
+</script>
+</body>
+</html>
