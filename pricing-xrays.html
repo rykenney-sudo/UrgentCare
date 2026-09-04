@@ -122,6 +122,18 @@
   .whencard .em-ic{width:22px;height:22px;color:#fff;}
   .priceh{font-family:var(--head);font-weight:500;font-size:clamp(27px,3.35vw,37px);line-height:1.15;letter-spacing:normal;color:var(--ink);margin:0 0 14px;}
   #prices .wrap{display:block;}
+  .infobtn{display:inline-flex;align-items:center;justify-content:center;vertical-align:-3px;width:22px;height:22px;margin:0 0 0 4px;padding:0;border:0;background:transparent;color:var(--brand);cursor:pointer;border-radius:50%;}
+  .infobtn svg{width:19px;height:19px;fill:currentColor;}
+  .infobtn:hover{color:var(--brand-deep);}
+  .modal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(16,42,61,.55);}
+  .modal.open{display:flex;}
+  .modal-card{position:relative;background:#fff;border-radius:16px;box-shadow:var(--shadow-hi);max-width:560px;width:100%;padding:28px 30px 26px;}
+  .modal-card h3{font-family:var(--head);font-weight:500;font-size:22px;letter-spacing:normal;color:var(--ink);margin:0 34px 12px 0;}
+  .modal-card p{font-size:15.5px;line-height:1.6;color:var(--ink-soft);margin:0;}
+  .modal-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border:0;border-radius:50%;background:rgba(16,42,61,.045);color:var(--ink-soft);cursor:pointer;display:flex;align-items:center;justify-content:center;}
+  .modal-close:hover{background:rgba(16,42,61,.09);color:var(--ink);}
+  .modal-close svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none;}
+  @media (max-width:640px){.modal-card{padding:24px 20px 22px;}.modal-card h3{font-size:20px !important;}}
   #prices .sub{max-width:66%;}
   #prices .factchips{justify-content:flex-start;margin-top:18px;margin-bottom:0;}
   @media (max-width:1020px){#prices .sub{max-width:100%;}}
@@ -334,7 +346,7 @@
     <div>
       <p class="eyebrow">Patient Services · X-Rays</p>
       <h1>On-site digital X-Rays.</h1>
-      <p class="sub">A sprain or a fracture? A bad cough that won't clear? Our three centers have digital X-Ray imaging on-site, so you can be seen, imaged, and diagnosed in a single walk-in visit—no separate appointment, no trip to the hospital, and one flat price per image. Radiologist interpretation is included.</p>
+      <p class="sub">A sprain or a fracture? A bad cough that won't clear? Our three centers have digital X-Ray imaging on-site, so you can be seen, imaged, and diagnosed in a single walk-in visit—no separate appointment, no trip to the hospital, and one flat price per image. Radiologist interpretation is included.<button type="button" class="infobtn" id="feeInfoBtn" aria-label="About how insurers bill radiology" aria-haspopup="dialog" aria-controls="feeInfo"><svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M440-280h80v-240h-80v240Zm68.5-331.5Q520-623 520-640t-11.5-28.5Q497-680 480-680t-28.5 11.5Q440-657 440-640t11.5 28.5Q463-600 480-600t28.5-11.5ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg></button></p>
       <div class="phcta">
         <a href="tel:7812550500" class="btn dark"><svg class="mi" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>Call 781-255-0500</a>
         <a class="btn dirbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Norwood+Urgent+Care,+103+Providence+Hwy,+East+Walpole,+MA+02032" target="_blank" rel="noopener"><svg class="mi" viewBox="0 -960 960 960"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480ZM480-80Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/></svg>Get Directions</a>
@@ -359,7 +371,7 @@
         <div class="vh-icontile" aria-hidden="true"><svg style="width:34px;height:34px;fill:var(--cta);stroke:none;" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M28.5 8.5C28.5 10.9853 26.4853 13 24 13C21.5147 13 19.5 10.9853 19.5 8.5C19.5 6.01472 21.5147 4 24 4C26.4853 4 28.5 6.01472 28.5 8.5ZM30 34H25.2645L26.0082 42.1811C26.105 43.246 27.0224 44.0464 28.0906 43.998C29.1589 43.9495 30 43.0693 30 42V34ZM22.7355 34H18V42C18 43.0693 18.8412 43.9495 19.9094 43.998C20.9776 44.0464 21.895 43.246 21.9918 42.1811L22.7355 34ZM35.9555 14H36.0463C36.0161 13.9993 35.9859 13.9993 35.9555 14ZM11.954 14C11.9839 13.9993 12.0138 13.9993 12.0438 14H11.954Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11 15C10.4477 15 10 15.4477 10 16V31C10 31.5523 10.4477 32 11 32H37C37.5523 32 38 31.5523 38 31V16C38 15.4477 37.5523 15 37 15H11ZM24 18C27 18 29.5 20.2 30 23H18C18.5 20.2 21 18 24 18ZM18 25H30C29.5 27.8 27 30 24 30C21 30 18.5 27.8 18 25Z"/></svg></div>
       </div>
       <div class="vh-card-compare" style="justify-content:center;">
-        <div class="vh-card-title" style="flex:0 0 auto;margin-bottom:2px;background:transparent;padding:0;justify-content:flex-start;text-align:left;font-size:19.5px;">Price Per Image</div>
+        <div class="vh-card-title" style="flex:0 0 auto;margin-bottom:2px;background:transparent;padding:0;justify-content:flex-start;text-align:left;font-size:19.5px;">Price Per Image<button type="button" class="infobtn" id="feeInfoBtn3" aria-label="About how insurers bill radiology" aria-haspopup="dialog" aria-controls="feeInfo"><svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M440-280h80v-240h-80v240Zm68.5-331.5Q520-623 520-640t-11.5-28.5Q497-680 480-680t-28.5 11.5Q440-657 440-640t11.5 28.5Q463-600 480-600t28.5-11.5ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg></button></div>
         <div class="vh-cmp us">
           <div class="vh-cmp-row"><span class="vh-cmp-l">Norwood Urgent Care</span><span class="vh-cmp-v">$40–$80</span></div>
           <span class="vh-track"><span class="vh-fill"></span></span>
@@ -400,7 +412,7 @@
   <div class="wrap">
     <p class="eyebrow">Pricing &amp; Fee Transparency</p>
     <h2 class="priceh">X-Ray imaging prices</h2>
-    <p class="sub">One flat, affordable price per image—no separate radiologist "read" fee, and no surprise second bill. Charges go to your insurer first; uninsured patients are billed directly.</p>
+    <p class="sub">One flat, affordable price per image—no separate radiologist "read" fee, and no surprise second bill. Charges go to your insurer first; uninsured patients are billed directly.<button type="button" class="infobtn" id="feeInfoBtn2" aria-label="About how insurers bill radiology" aria-haspopup="dialog" aria-controls="feeInfo"><svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M440-280h80v-240h-80v240Zm68.5-331.5Q520-623 520-640t-11.5-28.5Q497-680 480-680t-28.5 11.5Q440-657 440-640t11.5 28.5Q463-600 480-600t28.5-11.5ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg></button></p>
     <div class="factchips">
       <span><svg class="ci solid" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.17647 8.5C7.42215 8.5 6 9.93908 6 11.7143V31C6 32.7752 7.42215 34.2143 9.17647 34.2143H19.7646V36.3572H15.5293V38.5H32.4705V36.3572H28.2353V34.2143H38.8235C40.5778 34.2143 42 32.7752 42 31V11.7143C42 9.93908 40.5778 8.5 38.8235 8.5H9.17647ZM21.8823 36.3572V34.2143H26.1177V36.3572H21.8823ZM13.4119 12.7858H15.5296V14.9286H17.6475V17.0715H15.5296V19.2143H13.4119V17.0715H11.2945L11.2945 14.9286H13.4119V12.7858ZM11.2939 23.5001C11.2939 22.9083 11.768 22.4286 12.3528 22.4286H16.5881C17.1728 22.4286 17.6469 22.9083 17.6469 23.5001V27.7858C17.6469 28.3775 17.1728 28.8572 16.5881 28.8572H12.3528C11.768 28.8572 11.2939 28.3775 11.2939 27.7858V23.5001ZM20.8234 13.8572C20.8234 13.2655 21.2974 12.7858 21.8822 12.7858H26.1175C26.7023 12.7858 27.1763 13.2655 27.1763 13.8572V18.1429C27.1763 18.7346 26.7023 19.2143 26.1175 19.2143H21.8822C21.2974 19.2143 20.8234 18.7346 20.8234 18.1429V13.8572ZM20.8232 23.5001C20.8232 22.9083 21.2973 22.4286 21.8821 22.4286H26.1174C26.7021 22.4286 27.1762 22.9083 27.1762 23.5001V27.7858C27.1762 28.3775 26.7021 28.8572 26.1174 28.8572H21.8821C21.2973 28.8572 20.8232 28.3775 20.8232 27.7858V23.5001ZM30.3527 13.8572C30.3527 13.2655 30.8268 12.7858 31.4116 12.7858H35.6469C36.2316 12.7858 36.7057 13.2655 36.7057 13.8572V18.1429C36.7057 18.7346 36.2316 19.2143 35.6469 19.2143H31.4116C30.8268 19.2143 30.3527 18.7346 30.3527 18.1429V13.8572Z"></path>
@@ -437,7 +449,7 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M39.1735 26C39.1735 25.4477 38.7268 25 38.1758 25C37.6248 25 37.1781 25.4477 37.1781 26V26.2395H34.9333V26C34.9333 25.4477 34.4866 25 33.9356 25C33.3846 25 32.9379 25.4477 32.9379 26V26.2395H31.8155C30.7824 26.2395 29.9448 27.079 29.9448 28.1145V40.1249C29.9448 41.1605 30.7824 41.9999 31.8155 41.9999H40.1293C41.1625 41.9999 42 41.1605 42 40.1249V28.1145C42 27.079 41.1625 26.2395 40.1293 26.2395H39.1735V26ZM38.4521 31.4021C38.7838 31.1112 38.8174 30.6058 38.5271 30.2733C38.2369 29.9408 37.7326 29.9071 37.4009 30.198L35.0924 32.2226L34.4795 31.6507C34.1568 31.3496 33.6518 31.3678 33.3514 31.6912C33.0511 32.0146 33.0692 32.5208 33.3918 32.8218L34.5255 33.8795C34.8288 34.1625 35.2964 34.1697 35.6083 33.8962L38.4521 31.4021ZM38.452 35.6521C38.7837 35.3611 38.8173 34.8557 38.5271 34.5232C38.2368 34.1907 37.7325 34.157 37.4008 34.4479L35.0924 36.4725L34.4794 35.9006C34.1568 35.5996 33.6517 35.6177 33.3514 35.9411C33.051 36.2645 33.0691 36.7707 33.3918 37.0717L34.5254 38.1294C34.8287 38.4124 35.2964 38.4196 35.6082 38.1461L38.452 35.6521Z" fill="currentColor"></path>
 </svg></div>
       <h4>Read by radiologists</h4>
-      <p>Board-certified radiologists interpret your images on a full PACS system, with results forwarded to your primary care provider.</p>
+      <p>Board-certified radiologists interpret your images on a full PACS system.</p>
     </div>
   </div>
 </section>
@@ -628,7 +640,7 @@
     </div>
       <div class="fbrand">
       <div class="wm"><img class="flogo" src="assets/logo-footer.svg" alt="Norwood Urgent Care" width="66" height="51"></div>
-      <p>Clinician-owned urgent care serving Norwood, Natick &amp; Bellingham since 2005.</p>
+      <p>Clinician-owned urgent care serving Norwood, Natick &amp; Bellingham since 2006.</p>
     </div>
     <div class="legal">
       <span>&copy; 2026 Norwood Urgent Care</span>
@@ -637,6 +649,27 @@
   </div>
 </footer>
 
+<div class="modal" id="feeInfo" role="dialog" aria-modal="true" aria-labelledby="feeInfoTitle" aria-hidden="true">
+  <div class="modal-card">
+    <button type="button" class="modal-close" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h3 id="feeInfoTitle">How insurers bill radiology</h3>
+    <p>NOTE: Some insurance carrier policies require radiology services to be billed in two components: the technical component (e.g., the performance of the X-ray) and the professional component (radiologist interpretation). Although these components may be billed separately, the total reimbursement is generally consistent with the amount listed in the fee schedule below. Please note that carrier policies are subject to change, and in some instances, reimbursement may slightly exceed the listed fee.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var btn=document.getElementById('feeInfoBtn'), btn2=document.getElementById('feeInfoBtn2'), btn3=document.getElementById('feeInfoBtn3'), m=document.getElementById('feeInfo'), last=btn; if(!btn||!m) return;
+  var close=m.querySelector('.modal-close');
+  function open(e){ last=e.currentTarget; m.classList.add('open'); m.setAttribute('aria-hidden','false'); close.focus(); }
+  function shut(){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); last.focus(); }
+  btn.addEventListener('click', open);
+  if(btn2) btn2.addEventListener('click', open);
+  if(btn3) btn3.addEventListener('click', open);
+  close.addEventListener('click', shut);
+  m.addEventListener('click', function(e){ if(e.target===m) shut(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && m.classList.contains('open')) shut(); });
+})();
+</script>
 <script>
   var search = document.getElementById('xsearch');
   var clearBtn = document.getElementById('xclear');

@@ -421,9 +421,9 @@
   .ctable th.us,.ctable td.us{position:relative;z-index:1;}
   .ctable thead th.us{overflow:visible;}
   .ctable thead th.us::after{content:"";position:absolute;top:0;left:0;width:100%;height:1600px;box-shadow:0 0 24px 2px rgba(16,42,61,.22);pointer-events:none;z-index:-1;}
-  .clinhl{background:linear-gradient(135deg,#153581,#18253C);color:#fff;position:relative;overflow:hidden;padding-bottom:0;}
+  .clinhl{background:linear-gradient(135deg,#153581,#18253C);color:#fff;position:relative;overflow:hidden;}
   .clinhl .clinrow{display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;}
-  .clinhl .clinrow > div:first-child{max-width:760px;padding-bottom:48px;}
+  .clinhl .clinrow > div:first-child{max-width:760px;padding-bottom:0;}
   .clinhl .sectitle{font-family:"Oswald", var(--display), sans-serif;font-weight:700;font-size:clamp(28px,3.45vw,39px);letter-spacing:normal;line-height:1.14;text-align:center;text-transform:uppercase;color:#fff;}
   .clinhl .lead-r{color:#c4d2ea;text-align:center;margin-left:auto;margin-right:auto;}
   .clinhl .lead-r b{color:#fff;}
@@ -438,9 +438,9 @@
   .clinhl .cbs p{font-size:15px;color:#f4f9fd;line-height:1.5;margin:0;max-width:none;}
   @media(max-width:700px){.clinhl .clinstats{grid-template-columns:1fr;gap:20px;max-width:26rem;margin-left:auto;margin-right:auto;}
 }
-  .clinhl{position:relative;overflow:hidden;padding-bottom:0;}
+  .clinhl{position:relative;overflow:hidden;}
   .clinhl .wrap{position:relative;}
-  .clinhl .clinrow{padding-bottom:52px;}
+  .clinhl .clinrow{padding-bottom:0;}
   .clinhl .clindiv{width:72px;height:3px;background:var(--er);border-radius:2px;margin:24px auto 30px;}
   .gapnote > span{flex:1 1 240px;}
   .gapnote .hosp-tile{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#FBFDFE;flex:0 0 auto;}
@@ -461,7 +461,7 @@
   @media (max-width:900px){
     .clinhl .clinphoto{position:static;width:min(220px,52%);margin:0 auto;}
     .clinhl .clinrow{padding-bottom:0;}
-    .clinhl .clinrow > div:first-child{padding-bottom:30px;}
+    .clinhl .clinrow > div:first-child{padding-bottom:0;}
   }
 
   /* footer logo */
@@ -638,8 +638,41 @@
   .statusband .scard,.statusband .scard.wait{background:transparent;}
   .statusband .scard::before{display:none;}
   .statusband .scard + .scard{border-left:0;background:#fff;}
-  .extph{flex:1 1 auto;width:100%;min-height:0;object-fit:cover;object-position:center center;
+
+  /* holiday-closure preview: click the wait/hours row to swap states */
+  .statusband .statusrow{cursor:pointer;}
+  .statusband .statusrow:focus-visible{outline:2px solid var(--brand);outline-offset:2px;}
+  .closed-card,.reopen-card,.afterhours-card{display:none;}
+  .statusrow.holiday .scard.wait,
+  .statusrow.holiday .scard.wait + .scard,
+  .statusrow.afterhours .scard.wait,
+  .statusrow.afterhours .scard.wait + .scard{display:none;}
+  .statusband .statusrow.holiday{background:#f6dcdd;}
+  .statusband .statusrow.afterhours{background:#f6dcdd;}
+  .statusrow.holiday .closed-card,
+  .statusrow.holiday .reopen-card:not(.am){display:block;}
+  .statusrow.afterhours .afterhours-card,
+  .statusrow.afterhours .reopen-card.am{display:block;}
+  .statusband .statusrow.holiday .closed-card{background:transparent;padding-left:52px;}
+  .statusband .statusrow.holiday .reopen-card{background:#fff;}
+  .statusband .statusrow.afterhours .afterhours-card{background:transparent;padding-left:52px;}
+  .statusband .statusrow.afterhours .reopen-card.am{background:#fff;}
+  .afterhours-card .lab{display:block;position:relative;color:var(--er);}
+  .afterhours-card .big{color:var(--er);}
+  .closed-card .lab{display:block;position:relative;color:var(--er);}
+  .closed-card .holiday-icon{position:absolute;left:-28px;top:50%;margin-top:-7px;width:14px;height:14px;fill:currentColor;stroke:none;}
+  .afterhours-card .holiday-icon{position:absolute;left:-28px;top:50%;margin-top:-7px;width:14px;height:14px;fill:currentColor;stroke:none;}
+  .closed-card .big{color:var(--er);}
+  .reopen-card .sm a{color:var(--brand-deep);font-weight:600;}
+  @media (max-width:1076px){
+    .statusband .statusrow.holiday .closed-card,
+    .statusband .statusrow.afterhours .afterhours-card{padding-left:24px;}
+    .closed-card .holiday-icon,.afterhours-card .holiday-icon{display:none;}
+  }
+  .extph{flex:1 1 auto;width:100%;min-height:0;position:relative;overflow:hidden;
          border-radius:16px;box-shadow:var(--shadow-hi);display:block;}
+  .extph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;
+             transform:scale(1.1);transform-origin:32% 30%;}
   .mapmini{flex:0 0 auto;height:150px;border-radius:0;overflow:hidden;box-shadow:none;background:var(--surface-tint);border-top:1px solid var(--border-soft);}
   .mapmini iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(1) contrast(.92);}
   @media (max-width:820px){.mapmini{height:130px;margin-top:0;box-shadow:none;}}
@@ -654,6 +687,7 @@
     .statusband-left{display:block;}
     .statusband .statusrow{box-shadow:var(--shadow);flex:none;}
     .extph{height:200px;margin-top:16px;box-shadow:var(--shadow);}
+    .extph img{position:absolute;}
     .map-side{width:100%;height:220px;aspect-ratio:auto;margin-top:16px;box-shadow:var(--shadow);}
   }
 
@@ -813,14 +847,18 @@
   <div class="wrap">
     <div class="statusband-row">
     <div class="statusband-left">
-    <div class="statusrow">
+    <div class="statusrow" id="statusrow" role="button" tabindex="0" aria-pressed="false" title="Preview holiday closure state">
       <div class="scard wait"><div class="lab"><svg class="wait-clock" viewBox="0 -960 960 960" aria-hidden="true"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>Current wait</div><div class="big">5-20 min</div><div class="sm">updated 2 min ago</div></div>
       <div class="scard"><div class="lab">Today's hours</div><div class="big">8AM &ndash; 7PM</div><div class="sm">Open now</div></div>
+      <div class="scard closed-card"><div class="lab"><svg class="holiday-icon" viewBox="0 -960 960 960" aria-hidden="true"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q54 0 104-17.5t92-50.5L228-676q-33 42-50.5 92T160-480q0 134 93 227t227 93Z"/></svg>Closed today</div><div class="big">Thanksgiving Day</div><div class="sm">No walk-in hours</div></div>
+      <div class="scard reopen-card"><div class="lab">Reopens tomorrow</div><div class="big">8AM &ndash; 7PM</div><div class="sm"><a href="tel:15085551234">Call for urgent guidance</a></div></div>
+      <div class="scard afterhours-card"><div class="lab"><svg class="holiday-icon" viewBox="0 -960 960 960" aria-hidden="true"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm112-260 56-56-128-128v-176h-80v208l152 152Z"/></svg>Closed now</div><div class="big">After hours</div><div class="sm">Walk-ins closed for the day</div></div>
+      <div class="scard reopen-card am"><div class="lab">Opens tomorrow</div><div class="big">8AM &ndash; 7PM</div><div class="sm"><a href="tel:15085551234">Call for urgent guidance</a></div></div>
     </div>
     <div class="mapmini"><iframe title="Map to Norwood Urgent Care — 103 Providence Hwy, East Walpole, MA" src="https://maps.google.com/maps?q=Norwood%20Urgent%20Care,%20103%20Providence%20Hwy,%20East%20Walpole,%20MA%2002032&amp;z=14&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 
     </div>
-    <img class="extph" src="assets/uc-exterior-norwood.jpg" alt="Norwood Urgent Care building exterior at 103 Providence Hwy, East Walpole">
+    <div class="extph"><img src="assets/uc-exterior-norwood.jpg" alt="Norwood Urgent Care building exterior at 103 Providence Hwy, East Walpole"></div>
     </div>
   </div>
 </div>
@@ -910,7 +948,7 @@
         <table class="ctable">
           <thead><tr><th></th><th class="us">Norwood Urgent Care</th><th>Other Urgent Care</th><th>Emergency Room</th></tr></thead>
           <tbody>
-          <tr><td class="feat">Appointment reservations</td><td class="us">Never needed! Walk-in anytime</td><td class="mid">Strongly encouraged</td><td class="er">N/A</td></tr>
+          <tr><td class="feat">Appointment reservations</td><td class="us">We do not schedule appointments.<br>Walk in anytime.</td><td class="mid">Strongly encouraged</td><td class="er">N/A</td></tr>
           <tr><td class="feat">Typical wait time</td><td class="us">5–10 min</td><td class="mid">1–3 hours</td><td class="er">3–6 hours</td></tr>
           <tr><td class="feat">Average visit time</td><td class="us">42 min</td><td class="mid">1–2 hours</td><td class="er">3½ hrs</td></tr>
           <tr><td class="feat">Clinicians on staff</td><td class="us">3 experienced</td><td class="mid">1 (often new grad)</td><td class="er">Varies</td></tr>
@@ -941,7 +979,7 @@
       <div class="cmp2-row">
         <div class="cmp2-feat">Appointment reservations</div>
         <div class="cmp2-pair">
-          <div class="cmp2-us-val">Never needed! Walk-in anytime</div>
+          <div class="cmp2-us-val">We do not schedule appointments.<br>Walk in anytime.</div>
           <div class="cmp2-them-val"><span class="v-mid">Strongly encouraged</span><span class="v-er">N/A</span></div>
         </div>
       </div>
@@ -1045,7 +1083,6 @@
         <a class="inslink" href="about-us.html">Our mission →</a>
       </div>
     </div>
-    <div class="clinphoto clinreal"><img src="assets/clinician-cutout.png" alt="A Norwood Urgent Care clinician"></div>
   </div>
 </section>
 
@@ -1193,7 +1230,7 @@
     </div>
       <div class="fbrand">
       <div class="wm"><img class="flogo" src="assets/logo-footer.svg" alt="Norwood Urgent Care" width="66" height="51"></div>
-      <p>Clinician-owned urgent care serving Norwood, Natick &amp; Bellingham since 2005.</p>
+      <p>Clinician-owned urgent care serving Norwood, Natick &amp; Bellingham since 2006.</p>
     </div>
     <div class="legal">
       <span>&copy; 2026 Norwood Urgent Care</span>
@@ -1235,6 +1272,20 @@
 (function(){
   var sel=document.getElementById('cmpSelect'), root=document.getElementById('cmp2');
   if(sel&&root){ sel.addEventListener('change',function(){ root.classList.toggle('show-er', sel.value==='er'); }); }
+  var sr=document.getElementById('statusrow');
+  if(sr){
+    var states=['','holiday','afterhours'], i=0;
+    var flip=function(){
+      i=(i+1)%states.length;
+      sr.classList.remove('holiday','afterhours');
+      if(states[i]) sr.classList.add(states[i]);
+      sr.setAttribute('aria-pressed', states[i] ? 'true' : 'false');
+    };
+    sr.addEventListener('click', flip);
+    sr.addEventListener('keydown', function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); flip(); }
+    });
+  }
 })();
 </script>
 </body>
